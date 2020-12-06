@@ -19,14 +19,27 @@ function App() {
 
   useEffect(() => {
     const checkLoggedIn = async () => {
-      const token = localStorage.getItem("auth-token");
+      let token = localStorage.getItem("auth-token");
+      if (token === null) {
+        localStorage.setItem("auth-token", "");
+        token = "" ;
+      } 
+
       const tokenRes = await Axios.post(
         "http://localhost:50/users/tokenIsValid", null,
         {
           headers: { "x-auth-token": token }
         }
       );
-      console.log(tokenRes.data)
+      if (tokenRes.data) {
+        const userRes = await Axios.get("http://localhost:50/users", {
+          headers: { "x-auth-token": token }
+        })
+        setUserData({
+          token,
+          user: userRes.data
+        })
+      }
     }
     checkLoggedIn();
   }, [])
