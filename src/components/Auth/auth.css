@@ -1,0 +1,35 @@
+.page {
+    padding: 1rem;
+}
+.form label,
+.form input {
+    display: block;
+}
+.form input {
+    margin-bottom: 1rem;
+}
+.form label {
+    margin-bottom: 0.2rem;
+}
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 0.2rem;
+    background-color: rgb(237, 245, 237);
+    border-radius: 8px;
+    border: 1px solid rgb(223, 236, 223);
+    font-size: 1.1rem;
+}
+.form input:focus {
+    border: 1px solid rgb(38, 228, 187);
+    outline: none;
+    box-shadow: inset 0px 0px 5px rgba(113, 243, 215, 0.5);
+}
+.form input[type="submit"] {
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #6aa051;
+    background-color:  #c8ecb7;
+    font-size: 1.1rem;
+}
