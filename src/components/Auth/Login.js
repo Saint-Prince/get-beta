@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import UserContext from "../context/UserContext"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import "./auth.css"
 import Axios from "axios"
 import ErrorNotice from "../Misc/ErrorNotice"
@@ -54,7 +54,11 @@ export default function Login () {
                 />
 
                 <input type="submit" value="Log In!" />
-            </form>
+            </form> <br/>
+            <div>
+                <p>Don't have an account?</p> <br/>
+                <p> <Link className="reg-link"to="/register">Register</Link> </p>
+            </div>
         </div>
     )
 }

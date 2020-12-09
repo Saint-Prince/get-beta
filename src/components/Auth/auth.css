@@ -5,7 +5,7 @@
 .form input {
     display: block;
 }
-.form input {
+.form input, textarea {
     margin-bottom: 1rem;
 }
 .form label {
@@ -13,12 +13,21 @@
 }
 .form input[type="text"],
 .form input[type="email"],
-.form input[type="password"] {
+.form input[type="password"],
+textarea {
     width: 100%;
     padding: 0.2rem;
     background-color: rgb(237, 245, 237);
     border-radius: 8px;
     border: 1px solid rgb(223, 236, 223);
+    font-size: 1.1rem;
+}
+textarea {
+    outline: whitesmoke;
+}
+.reg-link {
+    color: #2383d1;
+    text-decoration: none;
     font-size: 1.1rem;
 }
 .form input:focus {
