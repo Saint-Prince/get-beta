@@ -10,11 +10,12 @@ export default function Register () {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [passwordCheck, setPasswordCheck] = useState();
-    const [fullName, setFullName] = useState();
+    const [fullname, setFullName] = useState();
     const [cell_no, setMobileNumber] = useState();
     const [occupation, setOccupation] = useState();
     const [hle, setHLE] = useState();
     const [bio, setBio] = useState();
+    const [location, setLocation] = useState();
     const [referrer, setReferrer] = useState();
 
     const [error, setError] = useState();
@@ -25,19 +26,22 @@ export default function Register () {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const newUser = {email, password, passwordCheck, fullName, bio, occupation, hle, cell_no, referrer};
+            const newUser = 
+            {email, password, passwordCheck, fullname, bio, occupation, hle, cell_no, referrer, location};
+            // if (password !== passwordCheck) 
+            //     return alert("Password doesn't match.")
             await Axios.post(
-                "http://localhost:50/users/register", 
+                "http://localhost:5000/apiv1/vendors/register", 
                 newUser,
             );
             const loginRes = await Axios.post(
-                "http://localhost:50/users/login", {
+                "http://localhost:5000/apiv1/vendors/login", {
                 email,
                 password,  
             });
             setUserData({
                 token: loginRes.data.token,
-                user: loginRes.data.user,
+                user: loginRes.data.vendor,
             });
             localStorage.setItem("auth-token", loginRes.data.token)
             history.push("/profile")  
@@ -64,6 +68,7 @@ export default function Register () {
                 <input 
                     id="register-password" 
                     type="password" 
+                    placeholder= "5 characters min."
                     onChange={e => setPassword(e.target.value)}
                 />
                 <input 
@@ -98,8 +103,15 @@ export default function Register () {
                 <label htmlFor="register-bio">Bio: </label>
                 <textarea id="register-bio" 
                     cols={40} rows={10} 
+                    maxLength={250}
                     onChange={e => setBio(e.target.value)}
-                    placeholder="Tell us a little about Yourself for better content access."
+                    placeholder="Max length: 250 characters"
+                />
+                <label htmlFor="location">Location: </label>
+                <input 
+                    id="location" 
+                    type="text" 
+                    onChange={e => setLocation(e.target.value)} 
                 />
                 <label htmlFor="referrer">Referrer: </label>
                 <input 
@@ -108,8 +120,8 @@ export default function Register () {
                     onChange={e => setReferrer(e.target.value)} 
                 />
 
-                <input type="submit" value="Register!" />
+                <input type="submit" value="Create Account!" />
             </form>
-        </div>   
+        </div>
     )
 }

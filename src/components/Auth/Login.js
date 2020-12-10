@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import UserContext from "../context/UserContext"
 import { useHistory, Link } from "react-router-dom"
 import "./auth.css"
@@ -11,20 +11,24 @@ export default function Login () {
     const [password, setPassword] = useState();
     const [error, setError] = useState();
 
-    const { setUserData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
+
+    useEffect(() => {
+        if (userData.user) history.push("/profile")
+    })
 
     const submit = async (e) => {
         e.preventDefault();
         try {
             const loginUser = { email, password };
             const loginRes = await Axios.post(
-                "http://localhost:50/users/login",
+                "http://localhost:5000/apiv1/vendors/login",
                 loginUser 
             );
             setUserData({
                 token: loginRes.data.token,
-                user: loginRes.data.user,
+                user: loginRes.data.vendor,
             });
             localStorage.setItem("auth-token", loginRes.data.token)
             history.push("/profile")

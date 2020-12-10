@@ -30,6 +30,9 @@ textarea {
     text-decoration: none;
     font-size: 1.1rem;
 }
+.reg-link:hover {
+    color: #486e36;
+}
 .form input:focus {
     border: 1px solid rgb(38, 228, 187);
     outline: none;
@@ -41,4 +44,13 @@ textarea {
     border: 1px solid #6aa051;
     background-color:  #c8ecb7;
     font-size: 1.1rem;
+}
+.form input[type="submit"]:hover {
+    color: #c8ecb7;
+    background-color: #2383d1;
+}
+.wrong{
+    border: 1px solid rgb(228, 60, 38);
+    outline: none;
+    box-shadow: inset 0px 0px 5px rgba(245, 71, 48, 0.5);
 }
