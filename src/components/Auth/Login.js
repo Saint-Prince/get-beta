@@ -15,7 +15,7 @@ export default function Login () {
     const history = useHistory();
 
     useEffect(() => {
-        if (userData.user) history.push("/profile")
+        if (userData.user) history.push(`/profile`)
     })
 
     const submit = async (e) => {

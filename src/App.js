@@ -6,6 +6,7 @@ import Axios from "axios"
 import Home from "./pages/Home"
 import Reports from "./pages/Reports"
 import ProfilePage from "./components/profile/ProfilePage"
+import EditProfile from "./components/profile/EditProfile"
 import Login from "./components/Auth/Login"
 import Register from "./components/Auth/Register"
 import UserContext from "./components/context/UserContext"
@@ -52,10 +53,11 @@ function App() {
         <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route path="/reports" component={Reports} />  
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/profile" component={ProfilePage} />
+            <Route exact path="/profile/:id" component={EditProfile} />
+            <Route exact path="/reports" component={Reports} />  
           </Switch>
         </div>
       </UserContext.Provider>

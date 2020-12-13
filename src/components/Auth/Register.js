@@ -103,9 +103,9 @@ export default function Register () {
                 <label htmlFor="register-bio">Bio: </label>
                 <textarea id="register-bio" 
                     cols={40} rows={10} 
-                    maxLength={250}
+                    minLength={50}
                     onChange={e => setBio(e.target.value)}
-                    placeholder="Max length: 250 characters"
+                    placeholder="Min length: 50 characters"
                 />
                 <label htmlFor="location">Location: </label>
                 <input 

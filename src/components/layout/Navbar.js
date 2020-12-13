@@ -30,16 +30,25 @@ function Navbar () {
                             <AiIcons.AiOutlineClose />
                         </Link>
                     </li>
-                    {SidebarData.map((item, index) => {
-                        return (
-                            <li key={index} className={item.cName}>
-                                <Link to={item.path}>
-                                    {item.icon}
-                                    <span> {item.title} </span>
-                                </Link>
-                            </li>
-                        )
-                    })}
+                    <li className="nav-text">
+                        <Link to="/">
+                            <AiIcons.AiFillHome />
+                            <span> Home </span>
+                        </Link>
+                    </li>
+    
+                    {
+                        SidebarData.map((item, index) => {
+                            return (
+                                <li key={index} className={item.cName}>
+                                    <Link to={`${item.path}`}>
+                                        {item.icon}
+                                        <span> {item.title} </span>
+                                    </Link>
+                                </li>
+                            )
+                        }) 
+                    }
                 </ul>
             </nav>
         </IconContext.Provider>
