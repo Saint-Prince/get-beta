@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useHistory, useRouteMatch } from "react-router-dom"
 import UserContext from "../context/UserContext"
-import { getUser } from "./Api"
+import { getUser, updateUser } from "./Api"
 import { EditForm } from "./EditForm"
 import "../Auth/auth.css"
 
@@ -27,13 +27,10 @@ export default function EditProfile () {
         fetchProfile();
     }, [history, userData.user, userData.token, match.params.id])
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            console.log(e)
-        } catch (err) {
-            console.log(err)
-        }
+    const onSubmit = async (data) => {
+        let token = userData.token
+        await updateUser(token, match.params.id, data)
+        history.push("/profile")
     }
 
     return (

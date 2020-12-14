@@ -29,6 +29,9 @@
     cursor: pointer;
     border-radius: 4px;
 }
+.btn a {
+    text-decoration: none;
+}
 @media screen and (min-width: 419px) {
     .profile-pic {
         width: 50%;   
