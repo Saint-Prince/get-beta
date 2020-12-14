@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import { getUser } from "./Api"
 import "./profile.css"
-import logo from "./logo512.png"
+import logo from "./octocat.jpg"
 import * as HiIcons from "react-icons/hi"
 import * as GrIcons from "react-icons/gr"
 import * as FaIcons from "react-icons/fa"
@@ -42,7 +42,7 @@ function ProfilePage () {
                 <span><button className="btn"> <HiIcons.HiOutlinePencil /> </button></span>
                 <div className="title"> <br/>
                     <h2 style={{marginLeft: '10%'}}>  {userDetails.fullname} 
-                        <span><button className="btn"> <Link to={`/profile/${userDetails.id}`}> Edit Profile </Link></button></span>
+                        <span><button className="btn"> <Link to={`/profile/edit/${userDetails.id}`}> Edit Profile </Link></button></span>
                     </h2> 
                 </div>
                 <div className="main-container">

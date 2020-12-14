@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Axios from "axios"
 import Home from "./pages/Home"
 import Reports from "./pages/Reports"
+import Content from "./components/contents/Content"
 import ProfilePage from "./components/profile/ProfilePage"
 import EditProfile from "./components/profile/EditProfile"
 import Login from "./components/Auth/Login"
@@ -56,7 +57,8 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={ProfilePage} />
-            <Route exact path="/profile/:id" component={EditProfile} />
+            <Route exact path="/profile/edit/:id" component={EditProfile} />
+            <Route exact path="/contents" component={Content} />  
             <Route exact path="/reports" component={Reports} />  
           </Switch>
         </div>

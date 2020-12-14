@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import { getUser, updateUser } from "./Api"
 import { EditForm } from "./EditForm"
-import "../Auth/auth.css"
+import "../Auth/auth.css" 
 
 export default function EditProfile () {
 
@@ -34,10 +34,10 @@ export default function EditProfile () {
     }
 
     return (
-        <div>
+        <>
             {
                 userDetails ? <EditForm userDetails={userDetails} onSubmit={onSubmit} /> : <div> Loading... </div>
             }
-        </div>
+        </>
     )
 }

@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import "../Auth/auth.css"
 
@@ -24,7 +25,11 @@ export const EditForm = ({ userDetails, onSubmit }) => {
 
     return (
         <div className="page">
-            <h2 style={{ padding: '1rem' }}>Edit Profile</h2>
+            <h2 style={{ padding: '1rem', textDecoration: "none" }}>
+                <Link to="/profile" style={{ textDecoration: "none" }}>
+                    Profile
+                </Link>
+            </h2>
 
             <form className="form" onSubmit={submitHandler}>
                 <label htmlFor="register-email">Email: </label>
