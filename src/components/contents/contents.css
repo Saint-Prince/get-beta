@@ -6,6 +6,7 @@
     background-color: #fff;
 }
 .contents h1 {
+    color: #0e5996;
     font-size: 40px;
     margin: 0 0 30px 0;
     text-transform: uppercase;
@@ -40,7 +41,7 @@
     background: #fff;
 }
 .content-explore:hover {
-    border-color: #1f9096;
+    border-color: #1f90d6;
     background-color: #1f90d6;
 }
 .content-explore:hover a {
