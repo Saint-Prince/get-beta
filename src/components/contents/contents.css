@@ -1,0 +1,96 @@
+.contents {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+}
+.contents h1 {
+    font-size: 40px;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.services {
+    display: flex;
+    align-items: center;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: all .3s ease;
+}
+.content .fab {
+    font-size: 70px;
+    margin: 16px 0;
+}
+.content > *{
+    flex: 1 1 100%;
+}
+.content:hover {
+    color: #fff;
+}
+.content:hover a {
+    border-color: #fff;
+    background: #fff;
+}
+.content-explore:hover {
+    border-color: #1f9096;
+    background-color: #1f90d6;
+}
+.content-explore:hover a {
+    color: #1f90d6;
+}
+.my-contents:hover {
+    border-color: #4343e4;
+    background-color: #4343e4;
+    /* twitter: #1DA1F2, insta: E1306C, you-tube: #ff0000 */
+}
+.my-contents:hover a {
+    color:#4343e4;
+}
+.enrolled:hover {
+    border-color: #1f6696;
+    background-color: #1f6696;
+}
+.enrolled:hover a {
+    color: #1f9096;
+}
+.content:hover {
+    color: #fff;
+}
+.content h2 {
+    font-size: 30px;
+    margin: 16px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.content p {
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+.content a {
+    margin: 22px 0;
+    background: black;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: 15px 0;
+    border-radius: 25px;
+    transition: .3s ease;
+}
+.content a:hover {
+    border-radius: 4px;
+}
+@media (max-width: 900px) {
+    .services {
+        display: flex;
+        flex-direction: column;
+    }
+}
