@@ -26,7 +26,7 @@ function Content () {
                     <p className="card-text">
                         Okay, let's take a look at what we have so far
                     </p>
-                    <Link to="#" className="card-btn">
+                    <Link to="/1/contents" className="card-btn">
                         Yes <span> &rarr; </span>
                     </Link>
                 </div>
@@ -36,7 +36,7 @@ function Content () {
                     <p className="card-text">
                         What have we here for ourselves 
                     </p>
-                    <Link to="#" className="card-btn">
+                    <Link to="/1/enrolled-contents" className="card-btn">
                         View <span> &rarr; </span>
                     </Link>
                 </div>
