@@ -6,6 +6,7 @@ import Axios from "axios"
 import Home from "./pages/Home"
 import Reports from "./pages/Reports"
 import Content from "./components/contents/Content"
+import AllContents from "./components/contents/AllContents"
 import ProfilePage from "./components/profile/ProfilePage"
 import EditProfile from "./components/profile/EditProfile"
 import Login from "./components/Auth/Login"
@@ -59,6 +60,7 @@ function App() {
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/profile/edit/:id" component={EditProfile} />
             <Route exact path="/contents" component={Content} />  
+            <Route exact path="/allcontents" component={AllContents} />  
             <Route exact path="/reports" component={Reports} />  
           </Switch>
         </div>
