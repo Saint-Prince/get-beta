@@ -51,7 +51,8 @@
     border-radius: 4px;
 }
 .nav-text a:hover {
-    background-color: #51d66a;
+    background-color: #67e29e;
+    transition: 0.4s;
 }
 .nav-menu-items {
     width: 100%;

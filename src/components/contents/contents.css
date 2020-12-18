@@ -89,6 +89,47 @@
 .content a:hover {
     border-radius: 4px;
 }
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    border-radius: 6px;
+}
+.btn-success {
+    color: #fff;
+    background-color: #5cb6b8;
+    transition: 0.3s;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #67e29e;
+}
+.search {
+    margin-top: 3%;
+    margin-left: 5%;
+    width: 90%;
+    padding: 0.5rem;
+    background-color:#e2f0fb;
+    border-radius: 8px;
+    border: 1px solid rgb(223, 236, 223);
+    font-size: 1.1rem;
+    outline: whitesmoke;
+}
+.search:focus {
+    border: 1px solid #62afeb;
+    outline: none;
+    box-shadow: inset 0px 0px 5px rgba(95, 193, 238, 0.5);
+}
 @media (max-width: 900px) {
     .services {
         display: flex;
