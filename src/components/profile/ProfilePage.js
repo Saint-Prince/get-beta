@@ -41,10 +41,10 @@ function ProfilePage () {
                 <img src={ userDetails.img ? userDetails.img : logo } alt="Profile Img" className="profile-pic" />
                 <span><button className="btn"> <HiIcons.HiOutlinePencil /> </button></span>
                 <div className="title"> <br/>
-                    <h2 style={{marginLeft: '10%'}}>  {userDetails.fullname} 
-                        <span><button className="btn"> <Link to={`/profile/edit/${userDetails.id}`}> Edit Profile </Link></button></span>
+                    <h2 style={{ marginLeft: '10%', color: "#0e5996" }}>  {userDetails.fullname} 
                     </h2> 
                 </div>
+                
                 <div className="main-container">
                     <p> <i className="info"> <HiIcons.HiBriefcase/> </i> {userDetails.occupation} </p> <br/>
                     <p> <i className="info"> <GrIcons.GrLocationPin/> </i> {userDetails.location} </p> <br/>
@@ -52,7 +52,9 @@ function ProfilePage () {
                     <p> <i className="info">Bio:</i> {userDetails.bio} </p> <br/>
                     <p> <i className="info"> <GrIcons.GrPhone/> </i> {userDetails.cell_no} </p> <br/>
                     <p> <i className="info"> <IoIcons.IoMdSchool/> </i> {userDetails.hle} </p> <br/>
-                    <hr/>
+                    <hr/> <br/>
+                    <span><button className="btn"> <Link to={`/profile/edit/${userDetails.id}`}> Edit Profile </Link></button></span>
+
                 </div>
             </> : 
             <div>
