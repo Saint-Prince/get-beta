@@ -6,5 +6,5 @@ export const getContents = (token) =>
         {
             headers: { "x-auth-token": token }
         }
-    ).then(data => console.log(data.data.myContents))
+    ).then(res => res.data)
         .catch(err => console.log(err))
