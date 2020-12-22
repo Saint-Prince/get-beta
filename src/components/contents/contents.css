@@ -144,8 +144,9 @@
 }
 .card {
     display: grid;
+    margin: 20px;
     grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
+    grid-template-rows: 210px 180px 65px;
     grid-template-areas: "image" "text" "stats";
 
     font-family: roboto;
@@ -158,7 +159,7 @@
     cursor: pointer;
 }
 .card-image {
-    grid-area: image;
+    /* grid-area: image; */
     background: url("../profile/octocat.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -174,7 +175,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: rgb(255, 7, 110);
+    background: #5cb6b8;
 }
 .card-stats .stat {
     display: flex;
@@ -193,8 +194,8 @@
     font-weight: 500;
 }
 .card-stats .border {
-    border-left: 1px solid rgb(172, 26, 87);
-    border-right: 1px solid rgb(172, 26, 87);
+    border-left: 1px solid rgb(225, 225, 225);
+    border-right: 1px solid rgb(225, 225, 225);
 }
 .card-text .date {
     color: rgb(255, 7, 110);
@@ -210,7 +211,7 @@
     font-size: 28px;
 }
 .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 900px) {
@@ -218,11 +219,4 @@
         display: flex;
         flex-direction: column;
     }
-    /* .card {
-        display: block;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-        margin-bottom: 20px;
-    } */
 }

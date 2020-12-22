@@ -36,7 +36,7 @@ function MyContents () {
                 <option value="recent"> Recently </option>
             </select> */}
             <p align="right"><button className="btn btn-lg btn-success"> Create Content </button> </p> <br/>
-            <div className="align">
+            <div className="services">
                 <div className="card">
                     <div className="card-image"></div>  
                     <div className="card-text">
@@ -44,8 +44,8 @@ function MyContents () {
                         <h2> Content for Babies</h2> <br/>
                         <p>
                             Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
-                            frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
-                            meatloaf.
+                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
+                            meatloaf. */}
                         </p>
                     </div>
                     <div className="card-stats">
@@ -63,7 +63,7 @@ function MyContents () {
                         </div>
                         {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
                     </div>      
-                </div>
+                </div> <br/>
             </div>
             
             {
