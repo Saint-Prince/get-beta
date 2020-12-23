@@ -15,6 +15,7 @@
 .services {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .content {
     display: flex;
@@ -145,7 +146,7 @@
 .card {
     display: grid;
     margin: 20px;
-    grid-template-columns: 300px;
+    grid-template-columns: 280px;
     grid-template-rows: 210px 180px 65px;
     grid-template-areas: "image" "text" "stats";
 
@@ -214,9 +215,20 @@
     transform: scale(1.03);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
-@media (max-width: 900px) {
+.container {
+    margin: 0 auto;
+    max-width: 1380px;
+}
+@media (max-width: 500px) {
     .services {
         display: flex;
         flex-direction: column;
+    }
+}
+@media (max-width: 1276px) {
+    .services {
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
     }
 }

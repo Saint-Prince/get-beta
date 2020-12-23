@@ -6,6 +6,7 @@ import "./contents.css"
 import logo from "../profile/octocat.jpg"
 // import * as BiIcons from "react-icons/bi", Link 
 import "../Auth/auth.css"
+// import "bootstrap/dist/css/bootstrap.css"
 
 function MyContents () {
 
@@ -35,8 +36,116 @@ function MyContents () {
                 <option value="recent"> Recently Added </option>
                 <option value="recent"> Recently </option>
             </select> */}
-            <p align="right"><button className="btn btn-lg btn-success"> Create Content </button> </p> <br/>
+            <p align="right" style={{ marginRight: "3%" }}><button className="btn btn-lg btn-success"> Create Content </button> </p> 
             <div className="services">
+                <div className="card">
+                    <div className="card-image"></div>  
+                    <div className="card-text">
+                        <span className="date"> 4 days ago </span>
+                        <h2> Content for Babies</h2> <br/>
+                        <p>
+                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
+                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
+                            meatloaf. */}
+                        </p>
+                    </div>
+                    <div className="card-stats">
+                        <div className="stat">
+                            <div className="value">4m</div>
+                            <div className="text">read</div>
+                        </div>
+                        <div className="stat border">
+                            <div className="value">5123</div>
+                            <div className="text">views</div>
+                        </div>
+                        <div className="stat">
+                            <div className="value">32</div>
+                            <div className="text">comments</div>
+                        </div>
+                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
+                    </div>      
+                </div> <br/>
+                <div className="card">
+                    <div className="card-image"></div>  
+                    <div className="card-text">
+                        <span className="date"> 4 days ago </span>
+                        <h2> Content for Babies</h2> <br/>
+                        <p>
+                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
+                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
+                            meatloaf. */}
+                        </p>
+                    </div>
+                    <div className="card-stats">
+                        <div className="stat">
+                            <div className="value">4m</div>
+                            <div className="text">read</div>
+                        </div>
+                        <div className="stat border">
+                            <div className="value">5123</div>
+                            <div className="text">views</div>
+                        </div>
+                        <div className="stat">
+                            <div className="value">32</div>
+                            <div className="text">comments</div>
+                        </div>
+                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
+                    </div>      
+                </div> <br/>
+                <div className="card">
+                    <div className="card-image"></div>  
+                    <div className="card-text">
+                        <span className="date"> 4 days ago </span>
+                        <h2> Content for Babies</h2> <br/>
+                        <p>
+                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
+                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
+                            meatloaf. */}
+                        </p>
+                    </div>
+                    <div className="card-stats">
+                        <div className="stat">
+                            <div className="value">4m</div>
+                            <div className="text">read</div>
+                        </div>
+                        <div className="stat border">
+                            <div className="value">5123</div>
+                            <div className="text">views</div>
+                        </div>
+                        <div className="stat">
+                            <div className="value">32</div>
+                            <div className="text">comments</div>
+                        </div>
+                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
+                    </div>      
+                </div> <br/>
+                <div className="card">
+                    <div className="card-image"></div>  
+                    <div className="card-text">
+                        <span className="date"> 4 days ago </span>
+                        <h2> Content for Babies</h2> <br/>
+                        <p>
+                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
+                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
+                            meatloaf. */}
+                        </p>
+                    </div>
+                    <div className="card-stats">
+                        <div className="stat">
+                            <div className="value">4m</div>
+                            <div className="text">read</div>
+                        </div>
+                        <div className="stat border">
+                            <div className="value">5123</div>
+                            <div className="text">views</div>
+                        </div>
+                        <div className="stat">
+                            <div className="value">32</div>
+                            <div className="text">comments</div>
+                        </div>
+                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
+                    </div>      
+                </div> <br/>
                 <div className="card">
                     <div className="card-image"></div>  
                     <div className="card-text">
