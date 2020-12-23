@@ -3,7 +3,7 @@
     margin: 0 auto;
     text-align: center;
     padding: 30px;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 .contents h1 {
     color: #0e5996;
@@ -49,12 +49,12 @@
     color: #1f90d6;
 }
 .my-contents:hover {
-    border-color: #4343e4;
-    background-color: #4343e4;
+    border-color: #43b6e4;
+    background-color: #43ace4;
     /* twitter: #1DA1F2, insta: E1306C, you-tube: #ff0000 */
 }
 .my-contents:hover a {
-    color:#4343e4;
+    color: #43ace4;
 }
 .enrolled:hover {
     border-color: #1f6696;
@@ -160,7 +160,7 @@
     cursor: pointer;
 }
 .card-image {
-    /* grid-area: image; */
+    grid-area: image;
     background: url("../profile/octocat.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;

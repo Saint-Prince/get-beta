@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import UserContext from "../context/UserContext"
-import { useHistory} from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { getContents } from "./Api"
 import "./contents.css"
 import logo from "../profile/octocat.jpg"
@@ -173,17 +173,45 @@ function MyContents () {
                         {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
                     </div>      
                 </div> <br/>
-            </div>
-            
+
             {
                 contents.map( content => ( 
 
-                    <div key={content._id}>
-                        <h2> {content.title} </h2>
-                        <p> {content.descrp} </p>
+                    <div key={content._id} className="card">
+                        <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
+                            className="card-image">
+                        </div>
+                        <div className="card-text">
+                            <span className="date"> 4 days ago </span>
+                            <h2> {content.title} </h2>
+                            <p> {content.descrp} </p>
+                            <p>   </p>
+                        </div>
+                        <div className="card-stats">
+                            <div className="stat">
+                                <div className="value"> { content.subscriberids.length - 1 } </div>
+                                <div className="text"> Enrolled </div>
+                            </div>
+                            <div className="stat border">
+                                <div className="value">5123</div>
+                                <div className="text">views</div>
+                            </div>
+                            <Link to="/contents" style={{ textDecoration: "none" }}>                               
+                                <div className="stat" style={{ background: "#43cee4" }}>
+                                    <div className="text" 
+                                        style={{ marginTop: "10px", fontSize: "22px" }} >
+                                        View
+                                    </div>
+                                    {/* <div className="value">32</div> */}
+                                </div>  
+                            </Link>
+                        </div>      
                     </div>
                 ))
             }
+            </div>
+            
+            
         </div>
     ) 
 }

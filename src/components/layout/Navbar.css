@@ -89,3 +89,9 @@ span {
         font-size: 0.9rem;
     }
 }
+@media screen and (max-width: 322px) {
+    .auth-options button {
+        padding: 0 0.2rem; 
+        font-size: 0.9rem;
+    }
+}

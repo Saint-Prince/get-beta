@@ -33,6 +33,7 @@
 }
 .btn a {
     text-decoration: none;
+    color: #1f90d6;
 }
 @media screen and (min-width: 419px) {
     .profile-pic {
