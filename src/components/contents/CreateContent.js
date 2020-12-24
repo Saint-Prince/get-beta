@@ -7,9 +7,8 @@ import ErrorNotice from "../Misc/ErrorNotice"
 
 export default function CreateContent () {
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [passwordCheck, setPasswordCheck] = useState();
+    const [title, setTitle] = useState();
+    const [descrp, setDescription] = useState();
     const [fullname, setFullName] = useState();
     const [cell_no, setMobileNumber] = useState();
     const [occupation, setOccupation] = useState();
@@ -26,25 +25,25 @@ export default function CreateContent () {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const newUser = 
-            {email, password, passwordCheck, fullname, bio, occupation, hle, cell_no, referrer, location};
+            const newContent = 
+            {title, descrp, fullname, bio, occupation, hle, cell_no, referrer, location};
             // if (password !== passwordCheck) 
             //     return alert("Password doesn't match.")
             await Axios.post(
                 "http://localhost:5000/apiv1/vendors/register", 
-                newUser,
+                newContent,
             );
-            const loginRes = await Axios.post(
-                "http://localhost:5000/apiv1/vendors/login", {
-                email,
-                password,  
-            });
-            setUserData({
-                token: loginRes.data.token,
-                user: loginRes.data.vendor,
-            });
-            localStorage.setItem("auth-token", loginRes.data.token)
-            history.push("/profile")  
+            // const loginRes = await Axios.post(
+            //     "http://localhost:5000/apiv1/vendors/login", {
+            //     email,
+            //     password,  
+            // });
+            // setUserData({
+            //     token: loginRes.data.token,
+            //     user: loginRes.data.vendor,
+            // });
+            // localStorage.setItem("auth-token", loginRes.data.token)
+            // history.push("/profile")  
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg); 
         }
@@ -52,29 +51,25 @@ export default function CreateContent () {
 
     return (
         <div className="page">
-            <h2 style={{ padding: '1rem' }}>Create Content</h2>
+            <h2 style={{ padding: '1rem', color: "#0e5996" }}> Enter Content Details </h2>
             {
                 error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
             }
             <form className="form" onSubmit={submit}>
-                <label htmlFor="register-email">Email: </label>
+                <label htmlFor="content-title">Title: </label>
                 <input 
-                    id="register-email" 
-                    type="email" 
-                    onChange={e => setEmail(e.target.value)} 
+                    id="content-title" 
+                    type="text" 
+                    required
+                    onChange={e => setTitle(e.target.value)} 
                 />
 
-                <label htmlFor="register-password">Password: </label>
+                <label htmlFor="content-descrp">Description: </label>
                 <input 
-                    id="register-password" 
-                    type="password" 
-                    placeholder= "5 characters min."
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <input 
-                    placeholder="Verify Password" 
-                    type="password" 
-                    onChange={e => setPasswordCheck(e.target.value)} 
+                    id="content-descrp" 
+                    type="text" 
+                    placeholder= "Describe..."
+                    onChange={e => setDescription(e.target.value)}
                 />
 
                 <label htmlFor="register-full-name">Full Name: </label>
@@ -120,7 +115,7 @@ export default function CreateContent () {
                     onChange={e => setReferrer(e.target.value)} 
                 />
 
-                <input type="submit" value="Create Account!" />
+                <input type="submit" value="Create Content" />
             </form>
         </div>
     )

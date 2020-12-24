@@ -26,7 +26,7 @@ export const EditForm = ({ userDetails, onSubmit }) => {
     return (
         <div className="page">
             <h2 style={{ padding: '1rem', textDecoration: "none" }}>
-                <Link to="/profile" style={{ textDecoration: "none" }}>
+                <Link to="/profile" style={{ textDecoration: "none", color: "#0e5996" }}>
                     Profile
                 </Link>
             </h2>
