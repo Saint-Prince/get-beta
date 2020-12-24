@@ -147,7 +147,7 @@
     display: grid;
     margin: 20px;
     grid-template-columns: 280px;
-    grid-template-rows: 210px 180px 65px;
+    grid-template-rows: 210px 150px 65px;
     grid-template-areas: "image" "text" "stats";
 
     font-family: roboto;
@@ -176,7 +176,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: #5cb6b8;
+    background: #5993ff;
 }
 .card-stats .stat {
     display: flex;
@@ -209,16 +209,15 @@
 }
 .card-text h2 {
     margin-top: 0px;
-    font-size: 28px;
+    font-size: 26px;
 }
 .card:hover {
     transform: scale(1.03);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
-.container {
-    margin: 0 auto;
-    max-width: 1380px;
-}
+/* .stat:hover {
+    background: #0e5996;
+} */
 @media (max-width: 500px) {
     .services {
         display: flex;

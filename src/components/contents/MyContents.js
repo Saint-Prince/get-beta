@@ -182,25 +182,24 @@ function MyContents () {
                             className="card-image">
                         </div>
                         <div className="card-text">
-                            <span className="date"> 4 days ago </span>
-                            <h2> {content.title} </h2>
-                            <p> {content.descrp} </p>
-                            <p>   </p>
+                            <span className="date"> {content.dateCreated} 4 days ago </span>
+                            <h2> {content.title} </h2> <br/>
+                            <p> {content.descrp} </p> <br/>
                         </div>
                         <div className="card-stats">
                             <div className="stat">
-                                <div className="value"> { content.subscriberids.length - 1 } </div>
-                                <div className="text"> Enrolled </div>
+                                <div className="value"> {content.contentfiles.length} </div>
+                                <div className="text"> Files </div>
                             </div>
                             <div className="stat border">
-                                <div className="value">5123</div>
-                                <div className="text">views</div>
+                                <div className="value"> share </div>
+                                <div className="text"> {content.price} </div>
                             </div>
                             <Link to="/contents" style={{ textDecoration: "none" }}>                               
-                                <div className="stat" style={{ background: "#43cee4" }}>
+                                <div className="stat">
                                     <div className="text" 
                                         style={{ marginTop: "10px", fontSize: "22px" }} >
-                                        View
+                                        <span style={{ fontSize: "1.60rem" }} >&rarr;</span>
                                     </div>
                                     {/* <div className="value">32</div> */}
                                 </div>  

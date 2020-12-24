@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Reports from "./pages/Reports"
 import Content from "./components/contents/Content"
 import MyContents from "./components/contents/MyContents"
+import CreateContent from "./components/contents/CreateContent"
 import AllContents from "./components/contents/AllContents"
 import EnrolledContents from "./components/contents/EnrolledContents"
 import ProfilePage from "./components/profile/ProfilePage"
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/profile/edit/:id" component={EditProfile} />
             <Route exact path="/contents" component={Content} />  
+            <Route exact path="/contents/new" component={CreateContent} />  
             <Route exact path="/:id/contents" component={MyContents} />  
             <Route exact path="/:id/enrolled-contents" component={EnrolledContents} />  
             <Route exact path="/allcontents" component={AllContents} />  
