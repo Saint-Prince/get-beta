@@ -9,7 +9,7 @@ export default function CreateContent () {
 
     const [title, setTitle] = useState();
     const [descrp, setDescription] = useState();
-    const [fullname, setFullName] = useState();
+    const [price, setPrice] = useState();
     const [cell_no, setMobileNumber] = useState();
     const [occupation, setOccupation] = useState();
     const [hle, setHLE] = useState();
@@ -26,7 +26,7 @@ export default function CreateContent () {
         e.preventDefault();
         try {
             const newContent = 
-            {title, descrp, fullname, bio, occupation, hle, cell_no, referrer, location};
+            {title, descrp, price, bio, occupation, hle, cell_no, referrer, location};
             // if (password !== passwordCheck) 
             //     return alert("Password doesn't match.")
             await Axios.post(
@@ -68,15 +68,32 @@ export default function CreateContent () {
                 <input 
                     id="content-descrp" 
                     type="text" 
-                    placeholder= "Describe..."
+                    placeholder= "About Content..." 
                     onChange={e => setDescription(e.target.value)}
                 />
-
-                <label htmlFor="register-full-name">Full Name: </label>
+                <label>
+                   <input 
+                        id="content-type" 
+                        name="type"
+                        type="radio" 
+                        value="paid"
+                        onChange={e => setPrice(e.target.value)} 
+                    /> Bill
+                </label>
+                <label>
+                    <input 
+                        id="content-free" 
+                        name="type"
+                        type="radio" 
+                        value="free"
+                        onChange={e => setPrice(e.target.value)} 
+                    /> Free
+                </label>
+                <label htmlFor="content-price">Price: </label>
                 <input 
-                    id="register-full-name" 
-                    type="text" 
-                    onChange={e => setFullName(e.target.value)} 
+                    id="content-price" 
+                    type="number" 
+                    onChange={e => setPrice(e.target.value)} 
                 />
                 <input 
                     type="tel" 
