@@ -184,7 +184,7 @@ function MyContents () {
                             className="card-image">
                         </div>
                         <div className="card-text">
-                            <span className="date"> {content.dateCreated} 4 days ago </span>
+                            <span className="date"> { content.createdAt ? content.createdAt.substr(0, 10) : null} </span>
                             <h2> {content.title} </h2> <br/>
                             <p> {content.descrp} </p> <br/>
                         </div>
@@ -194,8 +194,8 @@ function MyContents () {
                                 <div className="text"> Files </div>
                             </div>
                             <div className="stat border">
-                                <div className="value"> share </div>
-                                <div className="text"> {content.price} </div>
+                                <div className="value"> {content.type === "free" ? "free" : content.price} </div> <hr style={{width: "80px"}} />
+                                <div className="text"> {content.type === "paid" ? `${content.subscriberids.length} enrolled` : "share"} </div>
                             </div>
                             <Link to="/contents" style={{ textDecoration: "none" }}>                               
                                 <div className="stat">

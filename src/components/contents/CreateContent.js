@@ -10,44 +10,43 @@ export default function CreateContent () {
     const [title, setTitle] = useState();
     const [descrp, setDescription] = useState();
     const [price, setPrice] = useState();
-    const [cell_no, setMobileNumber] = useState();
-    const [occupation, setOccupation] = useState();
-    const [hle, setHLE] = useState();
-    const [bio, setBio] = useState();
-    const [location, setLocation] = useState();
-    const [referrer, setReferrer] = useState();
+    const [type, setType] = useState();
+    const [tag, setTag] = useState([]);
+    const [isActive, setActive] = useState("false");
 
     const [error, setError] = useState();
 
-    const { setUserData } = useContext(UserContext);
+    const { userData } = useContext(UserContext);
     const history = useHistory();
+
+    const handleToggle = () => {
+        setActive(!isActive)
+    };
+    const handleTogggle = () => {
+        setActive("false")
+    };
 
     const submit = async (e) => {
         e.preventDefault();
         try {
             const newContent = 
-            {title, descrp, price, bio, occupation, hle, cell_no, referrer, location};
-            // if (password !== passwordCheck) 
-            //     return alert("Password doesn't match.")
+            { title, descrp, price,  type, tag };
             await Axios.post(
-                "http://localhost:5000/apiv1/vendors/register", 
+                `http://localhost:5000/apiv1/vendors/newcontent`, 
                 newContent,
+                {
+                    headers: { "x-auth-token": userData.token }
+                }
             );
-            // const loginRes = await Axios.post(
-            //     "http://localhost:5000/apiv1/vendors/login", {
-            //     email,
-            //     password,  
-            // });
-            // setUserData({
-            //     token: loginRes.data.token,
-            //     user: loginRes.data.vendor,
-            // });
-            // localStorage.setItem("auth-token", loginRes.data.token)
-            // history.push("/profile")  
+            history.push(`/${userData.user.id}/contents`)  
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg); 
         }
     }
+    // let tagData = tag;
+    // let tagSplit = tagData.split(/\r?\n/)
+    // console.log(tagData)
+    // console.log(tag)
 
     return (
         <div className="page">
@@ -61,6 +60,7 @@ export default function CreateContent () {
                     id="content-title" 
                     type="text" 
                     required
+                    placeholder="content name"
                     onChange={e => setTitle(e.target.value)} 
                 />
 
@@ -68,7 +68,7 @@ export default function CreateContent () {
                 <input 
                     id="content-descrp" 
                     type="text" 
-                    placeholder= "About Content..." 
+                    placeholder= "about content..." 
                     onChange={e => setDescription(e.target.value)}
                 />
                 <label>
@@ -77,7 +77,8 @@ export default function CreateContent () {
                         name="type"
                         type="radio" 
                         value="paid"
-                        onChange={e => setPrice(e.target.value)} 
+                        onClick={handleToggle}
+                        onChange={e => setType(e.target.value)} 
                     /> Bill
                 </label>
                 <label>
@@ -86,54 +87,29 @@ export default function CreateContent () {
                         name="type"
                         type="radio" 
                         value="free"
-                        onChange={e => setPrice(e.target.value)} 
+                        onClick={handleTogggle}
+                        onChange={e => setType(e.target.value)} 
                     /> Free
                 </label>
-                <label htmlFor="content-price">Price: </label>
-                <input 
-                    id="content-price" 
-                    type="number" 
-                    onChange={e => setPrice(e.target.value)} 
-                />
-                <input 
-                    type="tel" 
-                    placeholder="Enter mobile number"
-                    onChange={e => setMobileNumber(e.target.value)} 
-                />
-                <label htmlFor="occupation">Occupation: </label>
-                <input 
-                    id="occupation" 
-                    type="text" 
-                    onChange={e => setOccupation(e.target.value)} 
-                />
-                <label htmlFor="hle">Highest Level of Education: </label>
-                <input 
-                    id="hle" 
-                    type="text" 
-                    onChange={e => setHLE(e.target.value)} 
-                />
-                <label htmlFor="register-bio">Bio: </label>
-                <textarea id="register-bio" 
-                    cols={40} rows={10} 
-                    minLength={50}
-                    onChange={e => setBio(e.target.value)}
-                    placeholder="Min length: 50 characters"
-                />
-                <label htmlFor="location">Location: </label>
-                <input 
-                    id="location" 
-                    type="text" 
-                    onChange={e => setLocation(e.target.value)} 
-                />
-                <label htmlFor="referrer">Referrer: </label>
-                <input 
-                    id="referrer" 
-                    type="text" 
-                    onChange={e => setReferrer(e.target.value)} 
+                <div className={isActive ? "price" : null}>
+                  <label htmlFor="content-price">Price: </label>
+                    <input 
+                        id="content-price" 
+                        type="number" 
+                        onChange={e => setPrice(e.target.value)} 
+                    />  
+                </div>
+                
+                <label htmlFor="tags">Tags: </label>
+                <textarea id="tags" 
+                    cols={40} rows={5} 
+                    onChange={e => setTag(e.target.value)}
+                    placeholder="e.g music, tutorial, pdf e.t.c"
                 />
 
                 <input type="submit" value="Create Content" />
             </form>
+            <p>You can add your files after content creation</p>
         </div>
     )
 }

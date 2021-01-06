@@ -57,3 +57,6 @@ textarea {
     outline: none;
     box-shadow: inset 0px 0px 5px rgba(245, 71, 48, 0.5);
 }
+.price{
+    display: none;
+}

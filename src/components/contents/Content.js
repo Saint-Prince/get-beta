@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import UserContext from "../context/UserContext"
 import { Link } from "react-router-dom"
 import "./contents.css"
 import * as FaIcons from "react-icons/fa"
@@ -6,6 +7,7 @@ import * as GiIcons from "react-icons/gi"
 import * as BiIcons from "react-icons/bi"
 
 function Content () {
+    const { userData } = useContext(UserContext);
     return (
         <div className="contents">
             <h1> Let's Increase our Productivity </h1>
@@ -26,7 +28,7 @@ function Content () {
                     <p className="card-text">
                         Okay, let's take a look at what we have so far
                     </p>
-                    <Link to="/1/contents" className="card-btn">
+                    <Link to={`/${userData.user.id}/contents`} className="card-btn">
                         Yes <span> &rarr; </span>
                     </Link>
                 </div>
