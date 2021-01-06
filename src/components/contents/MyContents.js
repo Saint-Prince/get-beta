@@ -37,117 +37,9 @@ function MyContents () {
                 <option value="recent"> Recently </option>
             </select> */}
             <p align="right" style={{ marginRight: "3%" }}>
-                <button className="btn btn-lg btn-success"> <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/new"> Create Content </Link> </button> 
+                <button className="btn btn-lg btn-success"> <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> Create Content </Link> </button> 
             </p> 
             <div className="services">
-                <div className="card">
-                    <div className="card-image"></div>  
-                    <div className="card-text">
-                        <span className="date"> 4 days ago </span>
-                        <h2> Content for Babies</h2> <br/>
-                        <p>
-                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
-                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
-                            meatloaf. */}
-                        </p>
-                    </div>
-                    <div className="card-stats">
-                        <div className="stat">
-                            <div className="value">4m</div>
-                            <div className="text">read</div>
-                        </div>
-                        <div className="stat border">
-                            <div className="value">5123</div>
-                            <div className="text">views</div>
-                        </div>
-                        <div className="stat">
-                            <div className="value">32</div>
-                            <div className="text">comments</div>
-                        </div>
-                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
-                    </div>      
-                </div> <br/>
-                <div className="card">
-                    <div className="card-image"></div>  
-                    <div className="card-text">
-                        <span className="date"> 4 days ago </span>
-                        <h2> Content for Babies</h2> <br/>
-                        <p>
-                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
-                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
-                            meatloaf. */}
-                        </p>
-                    </div>
-                    <div className="card-stats">
-                        <div className="stat">
-                            <div className="value">4m</div>
-                            <div className="text">read</div>
-                        </div>
-                        <div className="stat border">
-                            <div className="value">5123</div>
-                            <div className="text">views</div>
-                        </div>
-                        <div className="stat">
-                            <div className="value">32</div>
-                            <div className="text">comments</div>
-                        </div>
-                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
-                    </div>      
-                </div> <br/>
-                <div className="card">
-                    <div className="card-image"></div>  
-                    <div className="card-text">
-                        <span className="date"> 4 days ago </span>
-                        <h2> Content for Babies</h2> <br/>
-                        <p>
-                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
-                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
-                            meatloaf. */}
-                        </p>
-                    </div>
-                    <div className="card-stats">
-                        <div className="stat">
-                            <div className="value">4m</div>
-                            <div className="text">read</div>
-                        </div>
-                        <div className="stat border">
-                            <div className="value">5123</div>
-                            <div className="text">views</div>
-                        </div>
-                        <div className="stat">
-                            <div className="value">32</div>
-                            <div className="text">comments</div>
-                        </div>
-                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
-                    </div>      
-                </div> <br/>
-                <div className="card">
-                    <div className="card-image"></div>  
-                    <div className="card-text">
-                        <span className="date"> 4 days ago </span>
-                        <h2> Content for Babies</h2> <br/>
-                        <p>
-                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
-                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
-                            meatloaf. */}
-                        </p>
-                    </div>
-                    <div className="card-stats">
-                        <div className="stat">
-                            <div className="value">4m</div>
-                            <div className="text">read</div>
-                        </div>
-                        <div className="stat border">
-                            <div className="value">5123</div>
-                            <div className="text">views</div>
-                        </div>
-                        <div className="stat">
-                            <div className="value">32</div>
-                            <div className="text">comments</div>
-                        </div>
-                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
-                    </div>      
-                </div> <br/>
                 <div className="card">
                     <div className="card-image"></div>  
                     <div className="card-text">
@@ -195,9 +87,10 @@ function MyContents () {
                             </div>
                             <div className="stat border">
                                 <div className="value"> {content.type === "free" ? "free" : content.price} </div> <hr style={{width: "80px"}} />
-                                <div className="text"> {content.type === "paid" ? `${content.subscriberids.length} enrolled` : "share"} </div>
+                                <div className="text"> {content.format} </div>
+                                {/* {content.type === "paid" ? `${content.subscriberids.length} enrolled` : "share"} */}
                             </div>
-                            <Link to="/contents" style={{ textDecoration: "none" }}>                               
+                            <Link to={`/contents/view/${content._id}`} style={{ textDecoration: "none" }}>                               
                                 <div className="stat">
                                     <div className="text" 
                                         style={{ marginTop: "10px", fontSize: "22px" }} >

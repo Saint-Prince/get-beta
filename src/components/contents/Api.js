@@ -8,6 +8,14 @@ export const getContents = (token) =>
         }
     ).then(res => res.data)
         .catch(err => console.log(err))
+export const getContent = (token, content_id) => 
+    Axios.get (       
+        `http://localhost:5000/apiv1/vendors/contents/${content_id}`,
+        {
+            headers: { "x-auth-token": token }
+        }
+    ).then(res => res.data)
+        .catch(err => console.log(err))
 
 // export const createContent = (token, contentDetails) => 
 //     Axios.post (       

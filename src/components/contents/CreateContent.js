@@ -12,6 +12,7 @@ export default function CreateContent () {
     const [price, setPrice] = useState();
     const [type, setType] = useState();
     const [tag, setTag] = useState([]);
+    const [format, setFormat] = useState();
     const [isActive, setActive] = useState("false");
 
     const [error, setError] = useState();
@@ -30,7 +31,7 @@ export default function CreateContent () {
         e.preventDefault();
         try {
             const newContent = 
-            { title, descrp, price,  type, tag };
+            { title, descrp, price,  type, tag, format };
             await Axios.post(
                 `http://localhost:5000/apiv1/vendors/newcontent`, 
                 newContent,
@@ -38,7 +39,7 @@ export default function CreateContent () {
                     headers: { "x-auth-token": userData.token }
                 }
             );
-            history.push(`/${userData.user.id}/contents`)  
+            history.push(`/myContents`)  
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg); 
         }
@@ -106,6 +107,34 @@ export default function CreateContent () {
                     onChange={e => setTag(e.target.value)}
                     placeholder="e.g music, tutorial, pdf e.t.c"
                 />
+                <p>Content Format:</p> <br/>
+                <label>
+                    <input 
+                        id="content-doc" 
+                        name="format"
+                        type="radio" 
+                        value="document"
+                        onChange={e => setFormat(e.target.value)} 
+                    /> Document
+                </label>
+                <label>
+                    <input 
+                        id="content-media" 
+                        name="format"
+                        type="radio" 
+                        value="media"
+                        onChange={e => setFormat(e.target.value)} 
+                    /> Media
+                </label>
+                <label>
+                    <input 
+                        id="content-other" 
+                        name="format"
+                        type="radio" 
+                        value="other"
+                        onChange={e => setFormat(e.target.value)} 
+                    /> Other
+                </label>
 
                 <input type="submit" value="Create Content" />
             </form>
