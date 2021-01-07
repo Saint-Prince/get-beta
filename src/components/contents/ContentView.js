@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import logo from "../profile/octocat.jpg"
 import "./view.css"
-import { getContent } from "./Api"
+import { getContent, deleteContent } from "./Api"
 import { getUser } from "../profile/Api"
 
 function ContentView () {
@@ -35,6 +35,11 @@ function ContentView () {
         fetchContent();
     }, [history, userData.user, userData.token, match.params.id])
 
+    const removeContent = async (content_id) => {
+        let token = userData.token;
+        await deleteContent(token, content_id, match.params.id )
+        history.push("/myContents")
+    }
 
     return (
         <div className="view">
@@ -61,7 +66,10 @@ function ContentView () {
                                 Edit
                             </Link>
                         </button> 
-                        <button className="cart" style={{background: "#f56464", marginLeft: "44%"}}>Delete</button> <br/> <br/>
+                        <button onClick={() => removeContent(contentDetails._id)}
+                            className="cart" style={{background: "#f56464", marginLeft: "44%"}}>
+                            Delete
+                        </button> <br/> <br/>
                         </> : 
                         null 
                     }

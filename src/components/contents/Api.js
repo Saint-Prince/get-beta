@@ -25,3 +25,11 @@ export const updateContent = (token, content_id, contentDetails) =>
         }
     ).then(res => res.data)
         .catch(err => console.log(err))
+export const deleteContent = (token, content_id) => 
+    Axios.delete (       
+        `http://localhost:5000/apiv1/vendors/contents/${content_id}`,
+        {
+            headers: { "x-auth-token": token }
+        }
+    ).then(res => res.data)
+        .catch(err => console.log(err))
