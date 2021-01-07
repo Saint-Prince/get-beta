@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory, useRouteMatch } from "react-router-dom"
+import { useHistory, useRouteMatch, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import logo from "../profile/octocat.jpg"
 import "./view.css"
@@ -56,7 +56,11 @@ function ContentView () {
                     {
                         contentDetails.vendorId === userDetails.id ?
                         <>
-                        <button className="cart" style={{background: "#7fb9e2"}}>Edit</button> 
+                        <button className="cart" style={{background: "#7fb9e2"}}>
+                            <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                Edit
+                            </Link>
+                        </button> 
                         <button className="cart" style={{background: "#f56464", marginLeft: "44%"}}>Delete</button> <br/> <br/>
                         </> : 
                         null 

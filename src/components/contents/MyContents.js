@@ -29,6 +29,7 @@ function MyContents () {
     }, [history, userData.user, userData.token])
 
     return (
+        contents ? 
         <div >    
             <input id="find" className="search" type="search" placeholder="Search Contents" />  <br/> <br/>
             {/* <label htmlFor="sort"> Sort By: </label>
@@ -105,8 +106,7 @@ function MyContents () {
             }
             </div>
             
-            
-        </div>
+        </div> : <div>Loading...</div>
     ) 
 }
 

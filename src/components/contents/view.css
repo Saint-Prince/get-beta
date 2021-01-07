@@ -11,10 +11,10 @@
     padding: 30px 0;
 }
 .details .big-img {
-    max-width: 500px;
+    max-width: 430px;
     min-width: 290px;
     overflow: hidden;
-    margin: 25px;
+    margin: 15px;
 }
 .big-img img {
     width: 100%;
@@ -24,9 +24,9 @@
     object-fit: cover;
 }
 .details .box {
-    max-width: 500px;
+    max-width: 350px;
     min-width: 290px;
-    margin: 25px;
+    margin: 15px;
 }
 .box .row {
     display: flex;
