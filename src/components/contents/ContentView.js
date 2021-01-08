@@ -36,9 +36,12 @@ function ContentView () {
     }, [history, userData.user, userData.token, match.params.id])
 
     const removeContent = async (content_id) => {
-        let token = userData.token;
-        await deleteContent(token, content_id, match.params.id )
-        history.push("/myContents")
+        let choice = prompt("Please confirm content title to delete", `${contentDetails.title}`)
+        if (choice != null) {
+            let token = userData.token;
+            await deleteContent(token, content_id, match.params.id )
+            history.push("/myContents")
+        }
     }
 
     return (
