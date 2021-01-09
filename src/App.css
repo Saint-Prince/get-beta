@@ -10,6 +10,7 @@ body {
 }
 .container {
   margin: 0 auto;
+  background: #ffffffad;
   max-width: 960px;
 }
 .home, .reports {

@@ -53,7 +53,7 @@ function ProfilePage () {
                     <p> <i className="info"> <GrIcons.GrPhone/> </i> {userDetails.cell_no} </p> <br/>
                     <p> <i className="info"> <IoIcons.IoMdSchool/> </i> {userDetails.hle} </p> <br/>
                     <hr/> <br/>
-                    <span><button className="btn"> <Link to={`/profile/edit/${userDetails.id}`}> Edit Profile </Link></button></span>
+                    <span><button className="btn" style={{background: "#7fb9e2"}}> <Link to={`/profile/edit/${userDetails.id}`} style={{color: "#f1f1f1"}}> Edit Profile </Link></button></span>
 
                 </div>
             </> : 

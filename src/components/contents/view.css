@@ -34,7 +34,7 @@
     margin-bottom: 15px;
 }
 .box .row h2{
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 2px;
 }
 .box .row span{

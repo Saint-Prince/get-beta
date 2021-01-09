@@ -3,7 +3,7 @@ import UserContext from "../context/UserContext"
 import { useHistory, Link } from "react-router-dom"
 import { getContents } from "./Api"
 import "./contents.css"
-import logo from "../profile/octocat.jpg"
+import logo from "../profile/pic-img.jpeg"
 // import * as BiIcons from "react-icons/bi", Link 
 import "../Auth/auth.css"
 // import "bootstrap/dist/css/bootstrap.css"

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useRouteMatch, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
-import logo from "../profile/octocat.jpg"
+import logo from "../profile/pic-img.jpeg"
 import "./view.css"
 import { getContent, deleteContent } from "./Api"
 import { getUser } from "../profile/Api"
@@ -45,6 +45,7 @@ function ContentView () {
     }
 
     return (
+        contentDetails ?
         <div className="view">
             <div className="details">
                 <div className="big-img">
@@ -82,8 +83,7 @@ function ContentView () {
             </div>
 
             <p>Files</p>
-        </div>
-        
+        </div> : <div>Loading...</div>
     )
 }
 
