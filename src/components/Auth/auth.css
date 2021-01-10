@@ -17,7 +17,7 @@
 textarea {
     width: 100%;
     padding: 0.2rem;
-    background-color: rgb(237, 245, 237);
+    background-color: #f6faff;
     border-radius: 8px;
     border: 1px solid rgb(223, 236, 223);
     font-size: 1.1rem;
@@ -59,4 +59,9 @@ textarea {
 }
 .price{
     display: none;
+}
+@media (min-height: 1000px) {
+    .page {
+        height: 100vh;
+    }
 }

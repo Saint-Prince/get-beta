@@ -4,6 +4,7 @@
     text-align: center;
     padding: 30px;
     /* background-color: #fff; */
+    height: 100vh;
 }
 .contents h1 {
     color: #0e5996;
@@ -146,8 +147,8 @@
 .card {
     display: grid;
     margin: 20px;
-    grid-template-columns: 280px;
-    grid-template-rows: 210px 150px 65px;
+    grid-template-columns: 230px;
+    grid-template-rows: 190px 150px 60px;
     grid-template-areas: "image" "text" "stats";
 
     font-family: roboto;
@@ -209,7 +210,7 @@
 }
 .card-text h2 {
     margin-top: 0px;
-    font-size: 23px;
+    font-size: 20px;
 }
 .card:hover {
     transform: scale(1.03);
