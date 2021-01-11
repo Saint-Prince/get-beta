@@ -65,7 +65,7 @@
     justify-content: flex-start;
     align-items: center;
 }
-span {
+.nav-span {
     margin-left: 16px;
     font-size: 1.12rem;
 }

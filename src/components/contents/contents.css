@@ -148,7 +148,7 @@
     display: grid;
     margin: 20px;
     grid-template-columns: 230px;
-    grid-template-rows: 190px 150px 60px;
+    grid-template-rows: 190px 150px 65px;
     grid-template-areas: "image" "text" "stats";
 
     font-family: roboto;

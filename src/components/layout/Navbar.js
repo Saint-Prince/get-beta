@@ -20,7 +20,7 @@ function Navbar () {
                 <Link to="#" className="menu-bars">
                     <FaIcons.FaBars onClick={showSidebar} />
                 </Link>
-                <span> <a href="/"> Get Beta </a> </span>
+                <span className="nav-span"> <a href="/"> Get Beta </a> </span>
                <AuthOptions /> 
             </div>       
             <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
@@ -33,7 +33,7 @@ function Navbar () {
                     <li className="nav-text">
                         <Link to="/">
                             <AiIcons.AiFillHome />
-                            <span> Home </span>
+                            <span className="nav-span"> Home </span>
                         </Link>
                     </li>
     
@@ -43,7 +43,7 @@ function Navbar () {
                                 <li key={index} className={item.cName}>
                                     <Link to={`${item.path}`}>
                                         {item.icon}
-                                        <span> {item.title} </span>
+                                        <span className="nav-span"> {item.title} </span>
                                     </Link>
                                 </li>
                             )

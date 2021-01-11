@@ -37,7 +37,7 @@ function ContentView () {
 
     const removeContent = async (content_id) => {
         let choice = prompt("Please confirm content title to delete", `${contentDetails.title}`)
-        if (choice != null) {
+        if (choice === contentDetails.title) {
             let token = userData.token;
             await deleteContent(token, content_id, match.params.id )
             history.push("/myContents")
@@ -45,45 +45,53 @@ function ContentView () {
     }
 
     return (
-        contentDetails ?
+        
         <div className="view">
-            <div className="details">
-                <div className="big-img">
-                    <img src={logo} alt=""/>
-                </div>  
+            {
+                contentDetails ?
+                <>
+                <div className="details">
+                    <div className="big-img">
+                        <img src={logo} alt=""/>
+                    </div>  
 
-                <div className="box">
-                    <div className="row">
-                        <h2> {contentDetails.title} </h2>
-                        <span> {contentDetails.type === "free" ? "Free" : contentDetails.price} </span>
+                    <div className="box">
+                        <div className="row">
+                            <h2> {contentDetails.title} </h2>
+                            <span> {contentDetails.type === "free" ? "Free" : contentDetails.price} </span>
+                        </div>
+
+                        <p> {contentDetails.descrp} </p>
+                        <p>Tags:  {contentDetails.tag} </p>
+                        <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
+
+                        {
+                            contentDetails.vendorId === userDetails.id ?
+                            <>
+                                <button className="cart" style={{background: "#7fb9e2"}}>
+                                    <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                        Edit
+                                    </Link>
+                                </button> 
+                                <button onClick={() => removeContent(contentDetails._id)}
+                                    className="cart" style={{background: "#f56464", marginLeft: "44%"}}>
+                                    Delete
+                                </button> 
+                                <button className="cart">Edit Cover Image</button>
+                                <br/> <br/>
+                                </> : 
+                                null 
+                            }
+                            <>  <br/> <br/> </>
+                            <hr/>
+                        </div> 
                     </div>
-
-                    <p> {contentDetails.descrp} </p>
-                    <p>Tags:  {contentDetails.tag} </p>
-                    <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
-
-                    {
-                        contentDetails.vendorId === userDetails.id ?
-                        <>
-                        <button className="cart" style={{background: "#7fb9e2"}}>
-                            <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
-                                Edit
-                            </Link>
-                        </button> 
-                        <button onClick={() => removeContent(contentDetails._id)}
-                            className="cart" style={{background: "#f56464", marginLeft: "44%"}}>
-                            Delete
-                        </button> <br/> <br/>
-                        </> : 
-                        null 
-                    }
-                    <> <button className="cart">Enroll</button> <br/> <br/> </>
-                    <hr/>
-                </div> 
-            </div>
-
-            <p>Files</p>
-        </div> : <div>Loading...</div>
+                    <h2 style={{marginLeft: "5%"}}>Files</h2>  
+                </>
+                : <div>Loading...</div>
+            }
+            
+        </div> 
     )
 }
 
