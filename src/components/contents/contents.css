@@ -15,6 +15,7 @@
 }
 .services {
     display: flex;
+    color: #000000c2;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -79,7 +80,7 @@
 }
 .content a {
     margin: 22px 0;
-    background: black;
+    background: #000000eb;
     color: white;
     text-decoration: none;
     text-transform: uppercase;

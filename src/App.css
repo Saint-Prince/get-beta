@@ -11,7 +11,7 @@ body {
 .container {
   margin: 0 auto;
   background: #ffffff6b;
-  max-width: 960px;
+  max-width: 1200px;
 }
 .home, .reports {
   display: flex;
