@@ -29,7 +29,6 @@ function MyContents () {
     }, [history, userData.user, userData.token])
 
     return (
-        contents ? 
         <div >    
             <input id="find" className="search" type="search" placeholder="Search Contents" />  <br/> <br/>
             {/* <label htmlFor="sort"> Sort By: </label>
@@ -70,6 +69,7 @@ function MyContents () {
                 </div> <br/>
 
             {
+                contents ?
                 contents.map( content => ( 
 
                     <div key={content._id} className="card">
@@ -102,11 +102,11 @@ function MyContents () {
                             </Link>
                         </div>      
                     </div>
-                ))
+                )) : <div> Loading </div>
             }
             </div>
             
-        </div> : <div>Loading...</div>
+        </div>
     ) 
 }
 

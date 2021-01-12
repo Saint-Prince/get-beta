@@ -67,19 +67,24 @@ function ContentView () {
 
                         {
                             contentDetails.vendorId === userDetails.id ?
-                            <>
+                            <div>
                                 <button className="cart" style={{background: "#7fb9e2"}}>
                                     <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
                                         Edit
                                     </Link>
                                 </button> 
                                 <button onClick={() => removeContent(contentDetails._id)}
-                                    className="cart" style={{background: "#f56464", marginLeft: "44%"}}>
+                                    className="cart" style={{background: "#f56464", marginLeft: "37%"}}>
                                     Delete
                                 </button> 
-                                <button className="cart">Edit Cover Image</button>
+                                <button className="cart" style={{background: "#7fb9e2"}}>
+                                    <Link to={`/contents/newFile`} style={{textDecoration: "none", color: "#fff"}}>
+                                        Add File
+                                    </Link>
+                                </button> 
+                                <button className="cart" style={{marginLeft: "37px"}}>Edit Cover Image</button>
                                 <br/> <br/>
-                                </> : 
+                                </div> : 
                                 null 
                             }
                             <>  <br/> <br/> </>

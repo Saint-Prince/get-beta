@@ -38,7 +38,12 @@ function ProfilePage () {
         {
             userDetails ? 
             <>
-                <img src={ userDetails.img ? userDetails.img : logo } alt="Profile Img" className="profile-pic" />
+                <img src={ userDetails.img ? userDetails.img : logo } 
+                    style= {{
+                        boxShadow: "0 2px 7px 0 rgba(0, 0, 0, 0.5)",
+                        borderRadius: "50px",
+                    }}
+                    alt="Profile Img" className="profile-pic" />
                 <span><button className="btn"> <HiIcons.HiOutlinePencil /> </button></span>
                 <div className="title"> <br/>
                     <h2 style={{ marginLeft: '10%', color: "#0e5996" }}>  {userDetails.fullname} 
