@@ -78,7 +78,7 @@ function ContentView () {
                                     Delete
                                 </button> 
                                 <button className="cart" style={{background: "#7fb9e2"}}>
-                                    <Link to={`/contents/${contentDetails._id}/newFile`} style={{textDecoration: "none", color: "#fff"}}>
+                                    <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
                                         Add File
                                     </Link>
                                 </button> 

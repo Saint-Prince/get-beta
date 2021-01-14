@@ -84,7 +84,7 @@ function MyContents () {
                         <div className="card-stats">
                             <div className="stat">
                                 <div className="value"> {content.contentfiles.length} </div>
-                                <div className="text"> Files </div>
+                                <div className="text"> { content.contentfiles.length === 1 ? "File": "Files" } </div>
                             </div>
                             <div className="stat border">
                                 <div className="value"> {content.type === "free" ? "free" : content.price} </div> <hr style={{width: "80px"}} />

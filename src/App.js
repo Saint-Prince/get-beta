@@ -70,7 +70,7 @@ function App() {
             <Route exact path="/contents/edit/:id" component={EditContent} />  
             <Route exact path="/contents/create" component={CreateContent} />  
             <Route exact path="/myContents" component={MyContents} />  
-            <Route exact path="/contents/:id/newFile" component={CreateFile} />  
+            <Route exact path="/contents/newFile/:id" component={CreateFile} />  
             <Route exact path="/:id/enrolled-contents" component={EnrolledContents} />  
             <Route exact path="/allcontents" component={AllContents} />  
             <Route exact path="/reports" component={Reports} />  

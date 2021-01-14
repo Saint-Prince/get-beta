@@ -55,10 +55,11 @@
     color: #fff;
     outline: none;
     border: none;
+    border-radius: 15px;
     cursor: pointer;
     padding: 10px 25px;
     margin-top: 15px;
 }
-.cart a:hover {
-    color: #333;
+.box .cart:hover {
+    border-radius: 5px;
 }
