@@ -74,7 +74,7 @@ function ContentView () {
                                     </Link>
                                 </button> 
                                 <button onClick={() => removeContent(contentDetails._id)}
-                                    className="cart" style={{background: "#f56464", marginLeft: "37%"}}>
+                                    className="cart" style={{background: "#f56464", marginLeft: "40%"}}>
                                     Delete
                                 </button> 
                                 <button className="cart" style={{background: "#7fb9e2"}}>
@@ -82,7 +82,7 @@ function ContentView () {
                                         Add File
                                     </Link>
                                 </button> 
-                                <button className="cart" style={{marginLeft: "37px"}}>Edit Cover Image</button>
+                                <button className="cart" style={{marginLeft: "60px"}}>Edit Cover Image</button>
                                 <br/> <br/>
                                 </div> : 
                                 null 
@@ -91,7 +91,42 @@ function ContentView () {
                             <hr/>
                         </div> 
                     </div>
-                    <h2 style={{marginLeft: "5%"}}>Files</h2>  
+                    <div style={{marginLeft: "5%"}}>
+                    <h2 >Files</h2>
+                        <ul>
+                            <li>
+                                <span className="number"> 1</span>
+                                <span className="name"> John</span>
+                                <span className="points"> 78</span>
+                                <span className="badge"> 2121</span>
+                            </li>
+                            <li>
+                                <span className="number"> 2</span>
+                                <span className="name"> John</span>
+                                <span className="points"> 78</span>
+                                <span className="badge"> 2121</span>
+                            </li>
+                            <li>
+                                <span className="number"> 3</span>
+                                <span className="name"> John</span>
+                                <span className="points"> 78</span>
+                                <span className="badge"> 2121</span>
+                            </li>
+                            <li>
+                                <span className="number"> 4</span>
+                                <span className="name"> John</span>
+                                <span className="points"> 78</span>
+                                <span className="badge"> 2121</span>
+                            </li>
+                            <li>
+                                <span className="number"> 5</span>
+                                <span className="name"> John</span>
+                                <span className="points"> 78</span>
+                                <span className="badge"> 2121</span>
+                            </li>
+                        </ul> 
+                    </div>
+                     
                 </>
                 : <div>Loading...</div>
             }

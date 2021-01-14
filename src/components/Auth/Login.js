@@ -42,7 +42,7 @@ export default function Login () {
             {
                 error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
             }
-            <form className="form" onSubmit={submit}>
+            <form className="form" onSubmit={submit} style={{height: "100vh"}}>
                 <label htmlFor="login-email">Email: </label>
                 <input 
                     id="login-email" 

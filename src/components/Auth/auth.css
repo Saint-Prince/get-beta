@@ -1,5 +1,6 @@
 .page {
     padding: 1rem;
+    height: 100%;
 }
 .form label,
 .form input {
@@ -10,9 +11,11 @@
 }
 .form label {
     margin-bottom: 0.2rem;
+    font-size: 18px;
 }
 .form input[type="text"],
 .form input[type="email"],
+.form input[type="file"],
 .form input[type="password"],
 textarea {
     width: 100%;
@@ -49,8 +52,9 @@ textarea {
     font-size: 1.1rem;
 }
 .form input[type="submit"]:hover {
-    color: #c8ecb7;
+    color: #f1f1f1;
     background-color: #2383d1;
+    border: 1px solid #1476c7;
 }
 .wrong{
     border: 1px solid rgb(228, 60, 38);

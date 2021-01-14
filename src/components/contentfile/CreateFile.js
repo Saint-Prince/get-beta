@@ -80,8 +80,8 @@ function CreateFile () {
             {
                 error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
             }
-            {/* <form className="form" onSubmit={handleSubmit(submit)} encType="multipart/form-data"> */}
-                <label htmlFor="content-file">File: </label>
+            <div className="form" style={{height: "100vh"}}>
+                {/* <label htmlFor="content-file">File: </label> */}
                 <input 
                     id="content-file" 
                     type="file" 
@@ -101,9 +101,8 @@ function CreateFile () {
                     placeholder= "e.g Part 1" 
                     onChange={e => setDescription(e.target.value)}
                 />
-
                 <input type="submit" onClick={uploadFile} value="Upload File" />
-            {/* </form> */}
+            </div>
         </div>
     )
 }

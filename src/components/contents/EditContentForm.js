@@ -126,7 +126,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                     /> Other
                 </label>
 
-                <input type="submit" value="Save" />
+                <input type="submit" value="Save!" />
             </form>
             {/* <p>You can add your files after content creation</p> */}
         </div>
