@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import logo from "../profile/pic-img.jpeg"
 import "./view.css"
-import { getContent, deleteContent } from "./Api"
+import { getContent, deleteContent, getContentFiles } from "./Api"
 import { getUser } from "../profile/Api"
 
 function ContentView () {
@@ -12,6 +12,7 @@ function ContentView () {
     const history = useHistory();
     const match = useRouteMatch()
     const [contentDetails, setContentDetails] = useState({})
+    const [contentFiles, setContentFiles] = useState([])
     const [userDetails, setUserDetails] = useState({})
 
     useEffect(() => {
@@ -31,8 +32,15 @@ function ContentView () {
             const user = await getUser(token, id)
             setUserDetails(user)
         }
+        const fetchContentFiles = async () => {
+            let id = match.params.id
+            let token = userData.token
+            const details = await getContentFiles(token, id)
+            setContentFiles(details.contentfiles)
+        }
         fetchProfile();
         fetchContent();
+        fetchContentFiles();
     }, [history, userData.user, userData.token, match.params.id])
 
     const removeContent = async (content_id) => {
@@ -91,9 +99,9 @@ function ContentView () {
                             <hr/>
                         </div> 
                     </div>
-                    <div style={{marginLeft: "5%"}}>
-                    <h2 >Files</h2>
-                        <ul>
+                    <div style={{margin: "0 5%"}}>
+                    <h2>Files</h2>
+                        <ul className="filelist">
                             <li>
                                 <span className="number"> 1</span>
                                 <span className="name"> John</span>
@@ -125,8 +133,21 @@ function ContentView () {
                                 <span className="badge"> 2121</span>
                             </li>
                         </ul> 
+                        {
+                            contentFiles ? 
+                            contentFiles.map( (contentFile, index) => (
+                                <ul key={contentFile._id} className="filelist">
+                                    <li>
+                                        <span className="number"> {index + 1} </span>
+                                        <span className="name"> Description </span>
+                                        <span className="points"> {contentFile.filename} </span>
+                                        <span className="badge"> { contentFile.storageUsed } </span>
+                                    </li>
+                                </ul>
+                            )) : <div> Loading... </div>
+                        }
                     </div>
-                     
+
                 </>
                 : <div>Loading...</div>
             }
