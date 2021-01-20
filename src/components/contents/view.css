@@ -74,20 +74,20 @@
     transition: .5s;
 }
 .filelist li:nth-child(1) {
-    background: rgba(52, 145, 231, 0.6);
+    background: rgba(135 255 233 / 60%);
 }
 .filelist li:nth-child(2) {
-    background: rgba(51, 145, 233, 0.4);
+    background: rgba(102 180 255 / 40%);
 }
 .filelist li:nth-child(3) {
     background: rgba(29, 143, 250, 0.2);
 }
-.filelist li span:nth-child(1) {
-    width: 30px;
+.number {
+    width: 17px;
 }
-.filelist li span:nth-child(2) {
+/* .filelist li span:nth-child(2) {
     width: 200px;
-}
+}  */
 .filelist li span:nth-child(3) {
     width: 100px;
     text-align: right;

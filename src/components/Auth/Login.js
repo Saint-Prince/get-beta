@@ -58,11 +58,12 @@ export default function Login () {
                 />
 
                 <input type="submit" value="Log In!" />
-            </form> <br/>
-            <div>
+              <div>
                 <p>Don't have an account?</p> <br/>
                 <p> <Link className="reg-link"to="/register">Register</Link> </p>
-            </div>
+            </div>  
+            </form> <br/>
+            
         </div>
     )
 }

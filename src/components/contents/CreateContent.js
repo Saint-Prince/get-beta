@@ -69,6 +69,7 @@ export default function CreateContent () {
                 <input 
                     id="content-descrp" 
                     type="text" 
+                    required
                     placeholder= "about content..." 
                     onChange={e => setDescription(e.target.value)}
                 />

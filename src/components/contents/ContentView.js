@@ -5,6 +5,7 @@ import logo from "../profile/pic-img.jpeg"
 import "./view.css"
 import { getContent, deleteContent, getContentFiles } from "./Api"
 import { getUser } from "../profile/Api"
+import * as GrIcons from "react-icons/gr"
 
 function ContentView () {
 
@@ -72,6 +73,7 @@ function ContentView () {
                         <p> {contentDetails.descrp} </p>
                         <p>Tags:  {contentDetails.tag} </p>
                         <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
+                        <p> Last Updated: { contentDetails.updatedAt ? contentDetails.updatedAt.substr(0, 10) : null }</p>
 
                         {
                             contentDetails.vendorId === userDetails.id ?
@@ -101,50 +103,47 @@ function ContentView () {
                     </div>
                     <div style={{margin: "0 5%"}}>
                     <h2>Files</h2>
-                        <ul className="filelist">
-                            <li>
-                                <span className="number"> 1</span>
-                                <span className="name"> John</span>
-                                <span className="points"> 78</span>
-                                <span className="badge"> 2121</span>
-                            </li>
-                            <li>
-                                <span className="number"> 2</span>
-                                <span className="name"> John</span>
-                                <span className="points"> 78</span>
-                                <span className="badge"> 2121</span>
-                            </li>
-                            <li>
-                                <span className="number"> 3</span>
-                                <span className="name"> John</span>
-                                <span className="points"> 78</span>
-                                <span className="badge"> 2121</span>
-                            </li>
-                            <li>
-                                <span className="number"> 4</span>
-                                <span className="name"> John</span>
-                                <span className="points"> 78</span>
-                                <span className="badge"> 2121</span>
-                            </li>
-                            <li>
-                                <span className="number"> 5</span>
-                                <span className="name"> John</span>
-                                <span className="points"> 78</span>
-                                <span className="badge"> 2121</span>
-                            </li>
-                        </ul> 
                         {
                             contentFiles ? 
-                            contentFiles.map( (contentFile, index) => (
+                            contentFiles.map( (contentFile, index) => {
+                                
+                                let size;
+                                if (contentFile.storageUsed  <= 999999) {
+                                    size = Math.round(contentFile.storageUsed / 1000)+ " kb"
+                                } else if (contentFile.storageUsed  <= 999999999 ) {
+                                    size = Math.round(contentFile.storageUsed / 1000000)+ " mb"
+                                } else {
+                                    size = Math.round(contentFile.storageUsed / 1000000000) + " gb"
+                                }
+                                return (
                                 <ul key={contentFile._id} className="filelist">
                                     <li>
-                                        <span className="number"> {index + 1} </span>
-                                        <span className="name"> Description </span>
-                                        <span className="points"> {contentFile.filename} </span>
-                                        <span className="badge"> { contentFile.storageUsed } </span>
+                                        <span className="number"> {index + 1 + "."}  </span>
+                                        <span className="name"> {contentFile.descrp ? contentFile.descrp : "No Description"} </span>
                                     </li>
-                                </ul>
-                            )) : <div> Loading... </div>
+                                    <li>
+                                        <span className="points" style={{width: "200px"}}>
+                                            <Link to={`file/stream/${contentFile._id}`} style={{marginRight: "10px"}}>
+                                               {contentFile.filename}  
+                                            </Link>
+                                            
+                                        </span>
+                                        <span className="badge" style={{marginLeft: "30%"}} >
+                                            { size + " " } 
+                                            {
+                                                contentFile.mimetype === "image/jpeg" || "image/jpg" || "image/png" ?
+                                                <GrIcons.GrImage/> :
+                                                contentFile.mimetype === "audio/mp3" || "video/mp4" ?
+                                                <GrIcons.GrMultimedia/> :
+                                                contentFile.mimetype === "application/pdf" || "application/msword" ||
+                                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ?
+                                                <GrIcons.GrDocumentText/> : null
+                                            }
+                                        </span>
+                                    </li>
+
+                                </ul>)
+                        }) : <div> Loading... </div>
                         }
                     </div>
 
