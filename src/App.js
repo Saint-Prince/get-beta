@@ -72,7 +72,7 @@ function App() {
             <Route exact path="/contents/create" component={CreateContent} />  
             <Route exact path="/myContents" component={MyContents} />  
             <Route exact path="/contents/newFile/:id" component={CreateFile} />  
-            <Route exact path="/contents/view/file/stream/:id" component={FileStream} />  
+            <Route exact path="/contentfile/view/:id" component={FileStream} />  
             <Route exact path="/:id/enrolled-contents" component={EnrolledContents} />  
             <Route exact path="/allcontents" component={AllContents} />  
             <Route exact path="/reports" component={Reports} />  

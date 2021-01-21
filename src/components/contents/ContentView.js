@@ -102,7 +102,7 @@ function ContentView () {
                         </div> 
                     </div>
                     <div style={{margin: "0 5%"}}>
-                    <h2>Files</h2>
+                    <h2> { contentFiles.length === 0 ? "No files attached to this content" : "Files"} </h2>
                         {
                             contentFiles ? 
                             contentFiles.map( (contentFile, index) => {
@@ -123,7 +123,7 @@ function ContentView () {
                                     </li>
                                     <li>
                                         <span className="points" style={{width: "200px"}}>
-                                            <Link to={`file/stream/${contentFile._id}`} style={{marginRight: "10px"}}>
+                                            <Link to={`/contentfile/view/${contentFile._id}`} style={{marginRight: "10px"}}>
                                                {contentFile.filename}  
                                             </Link>
                                             
@@ -144,7 +144,7 @@ function ContentView () {
 
                                 </ul>)
                         }) : <div> Loading... </div>
-                        }
+                        } <br/><br/>
                     </div>
 
                 </>
