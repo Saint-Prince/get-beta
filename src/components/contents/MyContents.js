@@ -37,7 +37,12 @@ function MyContents () {
                 <option value="recent"> Recently </option>
             </select> */}
             <p align="right" style={{ marginRight: "3%" }}>
-                <button className="btn btn-lg btn-success"> <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> Create Content </Link> </button> 
+                 
+                <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                    <button className="btn btn-lg btn-success">
+                        Create Content
+                    </button>     
+                </Link> 
             </p> 
             <div className="services">
                 <div className="card">

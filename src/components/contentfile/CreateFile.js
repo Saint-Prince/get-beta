@@ -9,8 +9,8 @@ import ErrorNotice from "../Misc/ErrorNotice"
 function CreateFile () {
 
     const [file, setFile] = useState("");
-    const [descrp, setDescription] = useState();
-    const [progress, setProgress] = useState(0);
+    // const [descrp, setDescription] = useState();
+    // const [progress, setProgress] = useState(0);
     //accessing input element
     const el = useRef();
     const [error, setError] = useState();
@@ -22,29 +22,31 @@ function CreateFile () {
     const content_id = match.params.id
 
     const handleChange = (e) => {
-        setProgress(0)
+        // setProgress(0)
         const file = e.target.files[0];
-        console.log(file)
+        // console.log(file)
         setFile(file);
     }
 
     const uploadFile = () => {
         const formData = new FormData();
-        console.log(descrp)
-        // let details = {   details , }
-        formData.append("file", file, descrp ); //appending file
+        
+        // let file = { file, descrp }
+        // 
+        formData.append("file", file); //appending file
+        // console.log(formData)
         Axios.post(
-            `http://localhost:5000/apiv1/vendors/contents/${content_id}/addfile`,  
+            `http://localhost:5000/apiv1/vendors/contents/${content_id}/addfile`,
             formData,
             {
                 headers: { "x-auth-token": userData.token }
             },
-            {
-                onUploadProgress: (ProgressEvent) => {
-                    let progress = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + "%";
-                    setProgress(progress);
-                }
-            }  
+            // {
+            //     onUploadProgress: (ProgressEvent) => {
+            //         let progress = Math.round(ProgressEvent.loaded / ProgressEvent.total * 100) + "%";
+            //         setProgress(progress);
+            //     }
+            // } , descrp
         ).then(res => {
             console.log(res);
             history.push(`/contents/view/${content_id}`)
@@ -90,7 +92,7 @@ function CreateFile () {
                     onChange={handleChange} 
                 />
 
-                <div className="progressBar" style={{width: progress}}>
+                {/* <div className="progressBar" style={{width: progress}}>
                     {progress}
                 </div>
 
@@ -100,7 +102,7 @@ function CreateFile () {
                     type="text" 
                     placeholder= "e.g Part 1" 
                     onChange={e => setDescription(e.target.value)}
-                />
+                /> */}
                 <input type="submit" onClick={uploadFile} value="Upload File" />
             </div>
         </div>

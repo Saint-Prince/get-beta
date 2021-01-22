@@ -5,7 +5,6 @@ import logo from "../profile/pic-img.jpeg"
 import "./view.css"
 import { getContent, deleteContent, getContentFiles } from "./Api"
 import { getUser } from "../profile/Api"
-import * as GrIcons from "react-icons/gr"
 
 function ContentView () {
 
@@ -52,7 +51,6 @@ function ContentView () {
             history.push("/myContents")
         }
     }
-
     return (
         
         <div className="view">
@@ -78,20 +76,24 @@ function ContentView () {
                         {
                             contentDetails.vendorId === userDetails.id ?
                             <div>
-                                <button className="cart" style={{background: "#7fb9e2"}}>
-                                    <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                
+                                <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                    <button className="cart" style={{background: "#7fb9e2"}}>
                                         Edit
-                                    </Link>
-                                </button> 
+                                    </button>
+                                </Link>
+                                 
                                 <button onClick={() => removeContent(contentDetails._id)}
                                     className="cart" style={{background: "#f56464", marginLeft: "40%"}}>
                                     Delete
                                 </button> 
-                                <button className="cart" style={{background: "#7fb9e2"}}>
-                                    <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                
+                                <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                    <button className="cart" style={{background: "#7fb9e2"}}>
                                         Add File
-                                    </Link>
-                                </button> 
+                                    </button>  
+                                </Link>
+                                 
                                 <button className="cart" style={{marginLeft: "60px"}}>Edit Cover Image</button>
                                 <br/> <br/>
                                 </div> : 
@@ -122,7 +124,7 @@ function ContentView () {
                                         <span className="name"> {contentFile.descrp ? contentFile.descrp : "No Description"} </span>
                                     </li>
                                     <li>
-                                        <span className="points" style={{width: "200px"}}>
+                                        <span className="points" style={{width: "100px"}}>
                                             <Link to={`/contentfile/view/${contentFile._id}`} style={{marginRight: "10px"}}>
                                                {contentFile.filename}  
                                             </Link>
@@ -130,15 +132,6 @@ function ContentView () {
                                         </span>
                                         <span className="badge" style={{marginLeft: "30%"}} >
                                             { size + " " } 
-                                            {
-                                                contentFile.mimetype === "image/jpeg" || "image/jpg" || "image/png" ?
-                                                <GrIcons.GrImage/> :
-                                                contentFile.mimetype === "audio/mp3" || "video/mp4" ?
-                                                <GrIcons.GrMultimedia/> :
-                                                contentFile.mimetype === "application/pdf" || "application/msword" ||
-                                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ?
-                                                <GrIcons.GrDocumentText/> : null
-                                            }
                                         </span>
                                     </li>
 
