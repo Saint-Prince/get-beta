@@ -21,6 +21,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
             price: contentDetails ? contentDetails.price: "",
             type: contentDetails ? contentDetails.type: "",
             tag: contentDetails ? contentDetails.tag: "",
+            published: contentDetails ? contentDetails.published: "",
             format: contentDetails ? contentDetails.format: "",
         },
     });
@@ -60,7 +61,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                     placeholder= "about content..." 
                     ref={register}
                 />
-                <label>
+                <label htmlFor="content-type"> Method </label>
                    <input 
                         id="content-type" 
                         name="type"
@@ -69,17 +70,15 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         onClick={handleToggle}
                         ref={register} 
                     /> Bill
-                </label>
-                <label>
+                
                     <input 
-                        id="content-free" 
+                        id="content-type" 
                         name="type"
                         type="radio" 
                         value="free"
                         onClick={handleTogggle}
                         ref={register}
                     /> Free
-                </label>
                 <div className={isActive ? "price" : null}>
                   <label htmlFor="content-price">Price: </label>
                     <input 
@@ -97,35 +96,46 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                     name="tag"
                     placeholder="e.g music, tutorial, pdf e.t.c"
                 />
-                <p>Content Format:</p> <br/>
-                <label>
+                <label htmlFor="content-publish" required> Publish your content </label> 
                     <input 
-                        id="content-doc" 
+                        id="content-publish" 
+                        name="published"
+                        type="radio" 
+                        value="private"
+                        ref={register} 
+                    /> Private  
+                    <input 
+                        id="content-publish" 
+                        name="published"
+                        type="radio" 
+                        value="public"
+                        ref={register} 
+                    /> Public
+                <br/> <br/>
+                <label htmlFor="content-format"> Content Format </label>
+                    <input 
+                        id="content-format" 
                         name="format"
                         type="radio" 
                         value="document"
                         ref={register}
                     /> Document
-                </label>
-                <label>
+                
                     <input 
-                        id="content-media" 
+                        id="content-format" 
                         name="format"
                         type="radio" 
                         value="media"
                         ref={register}
                     /> Media
-                </label>
-                <label>
                     <input 
-                        id="content-other" 
+                        id="content-format" 
                         name="format"
                         type="radio" 
                         value="other"
                         ref={register}
                     /> Other
-                </label>
-
+                    <br/> <br/>
                 <input type="submit" value="Save!" />
             </form>
             {/* <p>You can add your files after content creation</p> */}

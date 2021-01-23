@@ -27,6 +27,7 @@ textarea {
 }
 .form input[type="radio"] {
     display: inline;
+    margin-left: 8px;
 }
 textarea {
     outline: whitesmoke;

@@ -30,7 +30,7 @@ export default function EditContent () {
     const onSubmit = async (data) => {
         let token = userData.token
         await updateContent(token, match.params.id, data)
-        history.push("/myContents")
+        history.push(`/contents/view/${contentDetails._id}`)
     }
 
     return (

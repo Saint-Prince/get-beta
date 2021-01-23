@@ -94,7 +94,7 @@ export default function FileStream () {
                             className="cart" style={{background: "#f56464"}}>
                             Delete
                         </button>
-                        <button className="cart" style={{marginLeft: "60px"}}>Edit Description</button>
+                        {/* <button className="cart" style={{marginLeft: "60px"}}>Edit Description</button> */}
                         <br/> <br/>
                         </div> : 
                         null 

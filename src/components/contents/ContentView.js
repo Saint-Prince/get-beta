@@ -76,7 +76,15 @@ function ContentView () {
                         {
                             contentDetails.vendorId === userDetails.id ?
                             <div>
-                                
+                                <p style={{
+                                    background:" #e5f565",
+                                    width: "18%",
+                                    textAlign: "center",
+                                    color: "#484444",
+                                    borderRadius: "50px"
+                                }}>
+                                    { contentDetails.published === "private" ? "Private" : "Public" } 
+                                </p>
                                 <Link to={`/contents/edit/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
                                     <button className="cart" style={{background: "#7fb9e2"}}>
                                         Edit

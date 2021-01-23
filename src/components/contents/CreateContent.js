@@ -12,6 +12,7 @@ export default function CreateContent () {
     const [price, setPrice] = useState();
     const [type, setType] = useState();
     const [tag, setTag] = useState([]);
+    const [published, setPublish] = useState();
     const [format, setFormat] = useState();
     const [isActive, setActive] = useState("false");
 
@@ -31,7 +32,7 @@ export default function CreateContent () {
         e.preventDefault();
         try {
             const newContent = 
-            { title, descrp, price,  type, tag, format };
+            { title, descrp, price,  type, tag, format, published };
             await Axios.post(
                 `http://localhost:5000/apiv1/vendors/newcontent`, 
                 newContent,
@@ -73,7 +74,7 @@ export default function CreateContent () {
                     placeholder= "about content..." 
                     onChange={e => setDescription(e.target.value)}
                 />
-                <label>
+                <label htmlFor="content-type"> Method </label>
                    <input 
                         id="content-type" 
                         name="type"
@@ -82,17 +83,15 @@ export default function CreateContent () {
                         onClick={handleToggle}
                         onChange={e => setType(e.target.value)} 
                     /> Bill
-                </label>
-                <label>
+                
                     <input 
-                        id="content-free" 
+                        id="content-type" 
                         name="type"
                         type="radio" 
                         value="free"
                         onClick={handleTogggle}
                         onChange={e => setType(e.target.value)} 
                     /> Free
-                </label>
                 <div className={isActive ? "price" : null}>
                   <label htmlFor="content-price">Price: </label>
                     <input 
@@ -108,36 +107,48 @@ export default function CreateContent () {
                     onChange={e => setTag(e.target.value)}
                     placeholder="e.g music, tutorial, pdf e.t.c"
                 />
-                <p>Content Format:</p> <br/>
-                <label>
+                <br/>
+                <label htmlFor="content-publish" required> Publish your content </label> 
                     <input 
-                        id="content-doc" 
+                        id="content-publish" 
+                        name="published"
+                        type="radio" 
+                        value="private"
+                        onChange={e => setPublish(e.target.value)} 
+                    /> Private  
+                    <input 
+                        id="content-publish" 
+                        name="published"
+                        type="radio" 
+                        value="public"
+                        onChange={e => setPublish(e.target.value)} 
+                    /> Public
+                    <br/> <br/>
+                <label htmlFor="content-format"> Content Format </label>
+                    <input 
+                        id="content-format" 
                         name="format"
                         type="radio" 
                         value="document"
                         onChange={e => setFormat(e.target.value)} 
                     /> Document
-                </label>
-                <label>
+                
                     <input 
-                        id="content-media" 
+                        id="content-format" 
                         name="format"
                         type="radio" 
                         value="media"
                         onChange={e => setFormat(e.target.value)} 
                     /> Media
-                </label>
-                <label>
                     <input 
-                        id="content-other" 
+                        id="content-format" 
                         name="format"
                         type="radio" 
                         value="other"
                         onChange={e => setFormat(e.target.value)} 
                     /> Other
-                </label>
-
-                <input type="submit" value="Create Content" />
+                    <br/> <br/>
+                <input type="submit" value="Create Content" /> 
             </form>
             <p>You can add your files after content creation</p>
         </div>
