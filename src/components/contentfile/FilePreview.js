@@ -27,27 +27,29 @@ export default function FilePreview () {
 
     return (
 
-        <div style={{padding: "30px 0"}}>
+        <div style={{padding: "30px 10px"}}>
             {
                 fileDetails ?
                 <div className="box">
-                    {
-                        fileDetails.mimetype === "application/pdf" || "application/msword" ||
-                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ?
-                        <embed src={fileDetails.url} type={fileDetails.mimetype} width="100%" height="600px"> 
-                        </embed> :
+                    {   
+                        fileDetails.mimetype === "application/pdf" || fileDetails.mimetype === "application/msword" ||
+                        fileDetails.mimetype === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ?
+                        <iframe src={fileDetails.url} width="100%" height="600px" title="doc"> 
+                        </iframe> :
                         // <a href={`/${fileDetails.url}`}>
-                        //     Click Here
+                        //     Click HereContentType={fileDetails.mimetype} 
                         // </a>: 
-                        fileDetails.mimetype === "audio/mp3" ?
+                        fileDetails.mimetype === "audio/mp3" || fileDetails.mimetype === "audio/mpeg" ?
                         <audio controls>
                             <source src={fileDetails.url} type={fileDetails.mimetype}/>
                         </audio> :
                         fileDetails.mimetype === "video/mp4" ?
-                        <video controls>
+                        <video controls style={{ 
+                            backgroundSize: "contain", width: "100%" 
+                        }} >
                             <source src={fileDetails.url} type={fileDetails.mimetype} />
                         </video> : 
-                        fileDetails.mimetype === "image/jpeg" || "image/jpg" || "image/png" ?
+                        fileDetails.mimetype === "image/jpeg" || fileDetails.mimetype === "image/jpg" || fileDetails.mimetype === "image/png" ?
                         <img src={fileDetails.url} alt={fileDetails.filename} style={{ 
                             backgroundSize: "contain", width: "100%" 
                         }} />

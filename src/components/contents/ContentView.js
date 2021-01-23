@@ -121,7 +121,7 @@ function ContentView () {
                                 <ul key={contentFile._id} className="filelist">
                                     <li>
                                         <span className="number"> {index + 1 + "."}  </span>
-                                        <span className="name"> {contentFile.descrp ? contentFile.descrp : "No Description"} </span>
+                                        <span className="name"> { contentFile.dateCreated.substr(0, 10) } </span>
                                     </li>
                                     <li>
                                         <span className="points" style={{width: "100px"}}>

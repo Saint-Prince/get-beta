@@ -5,7 +5,6 @@ import UserContext from "../context/UserContext"
 // import * as GrIcons from "react-icons/gr"
 import "../contents/view.css"
 import {  getContentFile, deleteContentFile } from "./Api"
-import { getContent } from "../contents/Api"
 import { getUser } from "../profile/Api"
 // import { getUser } from "../profile/Api"getContent, deleteContent,
 
@@ -16,7 +15,6 @@ export default function FileStream () {
     const match = useRouteMatch()
     const [fileDetails, setFileDetails] = useState({}) 
     const [userDetails, setUserDetails] = useState({}) 
-    const [contentDetails, setContentDetails] = useState({})
 
     useEffect(() => {
         
@@ -36,17 +34,10 @@ export default function FileStream () {
             const user = await getUser(token, id)
             setUserDetails(user)
         }
-        const fetchContent = async () => {
-            let content_id = fileDetails.contentId
-            let token = userData.token
-            const details = await getContent(token, content_id)
-            // console.log(details)
-            setContentDetails(details.content)
-        }
+        
         fetchContentFile();
-        fetchContent();
         fetchProfile();
-    }, [history, userData.user, userData.token, fileDetails.contentId, match.params.id])
+    }, [history, userData.user, userData.token, match.params.id, fileDetails.contentId])
 
     let size;
     if (fileDetails.storageUsed  <= 999999) {
@@ -56,7 +47,7 @@ export default function FileStream () {
     } else {
         size = Math.round(fileDetails.storageUsed / 1000000000) + " gb"
     }
-    console.log(fileDetails.contentId)
+
     const removeContentFile = async (confile_id) => {
         let choice = prompt("Please confirm content title to delete", `${fileDetails.filename}`)
         if (choice === fileDetails.filename) {
@@ -73,7 +64,6 @@ export default function FileStream () {
     // } else {
     //     logo = <GrIcons.GrDocumentText/>
     // }
-
     return (
 
         <div className="details">
@@ -81,7 +71,7 @@ export default function FileStream () {
                 fileDetails ?
                 <div className="box">
                     <div className="row">
-                        <h2>{ contentDetails.title }</h2>
+                        <h2>{ fileDetails.filename }</h2>
                     </div>
                     <Link to={`/contentfile/preview/${fileDetails._id}`}>
                         <button 
@@ -90,7 +80,6 @@ export default function FileStream () {
                         </button>     
                     </Link>
                      
-                    <p> <b>File Name: </b> {fileDetails.filename}  </p>
                     <p> <b>File Type: </b> {fileDetails.mimetype} </p>
                     <p> <b>Created At: </b> { fileDetails.dateCreated ? fileDetails.dateCreated.substr(0, 10) : null} </p>
                     <p> 
@@ -99,7 +88,7 @@ export default function FileStream () {
                     </p>
                     {
                         //
-                        fileDetails.vendorId === userDetails._id ?
+                        fileDetails.vendorId === userDetails.id ?
                         <div>
                         <button onClick={() => removeContentFile(fileDetails._id)}
                             className="cart" style={{background: "#f56464"}}>
