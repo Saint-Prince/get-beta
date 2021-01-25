@@ -17,6 +17,7 @@ import AllContents from "./components/contents/AllContents"
 import EnrolledContents from "./components/contents/EnrolledContents"
 import ProfilePage from "./components/profile/ProfilePage"
 import EditProfile from "./components/profile/EditProfile"
+import ViewProfile from "./components/profile/ViewProfile"
 import Login from "./components/Auth/Login"
 import Register from "./components/Auth/Register"
 import UserContext from "./components/context/UserContext"
@@ -67,6 +68,7 @@ function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/profile/edit/:id" component={EditProfile} />
+            <Route exact path="/profile/view/:id" component={ViewProfile} />
             <Route exact path="/contents" component={Content} />  
             <Route exact path="/contents/view/:id" component={ContentView} />  
             <Route exact path="/contents/edit/:id" component={EditContent} />  

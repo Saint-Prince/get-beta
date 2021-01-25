@@ -78,7 +78,21 @@ function ContentView () {
                         </p>
                         <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
                         <p> Last Updated: { contentDetails.updatedAt ? contentDetails.updatedAt.substr(0, 10) : null }</p>
+                        {
+                           contentDetails.vendorId !== userDetails.id ? 
+                           <div> 
+                               <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                    <button className="cart" style={{background: "#7fb9e2"}}>
+                                        Enroll
+                                    </button>  
+                                </Link>
 
+                                <Link to={`/profile/view/${contentDetails.vendorId}`}
+                                    className="cart" style={{ textDecoration: "none", background: "#ec64f5", marginLeft: "40%", fontSize: "14px"}}>
+                                    Creator
+                                </Link> 
+                            </div> : null
+                        }
                         {
                             contentDetails.vendorId === userDetails.id ?
                             <div>
