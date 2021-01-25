@@ -34,11 +34,13 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
     return (
 
         <div className="page">
-            <h2 style={{ padding: '1rem', color: "#0e5996" }}> 
-                <Link to={`/contents/view/${contentDetails._id}`} style={{textDecoration: "none"}}> 
+            
+            <Link to={`/contents/view/${contentDetails._id}`} style={{textDecoration: "none"}}> 
+                <h2 style={{ padding: '1rem', color: "#0e5996" }}> 
                     Edit Content  
-                </Link>
-            </h2>
+                </h2>   
+            </Link>
+            
             {/* {
                 error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
             } */}

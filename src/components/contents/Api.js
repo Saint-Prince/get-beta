@@ -24,6 +24,14 @@ export const getContent = (token, content_id) =>
         }
     ).then(res => res.data)
         .catch(err => console.log(err))
+export const getEnrolledContents = (token, id) => 
+    Axios.get (       
+        `http://localhost:5000/apiv1/vendors/${id}/subscribedContents`,
+        {
+            headers: { "x-auth-token": token }
+        }
+    ).then(res => res.data)
+        .catch(err => console.log(err))
 export const updateContent = (token, content_id, contentDetails) => 
     Axios.put (       
         `http://localhost:5000/apiv1/vendors/contents/${content_id}`,
