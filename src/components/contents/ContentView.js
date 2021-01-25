@@ -69,7 +69,13 @@ function ContentView () {
                         </div>
 
                         <p> {contentDetails.descrp} </p>
-                        <p>Tags:  {contentDetails.tag} </p>
+                        <p>Tags: 
+                            <span style={{
+                                    background: "#e9eade",
+                                    color: "#484444"
+                                }}
+                            > {contentDetails.tag} </span>  
+                        </p>
                         <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
                         <p> Last Updated: { contentDetails.updatedAt ? contentDetails.updatedAt.substr(0, 10) : null }</p>
 

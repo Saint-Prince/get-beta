@@ -36,7 +36,7 @@ function Content () {
                     <p className="card-text">
                         What have we here for ourselves 
                     </p>
-                    <Link to="/1/enrolled-contents" className="card-btn">
+                    <Link to="/contents/enrolled" className="card-btn">
                         View <span> &rarr; </span>
                     </Link>
                 </div>

@@ -69,6 +69,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         value="paid"
                         onClick={handleToggle}
                         ref={register} 
+                        required
                     /> Bill
                 
                     <input 
@@ -77,6 +78,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         type="radio" 
                         value="free"
                         onClick={handleTogggle}
+                        required
                         ref={register}
                     /> Free
                 <div className={isActive ? "price" : null}>
@@ -102,6 +104,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         name="published"
                         type="radio" 
                         value="private"
+                        required
                         ref={register} 
                     /> Private  
                     <input 
@@ -109,6 +112,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         name="published"
                         type="radio" 
                         value="public"
+                        required
                         ref={register} 
                     /> Public
                 <br/> <br/>

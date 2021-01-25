@@ -75,7 +75,7 @@ function App() {
             <Route exact path="/contents/newFile/:id" component={CreateFile} />  
             <Route exact path="/contentfile/view/:id" component={FileStream} />  
             <Route exact path="/contentfile/preview/:id" component={FilePreview} />  
-            <Route exact path="/:id/enrolled-contents" component={EnrolledContents} />  
+            <Route exact path="/contents/enrolled" component={EnrolledContents} />  
             <Route exact path="/allcontents" component={AllContents} />  
             <Route exact path="/reports" component={Reports} />  
           </Switch>

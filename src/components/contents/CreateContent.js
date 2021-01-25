@@ -45,10 +45,12 @@ export default function CreateContent () {
             err.response.data.msg && setError(err.response.data.msg); 
         }
     }
-    // let tagData = tag;
-    // let tagSplit = tagData.split(/\r?\n/)
-    // console.log(tagData)
-    // console.log(tag)
+    const handleChange = (e) => {
+        let handler = e.target.value
+        let tagSplit = handler.split(/\r?\n/)
+        setTag(tagSplit)  
+    }
+    
 
     return (
         <div className="page">
@@ -81,6 +83,7 @@ export default function CreateContent () {
                         type="radio" 
                         value="paid"
                         onClick={handleToggle}
+                        required
                         onChange={e => setType(e.target.value)} 
                     /> Bill
                 
@@ -90,6 +93,7 @@ export default function CreateContent () {
                         type="radio" 
                         value="free"
                         onClick={handleTogggle}
+                        required
                         onChange={e => setType(e.target.value)} 
                     /> Free
                 <div className={isActive ? "price" : null}>
@@ -104,8 +108,12 @@ export default function CreateContent () {
                 <label htmlFor="tags">Tags: </label>
                 <textarea id="tags" 
                     cols={40} rows={5} 
-                    onChange={e => setTag(e.target.value)}
-                    placeholder="e.g music, tutorial, pdf e.t.c"
+                    onChange={handleChange}
+                    //e => setTag(e.target.value)
+                    placeholder="
+                        music
+                        tutorial 
+                        pdf e.t.c"
                 />
                 <br/>
                 <label htmlFor="content-publish" required> Publish your content </label> 
@@ -114,6 +122,7 @@ export default function CreateContent () {
                         name="published"
                         type="radio" 
                         value="private"
+                        required
                         onChange={e => setPublish(e.target.value)} 
                     /> Private  
                     <input 
@@ -121,6 +130,7 @@ export default function CreateContent () {
                         name="published"
                         type="radio" 
                         value="public"
+                        required
                         onChange={e => setPublish(e.target.value)} 
                     /> Public
                     <br/> <br/>

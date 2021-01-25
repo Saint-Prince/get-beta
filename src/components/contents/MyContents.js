@@ -13,6 +13,8 @@ function MyContents () {
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const [contents, setContents] = useState([])
+    const [search, setSearch] = useState("")
+    const [filteredContents, setFilteredContents] = useState([]);
 
     useEffect(() => {
         
@@ -28,9 +30,20 @@ function MyContents () {
         fetchContents();
     }, [history, userData.user, userData.token])
 
+    useEffect(() => {
+        setFilteredContents(
+            contents.filter( content => {
+                return content.title.toLowerCase().includes( search.toLowerCase() )
+            })
+        )
+    }, [search, contents])
+
     return (
         <div >    
-            <input id="find" className="search" type="search" placeholder="Search Contents" />  <br/> <br/>
+            <input id="find" className="search" 
+                type="search" placeholder="Search Contents" 
+                onChange={ e => setSearch(e.target.value) }
+            />  <br/> <br/>
             {/* <label htmlFor="sort"> Sort By: </label>
             <select>
                 <option value="recent"> Recently Added </option>
@@ -45,37 +58,9 @@ function MyContents () {
                 </Link> 
             </p> 
             <div className="services">
-                <div className="card">
-                    <div className="card-image"></div>  
-                    <div className="card-text">
-                        <span className="date"> 4 days ago </span>
-                        <h2> Content for Babies</h2> <br/>
-                        <p>
-                            Bacon ipsum dolor amet short loin strip steak leberkas ribeye beef pork loin pork belly drumstick
-                            {/* frankfurter. Corned beef ball tip pork belly pig sirloin, ham hock chuck cow fatback strip steak
-                            meatloaf. */}
-                        </p>
-                    </div>
-                    <div className="card-stats">
-                        <div className="stat">
-                            <div className="value">4m</div>
-                            <div className="text">read</div>
-                        </div>
-                        <div className="stat border">
-                            <div className="value">5123</div>
-                            <div className="text">views</div>
-                        </div>
-                        <div className="stat">
-                            <div className="value">32</div>
-                            <div className="text">comments</div>
-                        </div>
-                        {/* <button className="card-btn"> Visit <span>&rarr;</span> </button> */}
-                    </div>      
-                </div> <br/>
-
             {
                 contents ?
-                contents.map( content => ( 
+                filteredContents.map( content => ( 
 
                     <div key={content._id} className="card">
                         <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
@@ -107,7 +92,7 @@ function MyContents () {
                             </Link>
                         </div>      
                     </div>
-                )) : <div> Loading </div>
+                )) : <div> <h2> You haven't created any content </h2> </div>
             }
             </div>
             
