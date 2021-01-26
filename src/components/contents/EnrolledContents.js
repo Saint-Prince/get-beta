@@ -37,6 +37,7 @@ function EnrolledContents () {
             })
         )
     }, [search, enrolledContents])
+    // console.log(enrolledContents)
 
     return (
         <div >   

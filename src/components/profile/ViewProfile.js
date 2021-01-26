@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useRouteMatch } from "react-router-dom"
 import UserContext from "../context/UserContext"
-import { getUser } from "./Api"
+import { getUserProfile } from "./Api"
 import "./profile.css"
 import logo from "./octocat.jpg"
 import * as HiIcons from "react-icons/hi"
@@ -28,14 +28,14 @@ function ViewProfile () {
         const fetchProfile = async () => {
             let id = match.params.id
             let token = userData.token
-            const details = await getUser(token, id)
+            const details = await getUserProfile(token, id)
             setUserDetails(details)
         }
         fetchProfile();
     }, [history, userData.user, userData.token, match.params.id])
 
     return (
-        <div className="profile-card"> 
+        <div className="profile-card" > 
         {
             userDetails ? 
             <>
@@ -45,7 +45,6 @@ function ViewProfile () {
                         borderRadius: "50px",
                     }}
                     alt="Profile Img" className="profile-pic" />
-                <span><button className="btn"> <HiIcons.HiOutlinePencil /> </button></span>
                 <div className="title"> <br/>
                     <h2 style={{ marginLeft: '10%', color: "#0e5996" }}>  {userDetails.fullname} 
                     </h2> 

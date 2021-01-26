@@ -9,6 +9,15 @@ export const getUser = (token, id) =>
     ).then(res => res.data)
         .catch(err => console.log(err))
 
+export const getUserProfile = (token, id) => 
+    Axios.get (       
+        `http://localhost:5000/apiv1/vendors/${id}/profile`,
+        {
+            headers: { "x-auth-token": token }
+        }
+    ).then(res => res.data)
+        .catch(err => console.log(err))
+
 export const updateUser = (token, id, userDetails) => 
     Axios.put (       
         `http://localhost:5000/apiv1/vendors/${id}`,

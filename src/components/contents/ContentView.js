@@ -14,6 +14,7 @@ function ContentView () {
     const [contentDetails, setContentDetails] = useState({})
     const [contentFiles, setContentFiles] = useState([])
     const [userDetails, setUserDetails] = useState({})
+    const [enrolled, setEnrolled] = useState("")
 
     useEffect(() => {
         
@@ -37,11 +38,28 @@ function ContentView () {
             let token = userData.token
             const details = await getContentFiles(token, id)
             setContentFiles(details.contentfiles)
-        }
+        }     
+
         fetchProfile();
         fetchContent();
         fetchContentFiles();
-    }, [history, userData.user, userData.token, match.params.id])
+        
+    }, [history, userData.user, userData.token, match.params.id ])
+
+    useEffect(() => {
+
+        let subids = contentDetails.subscriberids
+        // console.log(subids);
+        if (subids) {
+            if (subids.includes(userDetails.id)) { 
+                setEnrolled("true");
+            } else {
+                setEnrolled("false");
+            }
+        }
+        
+
+    }, [contentDetails.subscriberids, userDetails.id])
 
     const removeContent = async (content_id) => {
         let choice = prompt("Please confirm content title to delete", `${contentDetails.title}`)
@@ -51,6 +69,7 @@ function ContentView () {
             history.push("/myContents")
         }
     }
+
     return (
         
         <div className="view">
@@ -81,11 +100,22 @@ function ContentView () {
                         {
                            contentDetails.vendorId !== userDetails.id ? 
                            <div> 
-                               <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
-                                    <button className="cart" style={{background: "#7fb9e2"}}>
-                                        Enroll
-                                    </button>  
-                                </Link>
+                               {
+                                   enrolled ?
+                                   <span style={{
+                                        background: "#65f5b9",
+                                        padding: "8px",
+                                        color: "#484444",
+                                        borderRadius: "10px"
+                                    }}>
+                                        enrolled 
+                                    </span> :
+                                     <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                        <button className="cart" style={{background: "#7fb9e2"}}>
+                                            Enroll
+                                        </button>
+                                    </Link>
+                               }
 
                                 <Link to={`/profile/view/${contentDetails.vendorId}`}
                                     className="cart" style={{ textDecoration: "none", background: "#ec64f5", marginLeft: "40%", fontSize: "14px"}}>
