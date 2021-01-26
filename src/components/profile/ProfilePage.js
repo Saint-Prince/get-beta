@@ -58,8 +58,12 @@ function ProfilePage () {
                     <p> <i className="info"> <GrIcons.GrPhone/> </i> {userDetails.cell_no} </p> <br/>
                     <p> <i className="info"> <IoIcons.IoMdSchool/> </i> {userDetails.hle} </p> <br/>
                     <hr/> <br/>
-                    <span><button className="btn" style={{background: "#7fb9e2"}}> <Link to={`/profile/edit/${userDetails.id}`} style={{color: "#f1f1f1"}}> Edit Profile </Link></button></span>
+                    <span><button className="btn" style={{background: "#7fb9e2"}}> <Link to={`/profile/edit/${userDetails.id}`} style={{color: "#fff"}}> Edit Profile </Link></button></span>
 
+                </div>
+                <div className="title"> <br/>
+                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Create a subaccount for content earnings
+                    </h3> 
                 </div>
             </> : 
             <div>
