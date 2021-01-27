@@ -31,32 +31,36 @@ function MyContents () {
     }, [history, userData.user, userData.token])
 
     useEffect(() => {
-        setFilteredContents(
-            contents.filter( content => {
-                return content.title.toLowerCase().includes( search.toLowerCase() )
-            })
-        )
+        if (contents) {
+           setFilteredContents(
+                contents.filter( content => {
+                    return content.title.toLowerCase().includes( search.toLowerCase() )
+                })
+            ) 
+        }
+        
     }, [search, contents])
 
     return (
-        <div >    
-            <input id="find" className="search" 
-                type="search" placeholder="Search Contents" 
-                onChange={ e => setSearch(e.target.value) }
-            />  <br/> <br/>
-            {/* <label htmlFor="sort"> Sort By: </label>
-            <select>
-                <option value="recent"> Recently Added </option>
-                <option value="recent"> Recently </option>
-            </select> */}
-            <p align="right" style={{ marginRight: "3%" }}>
-                 
-                <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
-                    <button className="btn btn-lg btn-success">
-                        Create Content
-                    </button>     
-                </Link> 
-            </p> 
+        <div >   
+            {
+                contents ? 
+                <>
+                <input id="find" className="search" 
+                    type="search" placeholder="Search Contents" 
+                    onChange={ e => setSearch(e.target.value) }
+                />  <br/> <br/>
+
+                <p align="right" style={{ marginRight: "3%" }}>
+                    
+                    <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                        <button className="btn btn-lg btn-success">
+                            Create Content
+                        </button>     
+                    </Link> 
+                </p> 
+                </> : null
+            }  
             <div className="services">
             {
                 contents ?
@@ -92,7 +96,21 @@ function MyContents () {
                             </Link>
                         </div>      
                     </div>
-                )) : <div> <h2> You haven't created any content </h2> </div>
+                )) : <div style={{
+                                marginTop: "195px",
+                                height: "60vh"
+                        }}> <br/> 
+                            <h3> You haven't created any content </h3> 
+                            <br/> 
+                            <p align="right" style={{ marginRight: "30%" }}>
+                                
+                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                                    <button className="btn btn-lg btn-success">
+                                        Create Content
+                                    </button>     
+                                </Link> 
+                            </p> 
+                    </div>
             }
             </div>
             

@@ -31,29 +31,37 @@ function EnrolledContents () {
     }, [history, userData.user, userData.token])
 
     useEffect(() => {
-        setFilteredContents(
-            enrolledContents.filter( content => {
-                return content.title.toLowerCase().includes( search.toLowerCase() )
-            })
-        )
+        if (enrolledContents) {
+           setFilteredContents(
+                enrolledContents.filter( content => {
+                    return content.title.toLowerCase().includes( search.toLowerCase() )
+                })
+            ) 
+        }
+        
     }, [search, enrolledContents])
     // console.log(enrolledContents)
 
     return (
         <div >   
-            <h2 style={{ padding: '1rem', color: "#0e5996" }}> 
-                Enrolled  
-            </h2>
-            <input id="find" className="search" 
-                type="search" placeholder="Search Contents" 
-                onChange={ e => setSearch(e.target.value) }
-            />  <br/> <br/>
-            {/* <label htmlFor="sort"> Sort By: </label>
-            <select>
-                <option value="recent"> Recently Added </option>
-                <option value="recent"> Recently </option>
-            </select> */}
+            {
+                enrolledContents ? 
+                <>
+                <input id="find" className="search" 
+                    type="search" placeholder="Search Contents" 
+                    onChange={ e => setSearch(e.target.value) }
+                />  <br/> <br/>
 
+                <p align="right" style={{ marginRight: "3%" }}>
+                    
+                    <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                        <button className="btn btn-lg btn-success">
+                            Create Content
+                        </button>     
+                    </Link> 
+                </p> 
+                </> : null
+            } 
             <div className="services">
             {
                 enrolledContents ?
@@ -89,7 +97,21 @@ function EnrolledContents () {
                             </Link>
                         </div>      
                     </div>
-                )) : <div> <h2> You haven't enrolled to any content </h2> </div>
+                )) : <div style={{
+                                marginTop: "195px",
+                                height: "60vh"
+                        }}> <br/> 
+                            <h3> You haven't enrolled to any Content </h3> 
+                            <br/> 
+                            <p align="right" style={{ marginRight: "30%" }}>
+                                
+                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/allcontents"> 
+                                    <button className="btn btn-lg btn-success">
+                                        Explore Contents
+                                    </button>     
+                                </Link> 
+                            </p> 
+                    </div>
             }
             </div>
             

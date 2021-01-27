@@ -95,8 +95,12 @@ function ContentView () {
                                 }}
                             > {contentDetails.tag} </span>  
                         </p>
+                        <Link>
+                            <p> { enrolled ? contentDetails.subscriberids.length - 1 : null } enrolled </p>
+                        </Link>
                         <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
                         <p> Last Updated: { contentDetails.updatedAt ? contentDetails.updatedAt.substr(0, 10) : null }</p>
+                        
                         {
                            contentDetails.vendorId !== userDetails.id ? 
                            <div> 
