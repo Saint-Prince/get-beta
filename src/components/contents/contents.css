@@ -15,7 +15,7 @@
 }
 .services {
     display: flex;
-    color: #000000c2;
+    color: #333333eb;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -25,7 +25,7 @@
     flex: 1;
     margin: 20px;
     padding: 20px;
-    border: 2px solid black;
+    border: 2px solid #333333eb;
     border-radius: 4px;
     transition: all .3s ease;
 }
@@ -80,11 +80,11 @@
 }
 .content a {
     margin: 22px 0;
-    background: #000000eb;
+    background: #333333eb;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    border: 1px solid black;
+    border: 1px solid #333333eb;
     padding: 15px 0;
     border-radius: 25px;
     transition: .3s ease;

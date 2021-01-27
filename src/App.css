@@ -10,6 +10,7 @@ body {
 }
 .container {
   margin: 0 auto;
+  padding-top: 80px;
   background: #ffffff6b;
   max-width: 900px;
 }
@@ -37,4 +38,26 @@ body {
   border-radius: 50%;
   color: #fff;
   border: none;
+}
+.post {
+  margin: auto;
+  width: 80%;
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.img-container {
+  width: 40%;
+}
+.img-container img {
+  width: 100%;
+  max-height: 300px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.img-container img:hover {
+  transform: translateY(-10px);
+  box-shadow: -10px 10px 0px #4ca5ee;
 }
