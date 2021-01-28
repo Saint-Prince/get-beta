@@ -10,7 +10,7 @@ export default function Footer () {
                     <ul className="box ul">
                         <li> <a href="#"> FAQ </a> </li> <br/>
                         <h3> Contact Us </h3> <br/>
-                        <h4> <a href="mailto:remetechnologysolutions@gmail.com"> <i> Send Mail <FaIcons.FaTelegram/> </i>  </a> </h4>
+                        <h4> <a href="mailto:remetechnologysolutions@gmail.com" style={{color: "#de3c3c"}}> <i> Send Mail <FaIcons.FaTelegram/> </i>  </a> </h4>
                     </ul>
                 </li>
                 <li className="features">
@@ -18,8 +18,9 @@ export default function Footer () {
                     
                     <ul className="box">
                         <li> <a href="#"><i> <FaIcons.FaTwitter/>  </i>Twitter</a> </li> <br/>
-                        <li> <a href="#"><i> <FaIcons.FaInstagram/> </i>Instagram</a> </li> <br/>
-                        <li> <a href="#"><i> <FaIcons.FaYoutube/>  </i>YouTube</a> </li>
+                        <li> <a href="#"><i style={{color: "#E1306C"}}> <FaIcons.FaInstagram/> </i>Instagram</a> </li> <br/>
+                        <li> <a href="#"><i> <FaIcons.FaFacebook/> </i>Facebook</a> </li> <br/>
+                        <li> <a href="#"><i style={{color: "#ef2525"}}> <FaIcons.FaYoutube/>  </i>YouTube</a> </li>
                     </ul>
                 </li>
             </ul>
