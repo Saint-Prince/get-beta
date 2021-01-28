@@ -213,10 +213,10 @@
     margin-top: 0px;
     font-size: 20px;
 }
-.card:hover {
+/* .card:hover {
     transform: scale(1.03);
-    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); */
-}
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+} */
 /* .stat:hover {
     background: #0e5996;
 } */
