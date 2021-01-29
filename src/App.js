@@ -4,6 +4,7 @@ import  Navbar  from "./components/layout/Navbar"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Axios from "axios"
 import Home from "./pages/Home"
+import PageNotFound from "./pages/PageNotFound"
 import Reports from "./pages/Reports"
 import Content from "./components/contents/Content"
 import MyContents from "./components/contents/MyContents"
@@ -80,6 +81,7 @@ function App() {
             <Route exact path="/contents/enrolled" component={EnrolledContents} />  
             <Route exact path="/allcontents" component={AllContents} />  
             <Route exact path="/reports" component={Reports} />  
+            <Route component={PageNotFound} />
           </Switch>
         </div>
       </UserContext.Provider>

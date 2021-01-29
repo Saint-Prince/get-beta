@@ -4,9 +4,11 @@ import "./contents.css"
 import * as FaIcons from "react-icons/fa"
 import * as GiIcons from "react-icons/gi"
 import * as BiIcons from "react-icons/bi"
+import Footer from "../../pages/Footer"
 
 function Content () {
     return (
+        <>
         <div className="contents">
             <h1> Let's Increase our Productivity </h1>
             <div className="services">
@@ -43,6 +45,8 @@ function Content () {
             </div>
             
         </div>
+            <Footer/>
+        </>
     )
 }
 

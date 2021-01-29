@@ -69,7 +69,11 @@ function ContentView () {
             history.push("/myContents")
         }
     }
+    let subidsLength;
 
+    if (enrolled) {
+        subidsLength = contentDetails.subscriberids.length - 1;
+    }
     return (
         
         <div className="view">
@@ -95,9 +99,17 @@ function ContentView () {
                                 }}
                             > {contentDetails.tag} </span>  
                         </p>
-                        <Link>
-                            <p> { enrolled ? contentDetails.subscriberids.length - 1 : null } enrolled </p>
-                        </Link>
+                        
+                        <p> 
+                            { 
+                                subidsLength >= 1 ? 
+                                <Link>
+                                    { subidsLength } enrolled
+                                </Link> : 
+                                <p> No one has enrolled to this content </p>
+                            } 
+                        </p>
+                        
                         <p> Created At: { contentDetails.createdAt ? contentDetails.createdAt.substr(0, 10) : null }</p>
                         <p> Last Updated: { contentDetails.updatedAt ? contentDetails.updatedAt.substr(0, 10) : null }</p>
                         

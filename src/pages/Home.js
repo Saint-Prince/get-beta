@@ -4,6 +4,7 @@ import explore from "./explore.jpg"
 import business from "./businessmn.jpg"
 import pro from "./productivepp.jpg"
 import Footer from "./Footer"
+import { Link } from "react-router-dom"
 
 export default function Home () {
 
@@ -25,11 +26,12 @@ export default function Home () {
                 <div className="img-container">
                     <img src={girl} alt="better girl" />  
                 </div> <br/>
+
+                <h3 style={headerStyles}> Take your business online and earn more. </h3> <br/> <br/>
+                <div className="img-container">
+                    <img src={pro} alt="better girl" />  
+                </div> <br/>
                 <p> 
-                    <h3 style={headerStyles}> Take your business online and earn more. </h3> <br/> <br/>
-                    <div className="img-container">
-                        <img src={pro} alt="better girl" />  
-                    </div> <br/>
                     GetBeta enables content creators to manage their content in one place -- <br/>
                     upload, distribute, and sell to enrollers
                 </p> <br/>
@@ -44,7 +46,11 @@ export default function Home () {
                     You see, Thats how we get better!
                 </p> <br/>
                 <div className="but">
-                    <button> Explore! </button>
+                    <Link to="/allcontents">
+                        <button> 
+                            Explore Contents! 
+                        </button>
+                    </Link>       
                 </div> 
                 <br/>
                 <h3 style={headerStyles}> Sign up now as a member!</h3> <br/>
@@ -53,10 +59,14 @@ export default function Home () {
                 </div> <br/>
                 <p>
                     Ready to gain access to contents ? <br/>
-                    If so, let's create an account 
+                    If so, let's Sign In
                 </p> <br/>
                 <div className="but">
-                    <button> Register! </button>
+                    <Link to="/login">
+                        <button>
+                            Sign In!
+                        </button>    
+                    </Link>
                 </div>
             </div>
         </div> <br/> <br/>
