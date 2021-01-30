@@ -103,10 +103,13 @@ function ContentView () {
                         <p> 
                             { 
                                 subidsLength >= 1 ? 
-                                <Link>
+                                <Link to={`/contents/enrollers/${contentDetails._id}`} style={{
+                                    color: "#ed143d",
+                                    fontSize: "17px"
+                                }}>
                                     { subidsLength } enrolled
                                 </Link> : 
-                                <p> No one has enrolled to this content </p>
+                                <> No one has enrolled to this content </>
                             } 
                         </p>
                         

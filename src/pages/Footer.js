@@ -11,6 +11,9 @@ export default function Footer () {
                         <li> <a href="https://twitter.com"> FAQ </a> </li> <br/>
                         <h3> Contact Us </h3> <br/>
                         <h4> <a href="mailto:remetechnologysolutions@gmail.com" style={{color: "#8a5050"}}> <i> Send Mail <FaIcons.FaTelegram/> </i>  </a> </h4>
+                        <br/>
+                        <h5> Developer Contact </h5> <br/>
+                        <li> <a href="https://twitter.com/kelechithe3rd"> <FaIcons.FaTwitter/> </a> </li>
                     </ul>
                 </li>
                 <li className="features">
