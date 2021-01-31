@@ -32,7 +32,7 @@ export default function Home () {
                     <img src={pro} alt="better girl" />  
                 </div> <br/>
                 <p> 
-                    GetBeta enables content creators to manage their content in one place -- <br/>
+                    GetBeta enables content creators to manage their content  <br/>
                     upload, distribute, and sell to enrollers
                 </p> <br/>
                 

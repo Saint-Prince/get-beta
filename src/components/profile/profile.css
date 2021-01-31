@@ -15,6 +15,14 @@
 .title {
     margin-left: 5px;
 }
+.media span {
+    margin-left: 10%;
+    font-size: 18px;
+    text-decoration: none;
+}
+.media span a {
+    text-decoration: none;
+}
 .profile-pic {
     width: 45%;
     margin-left: 25%;

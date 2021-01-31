@@ -12,8 +12,13 @@ export const EditForm = ({ userDetails, onSubmit }) => {
             cell_no: userDetails ? userDetails.cell_no: "",
             occupation: userDetails ? userDetails.occupation: "",
             hle: userDetails ? userDetails.hle: "",
+            gender: userDetails ? userDetails.gender: "",
             bio: userDetails ? userDetails.bio: "",
             location: userDetails ? userDetails.location: "",
+            twitter: userDetails ? userDetails.twitter: "",
+            linkedIn: userDetails ? userDetails.linkedIn: "",
+            facebook: userDetails ? userDetails.facebook: "",
+            instagram: userDetails ? userDetails.instagram: "",
         },
     });
     // const history = useHistory();
@@ -32,13 +37,13 @@ export const EditForm = ({ userDetails, onSubmit }) => {
             </h2>
 
             <form className="form" onSubmit={submitHandler}>
-                <label htmlFor="register-email">Email: </label>
+                {/* <label htmlFor="register-email">Email: </label>
                 <input 
                     ref={register}
                     id="register-email" 
                     type="email" 
                     name="email"
-                />
+                /> */}
 
                 <label htmlFor="register-full-name">Full Name: </label>
                 <input 
@@ -52,6 +57,13 @@ export const EditForm = ({ userDetails, onSubmit }) => {
                     placeholder="Enter mobile number"
                     ref={register}
                     name="cell_no"
+                />
+                <label htmlFor="gender">Gender </label>
+                <input 
+                    id="gender" 
+                    type="text" 
+                    ref={register}
+                    name="gender"
                 />
                 <label htmlFor="occupation">Occupation: </label>
                 <input 
@@ -81,6 +93,37 @@ export const EditForm = ({ userDetails, onSubmit }) => {
                     type="text" 
                     ref={register}
                     name="location"
+                />
+                <h3 style={{ padding: '1rem', textDecoration: "none", color: "#0e5996" }}>
+                    Social Media Links
+                </h3>
+                <label htmlFor="twitter">Twitter: </label>
+                <input 
+                    id="twitter" 
+                    type="text" 
+                    ref={register}
+                    name="twitter"
+                />
+                <label htmlFor="linkedIn">LinkedIn: </label>
+                <input 
+                    id="linkedIn" 
+                    type="text" 
+                    ref={register}
+                    name="linkedIn"
+                />
+                <label htmlFor="facebook">Facebook: </label>
+                <input 
+                    id="facebook" 
+                    type="text" 
+                    ref={register}
+                    name="facebook"
+                />
+                <label htmlFor="instagram">Instagram: </label>
+                <input 
+                    id="instagram" 
+                    type="text" 
+                    ref={register}
+                    name="instagram"
                 />
 
                 <input type="submit" value="Save!" />

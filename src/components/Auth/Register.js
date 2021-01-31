@@ -11,6 +11,7 @@ export default function Register () {
     const [password, setPassword] = useState();
     const [passwordCheck, setPasswordCheck] = useState();
     const [fullname, setFullName] = useState();
+    const [gender, setGender] = useState();
     const [cell_no, setMobileNumber] = useState();
     const [occupation, setOccupation] = useState();
     const [hle, setHLE] = useState();
@@ -27,7 +28,7 @@ export default function Register () {
         e.preventDefault();
         try {
             const newUser = 
-            {email, password, passwordCheck, fullname, bio, occupation, hle, cell_no, referrer, location};
+            {email, password, passwordCheck, fullname, bio, occupation, hle, cell_no, gender, referrer, location};
             // if (password !== passwordCheck) 
             //     return alert("Password doesn't match.")
             await Axios.post(
@@ -61,6 +62,7 @@ export default function Register () {
                 <input 
                     id="register-email" 
                     type="email" 
+                    required
                     onChange={e => setEmail(e.target.value)} 
                 />
 
@@ -68,12 +70,14 @@ export default function Register () {
                 <input 
                     id="register-password" 
                     type="password" 
+                    required
                     placeholder= "5 characters min."
                     onChange={e => setPassword(e.target.value)}
                 />
                 <input 
                     placeholder="Verify Password" 
                     type="password" 
+                    required
                     onChange={e => setPasswordCheck(e.target.value)} 
                 />
 
@@ -81,6 +85,7 @@ export default function Register () {
                 <input 
                     id="register-full-name" 
                     type="text" 
+                    required
                     onChange={e => setFullName(e.target.value)} 
                 />
                 <input 
@@ -88,10 +93,17 @@ export default function Register () {
                     placeholder="Enter mobile number"
                     onChange={e => setMobileNumber(e.target.value)} 
                 />
+                <label htmlFor="gender">Gender </label>
+                <input 
+                    id="gender" 
+                    type="text" 
+                    onChange={e => setGender(e.target.value)} 
+                />
                 <label htmlFor="occupation">Occupation: </label>
                 <input 
                     id="occupation" 
                     type="text" 
+                    required
                     onChange={e => setOccupation(e.target.value)} 
                 />
                 <label htmlFor="hle">Highest Level of Education: </label>

@@ -52,13 +52,35 @@ function ProfilePage () {
                 
                 <div className="main-container">
                     <p> <i className="info"> <HiIcons.HiBriefcase/> </i> {userDetails.occupation} </p> <br/>
-                    <p> <i className="info"> <GrIcons.GrLocationPin/> </i> {userDetails.location} </p> <br/>
+                    { userDetails.location ? <p> <i className="info"> <GrIcons.GrLocationPin/> </i> {userDetails.location} </p> : null}<br/>
                     <p> <i className="info"> <FaIcons.FaEnvelope/> </i> {userDetails.email} </p> <br/>
+                    { userDetails.gender ? <p> <i className="info"> <FaIcons.FaGenderless/> </i> {userDetails.gender} </p> : null }<br/>
                     <p> <i className="info">Bio:</i> {userDetails.bio} </p> <br/>
-                    <p> <i className="info"> <GrIcons.GrPhone/> </i> {userDetails.cell_no} </p> <br/>
-                    <p> <i className="info"> <IoIcons.IoMdSchool/> </i> {userDetails.hle} </p> <br/>
+                    { userDetails.cell_no ? <p> <i className="info"> <GrIcons.GrPhone/> </i> {userDetails.cell_no} </p> : null }<br/>
+                    { userDetails.hle ? <p> <i className="info"> <IoIcons.IoMdSchool/> </i> {userDetails.hle} </p> : null }<br/>
+                    <p className="media">
+                    
+                        <span>
+                            { userDetails.twitter ? <a href={userDetails.twitter} style={{color: "#00b8ff"}}> <FaIcons.FaTwitter/> </a> : null }
+                        </span>
+                        <span>
+                            { userDetails.instagram ?  <a href={userDetails.instagram} style={{color: "#E1306C"}}> <FaIcons.FaInstagram/> </a> : null }
+                        </span>    
+                        <span>
+                            { userDetails.linkedIn ? <a href={userDetails.linkedIn} style={{color: "#5b95dc"}}> <FaIcons.FaLinkedin/> </a> : null }
+                        </span>    
+                        <span>
+                            {userDetails.facebook ? <a href={userDetails.facebook} style={{color: "#004eff"}}> <FaIcons.FaFacebook/> </a> : null}
+                        </span>        
+                    </p>
                     <hr/> <br/>
-                    <span><button className="btn" style={{background: "#7fb9e2"}}> <Link to={`/profile/edit/${userDetails.id}`} style={{color: "#fff"}}> Edit Profile </Link></button></span>
+                    <span>
+                        <Link to={`/profile/edit/${userDetails.id}`} > 
+                            <button className="btn" style={{background: "#7fb9e2", color: "#fff"}}> 
+                                Edit Profile 
+                            </button>
+                        </Link>
+                    </span>
 
                 </div>
                 <div className="title"> <br/>
