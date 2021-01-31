@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import UserContext from "../context/UserContext"
-import { useHistory, Link } from "react-router-dom"
+import { useHistory, Link, useRouteMatch } from "react-router-dom"
 import { getContents } from "./Api"
 import "./contents.css"
 import logo from "../profile/pic-img.jpeg"
@@ -12,6 +12,7 @@ function MyContents () {
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
+    const match = useRouteMatch();
     const [contents, setContents] = useState([])
     const [search, setSearch] = useState("")
     const [filteredContents, setFilteredContents] = useState([]);
@@ -23,12 +24,14 @@ function MyContents () {
 
         const fetchContents = async () => {
             let token = userData.token
-            const details = await getContents(token)
+            let id = match.params.id
+
+            const details = await getContents(token, id)
             setContents(details.myContents)
             // console.log(contents)
         }
         fetchContents();
-    }, [history, userData.user, userData.token])
+    }, [history, userData.user, userData.token, match.params.id])
 
     useEffect(() => {
         if (contents) {

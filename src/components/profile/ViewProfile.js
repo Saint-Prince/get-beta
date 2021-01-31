@@ -4,6 +4,9 @@ import UserContext from "../context/UserContext"
 import { getUserProfile } from "./Api"
 import "./profile.css"
 import logo from "./octocat.jpg"
+import "../contents/contents.css"
+import MyContents from "../contents/MyContents"
+import "../Auth/auth.css"
 import * as HiIcons from "react-icons/hi"
 import * as GrIcons from "react-icons/gr"
 import * as FaIcons from "react-icons/fa"
@@ -11,14 +14,10 @@ import * as IoIcons from "react-icons/io"
 
 function ViewProfile () {
     
-    const initialState = {
-        bio: "", cell_no: undefined, email: "", fullname: "", 
-        hle: "", id: "", location: "", occupation: "", referral_code: "",
-    }
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const match = useRouteMatch()
-    const [userDetails, setUserDetails] = useState(initialState)
+    const [userDetails, setUserDetails] = useState({})
 
     useEffect(() => {
         
@@ -71,9 +70,16 @@ function ViewProfile () {
                         </span>    
                         <span>
                             {userDetails.facebook ? <a href={userDetails.facebook} style={{color: "#004eff"}}> <FaIcons.FaFacebook/> </a> : null}
-                        </span>        
-                    </p>
-                </div><hr/> <br/>
+                        </span>         
+                    </p><hr/><br/>
+                </div>
+                <div>
+                    <h3 style={{ marginLeft: '10%', color: "#0e5996" }}>  
+                        Contents Created 
+                    </h3>
+                    <MyContents/>
+                </div>
+                
             </> : 
             <div>
                 Loading...

@@ -11,13 +11,9 @@ import * as IoIcons from "react-icons/io"
 
 function ProfilePage () {
     
-    const initialState = {
-        bio: "", cell_no: undefined, email: "", fullname: "", 
-        hle: "", id: "", location: "", occupation: "", referral_code: "",
-    }
     const { userData } = useContext(UserContext);
     const history = useHistory();
-    const [userDetails, setUserDetails] = useState(initialState)
+    const [userDetails, setUserDetails] = useState({})
 
     useEffect(() => {
         
@@ -83,10 +79,13 @@ function ProfilePage () {
                     </span>
 
                 </div>
-                <div className="title"> <br/>
-                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Create a subaccount for content earnings
-                    </h3> 
-                </div>
+                { userData.user.id !== userDetails.id ?
+                    <div className="title"> <br/>
+                        <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Create a subaccount for content earnings
+                        </h3> 
+                    </div> : null
+                }
+                
             </> : 
             <div>
                 Loading...

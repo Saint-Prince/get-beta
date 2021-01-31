@@ -1,8 +1,8 @@
 import Axios from "axios"
 
-export const getContents = (token) => 
+export const getContents = (token, id) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/contents/myContents`,
+        `http://localhost:5000/apiv1/vendors/contents/myContents/${id}`,
         {
             headers: { "x-auth-token": token }
         }

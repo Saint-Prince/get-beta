@@ -76,7 +76,7 @@ function App() {
             <Route exact path="/contents/enrollers/:id" component={EnrolledUsers} />  
             <Route exact path="/contents/edit/:id" component={EditContent} />  
             <Route exact path="/contents/create" component={CreateContent} />  
-            <Route exact path="/myContents" component={MyContents} />  
+            <Route exact path="/profile/mycontents/:id" component={MyContents} />  
             <Route exact path="/contents/newFile/:id" component={CreateFile} />  
             <Route exact path="/contentfile/view/:id" component={FileStream} />  
             <Route exact path="/contentfile/preview/:id" component={FilePreview} />  
