@@ -14,6 +14,7 @@ function MyContents () {
     const history = useHistory();
     const match = useRouteMatch();
     const [contents, setContents] = useState([])
+    const [visible, setVisible] = useState(9)
     const [search, setSearch] = useState("")
     const [filteredContents, setFilteredContents] = useState([]);
 
@@ -44,6 +45,12 @@ function MyContents () {
         
     }, [search, contents])
 
+    let maxContentLength = contents.length;
+    
+    const showMoreItems = () => {
+        setVisible(prevState => prevState + 3 )
+    }
+
     return (
         <div >   
             {
@@ -67,8 +74,7 @@ function MyContents () {
             <div className="services">
             {
                 contents ?
-                filteredContents.map( content => ( 
-
+                filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
                         <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
                             className="card-image">
@@ -98,7 +104,7 @@ function MyContents () {
                                 </div>  
                             </Link>
                         </div>      
-                    </div>
+                    </div>            
                 )) : <div style={{
                                 marginTop: "195px",
                                 height: "60vh"
@@ -115,6 +121,13 @@ function MyContents () {
                             </p> 
                     </div>
             }
+            {
+                visible <= maxContentLength ?
+                <button className="btn btn-lg btn-success"  onClick={showMoreItems}>
+                    Load More
+                </button> : null
+            }     
+            <br/>   
             </div>
             
         </div>

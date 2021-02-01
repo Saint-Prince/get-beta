@@ -9,7 +9,7 @@ export default function Footer () {
                     
                     <ul className="boxx ul">
                         <li> <a href="https://twitter.com"> FAQ </a> </li> <br/>
-                        <h3> Contact Us </h3> <br/>
+                        <h3 style={{fontSize: "1.0rem"}}> Contact Us </h3> <br/>
                         <h4> <a href="mailto:remetechnologysolutions@gmail.com" style={{color: "#8a5050"}}> <i> Send Mail <FaIcons.FaTelegram/> </i>  </a> </h4>
                         <br/>
                         <h5> Developer Contact </h5> <br/>

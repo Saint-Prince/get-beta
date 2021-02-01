@@ -40,12 +40,12 @@ export default function EnrolledUsers () {
                         <li>
                             <span className="number"> {index + 1 + "."}  </span>
 
-                            <Link to={`/profile/view/${enroller.subscriberId}`} style={{marginRight: "10px"}}>
+                            <Link to={`/profile/view/${enroller.subscriberId}`} >
                                 <span className="points" style={{width: "170px"}}>
                                     { enroller.fullname }
                                 </span>
                             </Link>    
-                            <span className="badge" style={{marginLeft: "30%"}} >
+                            <span className="badge" style={{marginLeft: "25%"}} >
                                 { enroller.email } 
                             </span>
 
