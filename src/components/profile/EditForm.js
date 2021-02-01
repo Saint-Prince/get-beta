@@ -101,6 +101,7 @@ export const EditForm = ({ userDetails, onSubmit }) => {
                 <input 
                     id="twitter" 
                     type="text" 
+                    placeholder="e.g: https://twitter.com/handle"
                     ref={register}
                     name="twitter"
                 />

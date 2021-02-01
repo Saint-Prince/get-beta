@@ -82,7 +82,7 @@ function ProfilePage () {
                 <div className="title"> <br/>
                     <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Create a subaccount for content earnings
                     </h3> 
-                </div> : null                
+                </div>               
             </> : 
             <div>
                 Loading...

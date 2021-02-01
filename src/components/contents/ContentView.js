@@ -120,7 +120,7 @@ function ContentView () {
                            contentDetails.vendorId !== userDetails.id ? 
                            <div> 
                                {
-                                   enrolled ?
+                                   enrolled === "true" ?
                                    <span style={{
                                         background: "#65f5b9",
                                         padding: "8px",
@@ -198,14 +198,20 @@ function ContentView () {
                                 <ul key={contentFile._id} className="filelist">
                                     <li>
                                         <span className="number"> {index + 1 + "."}  </span>
-                                        <span className="name"> { contentFile.dateCreated.substr(0, 10) } </span>
+                                        <span className="name" style={{marginRight: "10%"}}> { contentFile.dateCreated.substr(0, 10) } </span>
+                                        {
+                                            enrolled === "true" ? 
+                                            <Link to={`/contentfile/view/${contentFile._id}`} >
+                                               View 
+                                            </Link> : 
+                                            <span style={{ display: "contents", marginLeft: "20%"}}> Enroll to gain access </span>
+
+                                        }
                                     </li>
                                     <li>
-                                        <span className="points" style={{width: "100px"}}>
-                                            <Link to={`/contentfile/view/${contentFile._id}`} style={{marginRight: "10px"}}>
-                                               {contentFile.filename}  
-                                            </Link>
-                                            
+                                        
+                                        <span className="points" style={{display: "contents"}}>
+                                            {contentFile.filename}                                              
                                         </span>
                                         <span className="badge" style={{marginLeft: "30%"}} >
                                             { size + " " } 

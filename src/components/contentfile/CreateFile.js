@@ -77,12 +77,12 @@ function CreateFile () {
     // }
 
     return (
-        <div className="page">
+        <div className="page" style={{background: "#f1f1f1"}}>
             <h2 style={{ padding: '1rem', color: "#0e5996" }}> Pick a File for Upload </h2>
             {
                 error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
             }
-            <div className="form" style={{height: "100vh"}}>
+            <div className="form" >
                 {/* <label htmlFor="content-file">File: </label> */}
                 <input 
                     id="content-file" 
