@@ -40,12 +40,12 @@ function EnrolledContents () {
         }
         
     }, [search, enrolledContents])
-    // console.log(enrolledContents)
+    console.log(enrolledContents)
 
     return (
         <div >   
             {
-                enrolledContents ? 
+                enrolledContents.length >=1 ? 
                 <>
                 <input id="find" className="search" 
                     type="search" placeholder="Search Contents" 
@@ -64,7 +64,7 @@ function EnrolledContents () {
             } 
             <div className="services">
             {
-                enrolledContents ?
+                enrolledContents.length >= 1 ?
                 filteredContents.map( content => ( 
 
                     <div key={content._id} className="card">

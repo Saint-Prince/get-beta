@@ -210,7 +210,7 @@ function ContentView () {
                                     </li>
                                     <li>
                                         
-                                        <span className="points" style={{display: "contents"}}>
+                                        <span className="points" style={{width: "100px"}}>
                                             {contentFile.filename}                                              
                                         </span>
                                         <span className="badge" style={{marginLeft: "30%"}} >

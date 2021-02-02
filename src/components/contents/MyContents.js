@@ -54,7 +54,7 @@ function MyContents () {
     return (
         <div >   
             {
-                contents ? 
+                contents.length >= 1 ? 
                 <>
                 <input id="find" className="search" 
                     type="search" placeholder="Search Contents" 
@@ -73,7 +73,7 @@ function MyContents () {
             }  
             <div className="services">
             {
-                contents ?
+                contents.length >= 1 ?
                 filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
                         <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
@@ -109,7 +109,7 @@ function MyContents () {
                                 marginTop: "195px",
                                 height: "60vh"
                         }}> <br/> 
-                            <h3> You haven't created any content </h3> 
+                            <h3> No content has been created. </h3> 
                             <br/> 
                             <p align="right" style={{ marginRight: "30%" }}>
                                 
