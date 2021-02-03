@@ -81,7 +81,7 @@ function App() {
             <Route exact path="/contentfile/view/:id" component={FileStream} />  
             <Route exact path="/contentfile/preview/:id" component={FilePreview} />  
             <Route exact path="/contents/enrolled" component={EnrolledContents} />  
-            <Route exact path="/allcontents" component={AllContents} />  
+            <Route exact path="/explore" component={AllContents} />  
             <Route exact path="/reports" component={Reports} />  
             <Route component={PageNotFound} />
           </Switch>

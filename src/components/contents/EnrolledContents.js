@@ -40,7 +40,7 @@ function EnrolledContents () {
         }
         
     }, [search, enrolledContents])
-    console.log(enrolledContents)
+    // console.log(enrolledContents)
 
     return (
         <div >   
@@ -98,14 +98,14 @@ function EnrolledContents () {
                         </div>      
                     </div>
                 )) : <div style={{
-                                marginTop: "195px",
+                                margin: "195px auto",
                                 height: "60vh"
                         }}> <br/> 
                             <h3> You haven't enrolled to any Content </h3> 
                             <br/> 
                             <p align="right" style={{ marginRight: "30%" }}>
                                 
-                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/allcontents"> 
+                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/explore"> 
                                     <button className="btn btn-lg btn-success">
                                         Explore Contents
                                     </button>     

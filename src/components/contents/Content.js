@@ -38,9 +38,9 @@ function Content () {
                     <FaIcons.FaWpexplorer className="fab explorer" />
                     <h2 className="card-header">Explore Contents</h2>
                     <p className="card-text">
-                        Our friends have something in store for us. Would you like to check it out ? 
+                        Betarians have something in store for us. <br/> Like to check it out ? 
                     </p>
-                    <Link to="/allcontents" className="card-btn">
+                    <Link to="/explore" className="card-btn">
                         Let's Go <span> &rarr; </span>
                     </Link>
                 </div>

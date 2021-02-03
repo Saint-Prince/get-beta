@@ -80,7 +80,7 @@ function ProfilePage () {
 
                 </div>
                 <div className="title"> <br/>
-                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Create a subaccount for content earnings
+                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Add wallet for content earnings
                     </h3> 
                 </div>               
             </> : 

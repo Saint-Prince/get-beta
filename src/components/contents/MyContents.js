@@ -106,7 +106,7 @@ function MyContents () {
                         </div>      
                     </div>            
                 )) : <div style={{
-                                marginTop: "195px",
+                                margin: "195px auto",
                                 height: "60vh"
                         }}> <br/> 
                             <h3> No content has been created. </h3> 
