@@ -14,6 +14,7 @@ function AllContents () {
     const [contents, setContents] = useState([])
     const [visible, setVisible] = useState(9)
     const [search, setSearch] = useState("")
+    const [sort, setSort] = useState("")
     const [filteredContents, setFilteredContents] = useState([]);
 
     //dynamic sorting
@@ -35,16 +36,77 @@ function AllContents () {
 
     useEffect(() => {
         if (contents) {
-            // contents.sort()
-            // contents.reverse()
-           setFilteredContents(
-                contents.filter( content => {
-                    return content.title.toLowerCase().includes( search.toLowerCase() )
-                })
-            ) 
+            if (sort === "Free") {
+
+                let freeContents = contents.filter( content => (
+                    content.type.toLowerCase().includes( "free" )
+                ))
+                setFilteredContents(
+                    freeContents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+
+            } else if (sort === "Random") {
+    
+                let randContents = contents.sort( (a, b) => (
+                    0.5 - Math.random()
+                ))
+                setFilteredContents(
+                    randContents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+                
+            } else if (sort === "Recent") {
+                contents.sort()
+                contents.reverse()
+                setFilteredContents(
+                    contents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+            }
+            else if (sort === "Paid") {
+                
+                let freeContents = contents.filter( content => (
+                    content.type.toLowerCase().includes( "paid" )
+                ))
+                setFilteredContents(
+                    freeContents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+                
+            } else if (sort === "Media") {
+                let mediaContents = contents.filter( content => (
+                    content.format.toLowerCase().includes( "media" )
+                ))
+                setFilteredContents(
+                    mediaContents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+            } else if (sort === "Document") {
+                let docContents = contents.filter( content => (
+                    content.format.toLowerCase().includes( "document" )
+                ))
+                setFilteredContents(
+                    docContents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+            } else {
+                setFilteredContents(
+                    contents.filter( content => {
+                        return content.title.toLowerCase().includes( search.toLowerCase() )
+                    })
+                ) 
+            }
+            
         }
         
-    }, [search, contents])
+    }, [search, contents, sort])
 
     let maxContentLength = contents.length;
     
@@ -61,19 +123,15 @@ function AllContents () {
                     type="search" placeholder="Search Contents" 
                     onChange={ e => setSearch(e.target.value) }
                 />  <br/> <br/>
-                <select>
-                    <option>Albums</option>
-                    <option>Members</option>
-                    <option>Formed In</option>
+                <select onChange={ e => setSort(e.target.value) }> 
+                    <option disabled> Sort By: </option>
+                    <option value="Random">Random</option>
+                    <option value="Recent">Recent</option>
+                    <option value="Media">Media</option>
+                    <option value="Document">Document</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Free">Free</option>
                 </select>
-                <p align="right" style={{ marginRight: "3%" }}>
-                    
-                    <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
-                        <button className="btn btn-lg btn-success">
-                            Create Content
-                        </button>     
-                    </Link> 
-                </p> 
                 </> : null
             }  
             <div className="services">
