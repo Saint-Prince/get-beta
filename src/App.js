@@ -10,6 +10,7 @@ import Content from "./components/contents/Content"
 import MyContents from "./components/contents/MyContents"
 import ContentView from "./components/contents/ContentView"
 import EnrolledUsers from "./components/contents/EnrolledUsers"
+import ContentEnroll from "./components/contents/ContentEnroll"
 import CreateContent from "./components/contents/CreateContent"
 import EditContent from "./components/contents/EditContent"
 import CreateFile from "./components/contentfile/CreateFile"
@@ -74,6 +75,7 @@ function App() {
             <Route exact path="/contents" component={Content} />  
             <Route exact path="/contents/view/:id" component={ContentView} />  
             <Route exact path="/contents/enrollers/:id" component={EnrolledUsers} />  
+            <Route exact path="/contents/enroll/:id" component={ContentEnroll} />  
             <Route exact path="/contents/edit/:id" component={EditContent} />  
             <Route exact path="/contents/create" component={CreateContent} />  
             <Route exact path="/profile/mycontents/:id" component={MyContents} />  

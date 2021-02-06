@@ -79,7 +79,7 @@ function ProfilePage () {
                     </span>
 
                 </div>
-                <div className="title"> <br/>
+                <div className="title">
                     <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Add wallet for content earnings
                     </h3> 
                 </div>               

@@ -66,7 +66,7 @@ function ContentView () {
         if (choice === contentDetails.title) {
             let token = userData.token;
             await deleteContent(token, content_id, match.params.id )
-            history.push("/myContents")
+            history.push(`/profile/myContents/${userDetails.id}`)
         }
     }
     let subidsLength;
@@ -129,7 +129,7 @@ function ContentView () {
                                     }}>
                                         enrolled 
                                     </span> :
-                                     <Link to={`/contents/newFile/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
+                                     <Link to={`/contents/enroll/${contentDetails._id}`} style={{textDecoration: "none", color: "#fff"}}>
                                         <button className="cart" style={{background: "#7fb9e2"}}>
                                             Enroll
                                         </button>

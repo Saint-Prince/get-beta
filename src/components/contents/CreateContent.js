@@ -40,7 +40,7 @@ export default function CreateContent () {
                     headers: { "x-auth-token": userData.token }
                 }
             );
-            history.push(`/myContents`)  
+            history.push(`/profile/myContents/${userData.user.id}`)  
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg); 
         }

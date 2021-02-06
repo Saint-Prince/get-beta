@@ -6,12 +6,14 @@ import "./contents.css"
 import logo from "../profile/pic-img.jpeg"
 // import * as BiIcons from "react-icons/bi", Link 
 import "../Auth/auth.css"
+import Footer from "../../pages/Footer"
 
 function AllContents () {
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const [contents, setContents] = useState([])
+    const [isLoading, setLoading] = useState(false)
     const [visible, setVisible] = useState(9)
     const [search, setSearch] = useState("")
     const [sort, setSort] = useState("")
@@ -25,11 +27,12 @@ function AllContents () {
             return history.push("/login")
 
         const fetchContents = async () => {
+            setLoading(true)
             let token = userData.token
 
             const details = await getAllContents(token)
             setContents(details.contents)
-            // console.log(contents)
+            setLoading(false)
         }
         fetchContents();
     }, [history, userData.user, userData.token])
@@ -123,7 +126,17 @@ function AllContents () {
                     type="search" placeholder="Search Contents" 
                     onChange={ e => setSearch(e.target.value) }
                 />  <br/> <br/>
-                <select onChange={ e => setSort(e.target.value) }> 
+                <select 
+                    style = {{
+                        outline: "none",
+                        padding: "5px",
+                        borderRadius: "15px",
+                        marginLeft: "7%",
+                        background: "#f0f8ff",
+                        color: "#333"
+                    }}
+                    onChange={ e => setSort(e.target.value) }
+                > 
                     <option disabled> Sort By: </option>
                     <option value="Random">Random</option>
                     <option value="Recent">Recent</option>
@@ -136,7 +149,7 @@ function AllContents () {
             }  
             <div className="services">
             {
-                contents.length >= 1 ?
+                isLoading === false ?
                 filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
                         <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
@@ -168,21 +181,29 @@ function AllContents () {
                             </Link>
                         </div>      
                     </div>            
-                )) : <div style={{
+                )) : isLoading === true ?
+                    <div style={{
                                 margin: "195px auto",
                                 height: "60vh"
                         }}> <br/> 
-                            <h3> No contents available, <br/> Please try again later </h3> 
-                            <br/> 
-                            <p align="right" style={{ marginRight: "30%" }}>
-                                
-                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents"> 
-                                    <button className="btn btn-lg btn-success">
-                                        Back
-                                    </button>     
-                                </Link> 
-                            </p> 
-                    </div>
+                            <h3> Loading... </h3> 
+                    </div> :   
+                    contents.length < 1 ?
+                    <div style={{
+                        margin: "195px auto",
+                        height: "60vh"
+                    }}> <br/> 
+                    <h3> No content available </h3> 
+                    <br/> 
+                    <p align="right" style={{ marginRight: "30%" }}>
+                        
+                        <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                            <button className="btn btn-lg btn-success">
+                                Create Content
+                            </button>     
+                        </Link> 
+                    </p> 
+                </div> : null
             }
             {
                 visible <= maxContentLength ?
@@ -192,7 +213,7 @@ function AllContents () {
             }     
             <br/>   
             </div>
-            
+            <Footer/>
         </div>
     ) 
 }

@@ -46,7 +46,7 @@ export default function Home () {
                     You see, Thats how we get better!
                 </p> <br/>
                 <div className="but">
-                    <Link to="/allcontents">
+                    <Link to="/explore">
                         <button> 
                             Explore Contents! 
                         </button>

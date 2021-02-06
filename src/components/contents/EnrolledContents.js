@@ -6,6 +6,7 @@ import "./contents.css"
 import logo from "../profile/pic-img.jpeg"
 // import * as BiIcons from "react-icons/bi", Link 
 import "../Auth/auth.css"
+import Footer from "../../pages/Footer"
 
 function EnrolledContents () {
 
@@ -13,6 +14,7 @@ function EnrolledContents () {
     const history = useHistory();
     const [enrolledContents, setEnrolledContents] = useState([])
     const [search, setSearch] = useState("")
+    const [isLoading, setLoading] = useState(false)
     const [filteredContents, setFilteredContents] = useState([]);
 
     useEffect(() => {
@@ -21,11 +23,12 @@ function EnrolledContents () {
             return history.push("/login")
 
         const fetchEnrolledContents = async () => {
+            setLoading(true)
             let token = userData.token;
             let id = userData.user.id;
             const details = await getEnrolledContents(token, id)
             setEnrolledContents(details.contents)
-            // console.log(contents)
+            setLoading(false)
         }
         fetchEnrolledContents();
     }, [history, userData.user, userData.token])
@@ -64,7 +67,7 @@ function EnrolledContents () {
             } 
             <div className="services">
             {
-                enrolledContents.length >= 1 ?
+                isLoading === false ?
                 filteredContents.map( content => ( 
 
                     <div key={content._id} className="card">
@@ -97,24 +100,33 @@ function EnrolledContents () {
                             </Link>
                         </div>      
                     </div>
-                )) : <div style={{
+                )) : isLoading === true ?
+                    <div style={{
                                 margin: "195px auto",
                                 height: "60vh"
                         }}> <br/> 
-                            <h3> You haven't enrolled to any Content </h3> 
-                            <br/> 
-                            <p align="right" style={{ marginRight: "30%" }}>
-                                
-                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/explore"> 
-                                    <button className="btn btn-lg btn-success">
-                                        Explore Contents
-                                    </button>     
-                                </Link> 
-                            </p> 
-                    </div>
+                            <h3> Loading... </h3> 
+                    </div> :   
+                    enrolledContents.length < 1 ?
+                    <div style={{
+                        margin: "195px auto",
+                        height: "60vh"
+                        }}> <br/> 
+                        <h3> You haven't enrolled to any Content </h3> 
+                        <br/> 
+                        <p align="right" style={{ marginRight: "30%" }}>
+                            
+                            <Link style={{ textDecoration: "none", color: "#fff"}} to="/explore"> 
+                                <button className="btn btn-lg btn-success">
+                                    Explore Contents
+                                </button>     
+                            </Link> 
+                        </p> 
+                    </div> : null
             }
-            </div>
+            </div> <br/>
             
+            <Footer/>
         </div>
     ) 
 }

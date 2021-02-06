@@ -54,6 +54,16 @@ export const getEnrollers = (token, content_id) =>
     ).then(res => res.data)
         .catch(err => console.log(err))
 
+export const enrollContent = (id, content_id) => 
+    Axios.post (       
+        `http://localhost:5000/apiv1/vendors/${id}/subscribe/${content_id}`
+        // ,
+        // {
+        //     headers: { "x-auth-token": token }
+        // }
+    ).then(res => res.data)
+        .catch(err => console.log(err))
+
 export const updateContent = (token, content_id, contentDetails) => 
     Axios.put (       
         `http://localhost:5000/apiv1/vendors/contents/${content_id}`,

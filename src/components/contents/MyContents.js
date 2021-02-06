@@ -6,6 +6,7 @@ import "./contents.css"
 import logo from "../profile/pic-img.jpeg"
 // import * as BiIcons from "react-icons/bi", Link 
 import "../Auth/auth.css"
+import Footer from "../../pages/Footer"
 // import "bootstrap/dist/css/bootstrap.css"
 
 function MyContents () {
@@ -14,6 +15,7 @@ function MyContents () {
     const history = useHistory();
     const match = useRouteMatch();
     const [contents, setContents] = useState([])
+    const [isLoading, setLoading] = useState(false)
     const [visible, setVisible] = useState(9)
     const [search, setSearch] = useState("")
     const [filteredContents, setFilteredContents] = useState([]);
@@ -24,12 +26,13 @@ function MyContents () {
             return history.push("/login")
 
         const fetchContents = async () => {
+            setLoading(true)
             let token = userData.token
             let id = match.params.id
 
             const details = await getContents(token, id)
             setContents(details.myContents)
-            // console.log(contents)
+            setLoading(false)
         }
         fetchContents();
     }, [history, userData.user, userData.token, match.params.id])
@@ -73,7 +76,7 @@ function MyContents () {
             }  
             <div className="services">
             {
-                contents.length >= 1 ?
+                isLoading === false ?
                 filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
                         <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
@@ -105,21 +108,29 @@ function MyContents () {
                             </Link>
                         </div>      
                     </div>            
-                )) : <div style={{
+                )) : isLoading === true ?
+                <div style={{
                                 margin: "195px auto",
                                 height: "60vh"
                         }}> <br/> 
-                            <h3> No content has been created. </h3> 
-                            <br/> 
-                            <p align="right" style={{ marginRight: "30%" }}>
-                                
-                                <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
-                                    <button className="btn btn-lg btn-success">
-                                        Create Content
-                                    </button>     
-                                </Link> 
-                            </p> 
-                    </div>
+                            <h3> Loading... </h3> 
+                </div> :   
+                contents.length < 1 ?
+                    <div style={{
+                        margin: "195px auto",
+                        height: "60vh"
+                }}> <br/> 
+                    <h3> No content has been created </h3> 
+                    <br/> 
+                    <p align="right" style={{ marginRight: "30%" }}>
+                        
+                        <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                            <button className="btn btn-lg btn-success">
+                                Create Content
+                            </button>     
+                        </Link> 
+                    </p> 
+                </div> : null
             }
             {
                 visible <= maxContentLength ?
@@ -129,7 +140,7 @@ function MyContents () {
             }     
             <br/>   
             </div>
-            
+            <Footer/>
         </div>
     ) 
 }
