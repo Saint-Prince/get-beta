@@ -1,9 +1,12 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import { useHistory, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import { getUser } from "./Api"
+import ErrorNotice from "../Misc/ErrorNotice"
+import Axios from "axios"
 import "./profile.css"
 import logo from "./octocat.jpg"
+import Modal from  "./Modal"
 import * as HiIcons from "react-icons/hi"
 import * as GrIcons from "react-icons/gr"
 import * as FaIcons from "react-icons/fa"
@@ -14,6 +17,7 @@ function ProfilePage () {
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const [userDetails, setUserDetails] = useState({})
+    const [isOpen, setOpen] = useState(false)
 
     useEffect(() => {
         
@@ -29,6 +33,35 @@ function ProfilePage () {
         fetchProfile();
     }, [history, userData.user, userData.token])
 
+    const [file, setFile] = useState("");
+    //accessing input element
+    const el = useRef();
+    const [error, setError] = useState();
+
+    const handleChange = (e) => {
+        // setProgress(0)
+        const file = e.target.files[0];
+        // console.log(file)
+        setFile(file);
+    }
+
+    const uploadFile = () => {
+        const formData = new FormData();
+        
+        formData.append("file", file); //appending file
+        // console.log(formData)
+        Axios.put(
+            `http://localhost:5000/apiv1/vendors/${userData.user.id}/img`,
+            formData,
+            {
+                headers: { "x-auth-token": userData.token }
+            }
+        ).then(res => {
+            console.log(res);
+            history.push(`/profile`)
+        }).catch(err => err.response.data.msg && setError(err.response.data.msg))
+    }
+
     return (
         <div className="profile-card"> 
         {
@@ -40,7 +73,20 @@ function ProfilePage () {
                         borderRadius: "50px",
                     }}
                     alt="Profile Img" className="profile-pic" />
-                <span><button className="btn"> <HiIcons.HiOutlinePencil /> </button></span>
+                <span>
+                    <button className="btn" onClick={() => setOpen(true)} > <HiIcons.HiOutlinePencil /> </button>
+                </span>
+                <Modal open={isOpen} 
+                    onClose={() => setOpen(false)}
+                    el={el}
+                    handleChange={handleChange}
+                    uploadFile={uploadFile}
+                >
+                {
+                    error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                }
+                    <h2 style={{ padding: '1rem', color: "#0e5996" }}> Edit Image </h2>
+                </Modal>
                 <div className="title"> <br/>
                     <h2 style={{ marginLeft: '10%', color: "#0e5996" }}>  {userDetails.fullname} 
                     </h2> 
