@@ -1,6 +1,9 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import { useHistory, useRouteMatch, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
+import Modal from  "../profile/Modal"
+import ErrorNotice from "../Misc/ErrorNotice"
+import Axios from "axios"
 import logo from "../profile/pic-img.jpeg"
 import "./view.css"
 import { getContent, deleteContent, getContentFiles } from "./Api"
@@ -15,6 +18,7 @@ function ContentView () {
     const [contentFiles, setContentFiles] = useState([])
     const [userDetails, setUserDetails] = useState({})
     const [enrolled, setEnrolled] = useState("")
+    const [isOpen, setOpen] = useState(false)
 
     useEffect(() => {
         
@@ -74,6 +78,36 @@ function ContentView () {
     if (enrolled) {
         subidsLength = contentDetails.subscriberids.length - 1;
     }
+
+    const [file, setFile] = useState("");
+    //accessing input element
+    const el = useRef();
+    const [error, setError] = useState();
+
+    const handleChange = (e) => {
+        // setProgress(0)
+        const file = e.target.files[0];
+        // console.log(file)
+        setFile(file);
+    }
+
+    const uploadFile = () => {
+        const formData = new FormData();
+        
+        formData.append("file", file); //appending file
+        // console.log(formData)
+        Axios.put(
+            `http://localhost:5000/apiv1/vendors/contents/${contentDetails._id}/img`,
+            formData,
+            {
+                headers: { "x-auth-token": userData.token }
+            }
+        ).then(res => {
+            console.log(res);
+            history.push(`/contents/view/${contentDetails._id}`)
+        }).catch(err => err.response.data.msg && setError(err.response.data.msg))
+    }
+
     return (
         
         <div className="view">
@@ -82,7 +116,7 @@ function ContentView () {
                 <>
                 <div className="details">
                     <div className="big-img">
-                        <img src={logo} alt=""/>
+                        <img src={contentDetails.coverImage ? contentDetails.coverImage : logo} alt="content"/>
                     </div>  
 
                     <div className="box">
@@ -171,8 +205,22 @@ function ContentView () {
                                     </button>  
                                 </Link>
                                  
-                                <button className="cart" style={{marginLeft: "60px"}}>Edit Cover Image</button>
-                                <br/> <br/>
+                                <button className="cart" style={{marginLeft: "60px"}}
+                                    onClick={() => setOpen(true)}
+                                >
+                                    Edit Cover Image
+                                </button> <br/> <br/>
+                                <Modal open={isOpen} 
+                                    onClose={() => setOpen(false)}
+                                    el={el}
+                                    handleChange={handleChange}
+                                    uploadFile={uploadFile}
+                                >
+                                {
+                                    error && <ErrorNotice message={error} clearError={() => setError(undefined)} />
+                                }
+                                    <h2 style={{ padding: '1rem', color: "#0e5996" }}> Edit Image </h2>
+                                </Modal>
                                 </div> : 
                                 null 
                             }

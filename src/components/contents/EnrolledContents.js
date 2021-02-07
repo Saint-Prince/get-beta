@@ -46,6 +46,7 @@ function EnrolledContents () {
     // console.log(enrolledContents)
 
     return (
+        <>
         <div >   
             {
                 enrolledContents.length >=1 ? 
@@ -126,8 +127,9 @@ function EnrolledContents () {
             }
             </div> <br/>
             
-            <Footer/>
         </div>
+        <Footer/>
+        </>
     ) 
 }
 

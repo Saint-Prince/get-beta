@@ -8,7 +8,7 @@ export default function AuthOptions () {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
     
-    const register = () => history.push("/register")
+    // const register = () => history.push("/register")
     const login = () => history.push("/login")
     const logout = () => {
         setUserData({
@@ -26,9 +26,9 @@ export default function AuthOptions () {
                     <button onClick={logout}><BiIcons.BiLogOut /> Log out</button>  
                 </> :
                 <>
-                    <button onClick={register}> Register </button>
+                    {/* <button onClick={register}> Register </button> */}
                     <button onClick={login}> <BiIcons.BiLogIn /> Log in </button> 
-                </>
+                </> 
             }
         </nav>
     )
