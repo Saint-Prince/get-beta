@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import "../Auth/auth.css"
+import CurrencyInput from "react-currency-input-field"
 import Spinner from "../Misc/Spinner"
 
 export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
@@ -86,12 +87,21 @@ export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
                     /> Free
                 <div className={!isActive ? "price" : null}>
                   <label htmlFor="content-price">Price: </label>
-                    <input 
+                    <CurrencyInput
+                        id="content-price"
+                        name="price"
+                        placeholder="0.00"
+                        prefix="&#x20A6;"
+                        defaultValue={1000}
+                        fixedDecimalLength="2"
+                        ref={register}
+                    />
+                    {/* <input 
                         id="content-price" 
                         type="number" 
                         name="price"
                         ref={register}
-                    />  
+                    />   */}
                 </div>
                 
                 <label htmlFor="tags">Tags: </label>

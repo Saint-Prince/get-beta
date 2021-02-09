@@ -7,9 +7,11 @@
     "bootstrap": "^4.5.3",
     "cra-template": "1.1.0",
     "react": "^17.0.1",
+    "react-currency-input-field": "^3.2.4",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.12.2",
     "react-icons": "^4.1.0",
+    "react-phone-number-input": "^3.1.13",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0"
   },

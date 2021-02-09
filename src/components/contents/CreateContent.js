@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom"
 import "../Auth/auth.css"
 import Spinner from "../Misc/Spinner"
 import Axios from "axios"
+import CurrencyInput from "react-currency-input-field"
 import ErrorNotice from "../Misc/ErrorNotice"
 
 export default function CreateContent () {
@@ -102,11 +103,15 @@ export default function CreateContent () {
                     /> Free
                 <div className={!isActive ? "price" : null}>
                   <label htmlFor="content-price">Price: </label>
-                    <input 
-                        id="content-price" 
-                        type="number" 
-                        onChange={e => setPrice(e.target.value)} 
-                    />  
+                  <CurrencyInput
+                    id="content-price"
+                    name="input-name"
+                    placeholder="0.00"
+                    prefix="&#x20A6;"
+                    defaultValue={1000}
+                    fixedDecimalLength="2"
+                    onValueChange={setPrice}
+                    />
                 </div>
                 
                 <label htmlFor="tags">Tags: </label>

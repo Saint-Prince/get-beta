@@ -3,6 +3,7 @@ import UserContext from "../context/UserContext"
 import { useHistory } from "react-router-dom"
 import Spinner from "../Misc/Spinner"
 import "./auth.css"
+import PhoneInput from "react-phone-number-input"
 import Axios from "axios"
 import ErrorNotice from "../Misc/ErrorNotice"
 
@@ -92,10 +93,11 @@ export default function Register () {
                     required
                     onChange={e => setFullName(e.target.value)} 
                 />
-                <input 
-                    type="tel" 
+                <PhoneInput 
+                    defaultCountry="NG"
+                    value={cell_no} 
                     placeholder="Enter mobile number"
-                    onChange={e => setMobileNumber(e.target.value)} 
+                    onChange={setMobileNumber} 
                 />
                 <label htmlFor="gender">Gender </label>
                 <input 
