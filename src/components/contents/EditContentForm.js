@@ -2,16 +2,17 @@ import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import "../Auth/auth.css"
+import Spinner from "../Misc/Spinner"
 
-export const EditContentForm = ({ contentDetails, onSubmit }) => {
+export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
 
-    const [isActive, setActive] = useState("false");
+    const [isActive, setActive] = useState(false);
 
     const handleToggle = () => {
-        setActive(!isActive)
+        setActive(true)
     };
     const handleTogggle = () => {
-        setActive("false")
+        setActive(false)
     };
 
     const {register, handleSubmit} = useForm({
@@ -83,7 +84,7 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         required
                         ref={register}
                     /> Free
-                <div className={isActive ? "price" : null}>
+                <div className={!isActive ? "price" : null}>
                   <label htmlFor="content-price">Price: </label>
                     <input 
                         id="content-price" 
@@ -142,6 +143,12 @@ export const EditContentForm = ({ contentDetails, onSubmit }) => {
                         ref={register}
                     /> Other
                     <br/> <br/>
+                    {
+                        loading ?
+                        <>
+                            <span> <Spinner/> </span> <br/>
+                        </> : null
+                    }
                 <input type="submit" value="Save!" />
             </form>
             {/* <p>You can add your files after content creation</p> */}

@@ -15,11 +15,32 @@ body {
   max-width: 900px;
 }
 .home, .reports {
-  display: flex;
-  height: 90vh;
+  margin: 30% 10%;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 1.5rem;
+}
+.loader {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #3498db;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+/*Safari*/
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg);
+  }
+  100% { -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);
+  }
+  100% { transform: rotate(360deg);
+  }
 }
 .error-notice {
   margin: 1rem 0;

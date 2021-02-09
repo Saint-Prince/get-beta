@@ -13,6 +13,7 @@ function ContentEnroll () {
     const match = useRouteMatch()
     const [contentDetails, setContentDetails] = useState({})
     const [userDetails, setUserDetails] = useState({})
+    const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
         
@@ -39,9 +40,11 @@ function ContentEnroll () {
 
     const enroll = async () => {
         // let token = userData.token; token, 
+        setLoading(true)
         let id = userDetails.id
         let content_id = contentDetails._id
         await enrollContent(id, content_id)
+        setLoading(false)
         history.push(`/contents/view/${contentDetails._id}`)        
     }
 
@@ -82,7 +85,7 @@ function ContentEnroll () {
                             }}
                             onClick={enroll}
                         >
-                            Enroll
+                            { isLoading ? "Enrolling..." : "Enroll" }
                         </button>
 
                         </div> 

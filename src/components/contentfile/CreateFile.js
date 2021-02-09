@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext } from "react"
 import { useRouteMatch, useHistory } from "react-router-dom"
 import UserContext from "../context/UserContext"
+import Spinner from "../Misc/Spinner"
 import "../Auth/auth.css"
 import Axios from "axios"
 import ErrorNotice from "../Misc/ErrorNotice"
@@ -14,6 +15,7 @@ function CreateFile () {
     //accessing input element
     const el = useRef();
     const [error, setError] = useState();
+    const [isLoading, setLoading] = useState(false)
     // const { register, handleSubmit } = useForm();
 
     const { userData } = useContext(UserContext);
@@ -29,6 +31,7 @@ function CreateFile () {
     }
 
     const uploadFile = () => {
+        setLoading(true)
         const formData = new FormData();
         
         // let file = { file, descrp }
@@ -48,9 +51,10 @@ function CreateFile () {
             //     }
             // } , descrp
         ).then(res => {
+            setLoading(false)
             console.log(res);
             history.push(`/contents/view/${content_id}`)
-        }).catch(err => err.response.data.msg && setError(err.response.data.msg))
+        }).catch(err => err.response.data.msg && setError(err.response.data.msg), setLoading(false))
     }
     
 
@@ -103,6 +107,12 @@ function CreateFile () {
                     placeholder= "e.g Part 1" 
                     onChange={e => setDescription(e.target.value)}
                 /> */}
+                {
+                    isLoading ?
+                    <>
+                        <span> <Spinner/> </span> <br/>
+                    </> : null
+                }
                 <input type="submit" onClick={uploadFile} value="Upload File" />
             </div>
         </div>

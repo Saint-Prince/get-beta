@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
+import Spinner from "../Misc/Spinner"
 import "../Auth/auth.css"
 
-export const EditForm = ({ userDetails, onSubmit }) => {
+export const EditForm = ({ userDetails, onSubmit, loading }) => {
     
     const {register, handleSubmit} = useForm({
         defaultValues: { 
@@ -126,7 +127,12 @@ export const EditForm = ({ userDetails, onSubmit }) => {
                     ref={register}
                     name="instagram"
                 />
-
+                {
+                    loading ?
+                    <>
+                        <span> <Spinner/> </span> <br/>
+                    </> : null
+                }
                 <input type="submit" value="Save!" />
             </form>
         </div>

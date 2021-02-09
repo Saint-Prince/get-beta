@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react"
 import UserContext from "../context/UserContext"
 import { useHistory, Link } from "react-router-dom"
+import Spinner from "../Misc/Spinner"
 import "./auth.css"
 import Axios from "axios"
 import ErrorNotice from "../Misc/ErrorNotice"
@@ -9,6 +10,7 @@ export default function Login () {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [isLoading, setLoading] = useState(false)
     const [error, setError] = useState();
 
     const { userData, setUserData } = useContext(UserContext);
@@ -21,6 +23,7 @@ export default function Login () {
     const submit = async (e) => {
         e.preventDefault();
         try {
+            setLoading(true)
             const loginUser = { email, password };
             const loginRes = await Axios.post(
                 "http://localhost:5000/apiv1/vendors/login",
@@ -30,6 +33,7 @@ export default function Login () {
                 token: loginRes.data.token,
                 user: loginRes.data.vendor,
             });
+            setLoading(false)
             localStorage.setItem("auth-token", loginRes.data.token)
             history.push("/profile")
         } catch (err) {
@@ -56,8 +60,13 @@ export default function Login () {
                     type="password" 
                     onChange={e => setPassword(e.target.value)}
                 />
-
-                <input type="submit" value="Log In!" />
+                {
+                    isLoading ?
+                    <>
+                        <span> <Spinner/> </span> <br/>
+                    </> : null
+                }
+                <input type="submit" value="Log In!" /> 
               <div>
                 <p>Don't have an account?</p> <br/>
                 <p> <Link className="reg-link"to="/register">Register</Link> </p>

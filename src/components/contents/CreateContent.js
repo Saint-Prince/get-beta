@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react"
 import UserContext from "../context/UserContext"
 import { useHistory } from "react-router-dom"
 import "../Auth/auth.css"
+import Spinner from "../Misc/Spinner"
 import Axios from "axios"
 import ErrorNotice from "../Misc/ErrorNotice"
 
@@ -14,7 +15,8 @@ export default function CreateContent () {
     const [tag, setTag] = useState([]);
     const [published, setPublish] = useState();
     const [format, setFormat] = useState();
-    const [isActive, setActive] = useState("false");
+    const [isActive, setActive] = useState(false);
+    const [isLoading, setLoading] = useState(false)
 
     const [error, setError] = useState();
 
@@ -22,13 +24,14 @@ export default function CreateContent () {
     const history = useHistory();
 
     const handleToggle = () => {
-        setActive(!isActive)
+        setActive(true)
     };
     const handleTogggle = () => {
-        setActive("false")
+        setActive(false)
     };
 
     const submit = async (e) => {
+        setLoading(true)
         e.preventDefault();
         try {
             const newContent = 
@@ -40,6 +43,7 @@ export default function CreateContent () {
                     headers: { "x-auth-token": userData.token }
                 }
             );
+            setLoading(false)
             history.push(`/profile/myContents/${userData.user.id}`)  
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg); 
@@ -96,7 +100,7 @@ export default function CreateContent () {
                         required
                         onChange={e => setType(e.target.value)} 
                     /> Free
-                <div className={isActive ? "price" : null}>
+                <div className={!isActive ? "price" : null}>
                   <label htmlFor="content-price">Price: </label>
                     <input 
                         id="content-price" 
@@ -158,6 +162,12 @@ export default function CreateContent () {
                         onChange={e => setFormat(e.target.value)} 
                     /> Other
                     <br/> <br/>
+                    {
+                        isLoading ?
+                        <>
+                            <span> <Spinner/> </span> <br/>
+                        </> : null
+                    }
                 <input type="submit" value="Create Content" /> 
             </form>
             <p>You can add your files after content creation</p>

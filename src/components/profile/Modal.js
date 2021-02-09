@@ -21,14 +21,14 @@ export default function Modal({ open, children, onClose, el, handleChange, uploa
                 <div style={{ display: "inline-flex"}}>
                     <button onClick={onClose}
                         style= {{
-                            padding: "5px",
+                            padding: "10px",
                             borderRadius: "12px",
                             height: "37px",
                             outline: "none",
                             border: "1px solid #ec5050",
-                            margin: "0 55%",
+                            margin: "0 40%",
                             color: "#fff",
-                            background: "#f94646"
+                            background: "#f56464"
                         }}
                     > 
                         Cancel 

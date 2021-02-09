@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 import UserContext from "../context/UserContext"
 import { useHistory } from "react-router-dom"
+import Spinner from "../Misc/Spinner"
 import "./auth.css"
 import Axios from "axios"
 import ErrorNotice from "../Misc/ErrorNotice"
@@ -18,6 +19,7 @@ export default function Register () {
     const [bio, setBio] = useState();
     const [location, setLocation] = useState();
     const [referrer, setReferrer] = useState();
+    const [isLoading, setLoading] = useState(false)
 
     const [error, setError] = useState();
 
@@ -27,6 +29,7 @@ export default function Register () {
     const submit = async (e) => {
         e.preventDefault();
         try {
+            setLoading(true)
             const newUser = 
             {email, password, passwordCheck, fullname, bio, occupation, hle, cell_no, gender, referrer, location};
             // if (password !== passwordCheck) 
@@ -44,6 +47,7 @@ export default function Register () {
                 token: loginRes.data.token,
                 user: loginRes.data.vendor,
             });
+            setLoading(false)
             localStorage.setItem("auth-token", loginRes.data.token)
             history.push("/profile")  
         } catch (err) {
@@ -131,7 +135,12 @@ export default function Register () {
                     type="text" 
                     onChange={e => setReferrer(e.target.value)} 
                 />
-
+                {
+                    isLoading ?
+                    <>
+                        <span> <Spinner/> </span> <br/>
+                    </> : null
+                }
                 <input type="submit" value="Create Account!" />
             </form>
         </div>

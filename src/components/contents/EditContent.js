@@ -8,6 +8,7 @@ import "../Auth/auth.css"
 export default function EditContent () {
 
     const [contentDetails, setContentDetails] = useState()
+    const [isLoading, setLoading] = useState(false)
     
     const { userData } = useContext(UserContext);
     const history = useHistory();
@@ -28,15 +29,21 @@ export default function EditContent () {
     }, [history, userData.user, userData.token, match.params.id])
 
     const onSubmit = async (data) => {
+        setLoading(true)
         let token = userData.token
         await updateContent(token, match.params.id, data)
+        setLoading(false)
         history.push(`/contents/view/${contentDetails._id}`)
     }
 
     return (
         <>
             {
-                contentDetails ? <EditContentForm contentDetails={contentDetails} onSubmit={onSubmit} /> : <div> Loading... </div>
+                contentDetails ? <EditContentForm contentDetails={contentDetails} loading={isLoading} onSubmit={onSubmit} /> : 
+                <div style={{
+                    margin: "195px auto",
+                    height: "60vh"
+                }}> Loading... </div>
             }
         </>
     )
