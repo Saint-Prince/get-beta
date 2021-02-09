@@ -55,6 +55,7 @@ export const EditForm = ({ userDetails, onSubmit, loading }) => {
                 />
                 <input 
                     type="tel" 
+                    className="PhoneInputInput"
                     placeholder="Enter mobile number"
                     ref={register}
                     name="cell_no"

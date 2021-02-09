@@ -7,7 +7,7 @@ import Spinner from "../Misc/Spinner"
 
 export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
 
-    const [isActive, setActive] = useState(false);
+    const [isActive, setActive] = useState(true);
 
     const handleToggle = () => {
         setActive(true)
@@ -92,7 +92,7 @@ export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
                         name="price"
                         placeholder="0.00"
                         prefix="&#x20A6;"
-                        defaultValue={1000}
+                        // defaultValue={0.00}
                         fixedDecimalLength="2"
                         ref={register}
                     />

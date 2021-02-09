@@ -19,6 +19,7 @@ function ContentView () {
     const [userDetails, setUserDetails] = useState({})
     const [enrolled, setEnrolled] = useState("")
     const [isOpen, setOpen] = useState(false)
+    const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
         
@@ -93,7 +94,7 @@ function ContentView () {
 
     const uploadFile = () => {
         const formData = new FormData();
-        
+        setLoading(true)
         formData.append("file", file); //appending file
         // console.log(formData)
         Axios.put(
@@ -103,9 +104,10 @@ function ContentView () {
                 headers: { "x-auth-token": userData.token }
             }
         ).then(res => {
+            setLoading(false)
             console.log(res);
             history.push(`/contents/view/${contentDetails._id}`)
-        }).catch(err => err.response.data.msg && setError(err.response.data.msg))
+        }).catch(err => err.response.data.msg && setError(err.response.data.msg), setLoading(false))
     }
 
     return (
@@ -215,6 +217,7 @@ function ContentView () {
                                     el={el}
                                     handleChange={handleChange}
                                     uploadFile={uploadFile}
+                                    loading={isLoading}
                                 >
                                 {
                                     error && <ErrorNotice message={error} clearError={() => setError(undefined)} />

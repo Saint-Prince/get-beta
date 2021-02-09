@@ -1,7 +1,8 @@
 import React from "react"
 import "../Auth/auth.css"
+import Spinner from "../Misc/Spinner"
 
-export default function Modal({ open, children, onClose, el, handleChange, uploadFile }) {
+export default function Modal({ open, children, onClose, el, handleChange, uploadFile, loading }) {
 
     if (!open) return null
 
@@ -9,7 +10,7 @@ export default function Modal({ open, children, onClose, el, handleChange, uploa
         <div>
             {children} <br/>
             
-            <div className="form" >
+            <div className="form" style={{ margin: "0 5%" }}>
                 {/* <label htmlFor="content-file">File: </label> */}
                 <input 
                     id="content-file" 
@@ -18,6 +19,12 @@ export default function Modal({ open, children, onClose, el, handleChange, uploa
                     required
                     onChange={handleChange} 
                 />
+                {
+                    loading ?
+                    <>
+                        <span> <Spinner/> </span> <br/>
+                    </> : null
+                }
                 <div style={{ display: "inline-flex"}}>
                     <button onClick={onClose}
                         style= {{

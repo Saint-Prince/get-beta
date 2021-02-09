@@ -112,6 +112,7 @@ export default function CreateContent () {
                     fixedDecimalLength="2"
                     onValueChange={setPrice}
                     />
+                    <p> GetBeta collects 5 percent of content price  </p> <br/>
                 </div>
                 
                 <label htmlFor="tags">Tags: </label>
