@@ -129,8 +129,21 @@ function ProfilePage () {
 
                 </div>
                 <div className="title">
-                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> Add wallet for content earnings
-                    </h3> 
+                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> 
+                        Add wallet for content earnings
+                    </h3> <br/>
+                    <div className="but">
+                        <Link to="/wallets/create">
+                            <button style={{
+                                background: "#2e2f42",
+                                width: "60%",
+                                borderRadius: "15px",
+                                fontSize: "18px"
+                            }}> 
+                                Create Wallet 
+                            </button>
+                        </Link>       
+                    </div> 
                 </div>               
             </> : 
             <div>

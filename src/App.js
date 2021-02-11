@@ -23,6 +23,7 @@ import EditProfile from "./components/profile/EditProfile"
 import ViewProfile from "./components/profile/ViewProfile"
 import Login from "./components/Auth/Login"
 import Register from "./components/Auth/Register"
+import CreateWallet from "./components/sub_account/CreateWallet"
 import UserContext from "./components/context/UserContext"
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
             <Route exact path="/contentfile/preview/:id" component={FilePreview} />  
             <Route exact path="/contents/enrolled" component={EnrolledContents} />  
             <Route exact path="/explore" component={AllContents} />  
+            <Route exact path="/wallets/create" component={CreateWallet} />  
             <Route exact path="/hub" component={Reports} />  
             <Route exact path="/integrations" component={Reports} />  
             <Route exact path="/analytics" component={Reports} />  

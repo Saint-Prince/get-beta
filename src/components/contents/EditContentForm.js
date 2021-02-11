@@ -96,12 +96,7 @@ export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
                         fixedDecimalLength="2"
                         ref={register}
                     />
-                    {/* <input 
-                        id="content-price" 
-                        type="number" 
-                        name="price"
-                        ref={register}
-                    />   */}
+                    <p> Get Beta accepts 10 percent of content price  </p> <br/>
                 </div>
                 
                 <label htmlFor="tags">Tags: </label>
