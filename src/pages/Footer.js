@@ -20,10 +20,10 @@ export default function Footer () {
                     <h3> Social </h3> <br/>
                     
                     <ul className="boxx">
-                        <li> <a href="https://twitter.com"><i> <FaIcons.FaTwitter/>  </i>Twitter</a> </li> <br/>
-                        <li> <a href="https://instagram.com"><i style={{color: "#E1306C"}}> <FaIcons.FaInstagram/> </i>Instagram</a> </li> <br/>
-                        <li> <a href="https://facebook.com"><i> <FaIcons.FaFacebook/> </i>Facebook</a> </li> <br/>
-                        <li> <a href="https://youtube.com"><i style={{color: "#ef2525"}}> <FaIcons.FaYoutube/>  </i>YouTube</a> </li>
+                        <li> <a href="https://twitter.com/remetech1"><i> <FaIcons.FaTwitter/>  </i>Twitter</a> </li> <br/>
+                        <li> <a href="https://instagram.com/remetech1"><i style={{color: "#E1306C"}}> <FaIcons.FaInstagram/> </i>Instagram</a> </li> <br/>
+                        <li> <a href="https://facebook.com/REME-Tech-Solutions-108895890929074"><i> <FaIcons.FaFacebook/> </i>Facebook</a> </li> <br/>
+                        <li> <a href="https://youtube.com/channel/UCWOUHQBHnR7YzCU93bLqSlg"><i style={{color: "#ef2525"}}> <FaIcons.FaYoutube/>  </i>YouTube</a> </li>
                     </ul>
                 </li>
             </ul>

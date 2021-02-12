@@ -5,6 +5,7 @@ import { NaijaBanks } from "./NaijaBanks"
 import Axios from "axios"
 import "../Auth/auth.css"
 import Spinner from "../Misc/Spinner"
+import "../Auth/auth.css"
 import ErrorNotice from "../Misc/ErrorNotice"
 
 export default function CreateWallet () {
@@ -27,7 +28,7 @@ export default function CreateWallet () {
             { business_name, settlement_bank, account_number };
             let id = userData.user.id;
             await Axios.post(
-                `http://localhost:5000/apiv1/vendors/${id}/sub_account/create`, 
+                `http://localhost:5000/apiv1/vendors/${id}/sub_account`, 
                 newAccount,
                 {
                     headers: { "x-auth-token": userData.token }
@@ -115,7 +116,7 @@ export default function CreateWallet () {
                         <span> <Spinner/> </span> <br/>
                     </> : null
                 }
-            <p> Get Beta accepts 10 percent of transaction  </p> <br/>
+            <p> Payment offered by paystack comes within 24hrs  </p> <br/>
 
             <input type="submit" value="Create Wallet" /> 
         </form>

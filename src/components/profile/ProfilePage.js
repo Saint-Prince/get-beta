@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
 import { useHistory, Link } from "react-router-dom"
 import UserContext from "../context/UserContext"
-import { getUser } from "./Api"
+import { getUser, getWallets } from "./Api"
 import ErrorNotice from "../Misc/ErrorNotice"
 import Axios from "axios"
 import "./profile.css"
@@ -17,6 +17,7 @@ function ProfilePage () {
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const [userDetails, setUserDetails] = useState({})
+    const [walletDetails, setWalletDetails] = useState([])
     const [isOpen, setOpen] = useState(false)
     const [isLoading, setLoading] = useState(false)
 
@@ -31,7 +32,14 @@ function ProfilePage () {
             const details = await getUser(token, id)
             setUserDetails(details)
         }
+        const fetchWallets = async () => {
+            let id = userData.user.id
+            let token = userData.token
+            const details = await getWallets(token, id)
+            setWalletDetails(details.accounts)
+        }
         fetchProfile();
+        fetchWallets();
     }, [history, userData.user, userData.token])
 
     const [file, setFile] = useState("");
@@ -129,21 +137,39 @@ function ProfilePage () {
 
                 </div>
                 <div className="title">
-                    <h3 style={{ margin: '0 10%', color: "#0e5996" }}> 
-                        Add wallet for content earnings
-                    </h3> <br/>
-                    <div className="but">
-                        <Link to="/wallets/create">
-                            <button style={{
-                                background: "#2e2f42",
-                                width: "60%",
-                                borderRadius: "15px",
-                                fontSize: "18px"
-                            }}> 
-                                Create Wallet 
-                            </button>
-                        </Link>       
-                    </div> 
+                    {
+                        walletDetails.length < 2 ? 
+                        <>
+                        <h3 style={{ margin: '0 10%', color: "#0e5996" }}> 
+                            Add wallet for content earnings
+                        </h3> <br/>
+                        <div className="but">
+                            <Link to="/wallets/create">
+                                <button style={{
+                                    background: "#2e2f42",
+                                    width: "60%",
+                                    borderRadius: "15px",
+                                    fontSize: "18px"
+                                }}> 
+                                    Create Wallet 
+                                </button>
+                            </Link> 
+                        </div> </> : 
+                        <>
+                        <h3 style={{ margin: '0 10%', color: "#0e5996" }}> 
+                            Wallet
+                        </h3> 
+                        {
+                            walletDetails.map( wallet => (
+                                <div key={wallet._id} className="main-container">
+                                    <p> <b> Business Name: </b> {wallet.business_name} </p> <br/>
+                                    <p> <b> Bank: </b> {wallet.settlement_bank} </p> <br/>
+                                    <p> <b> Account Number: </b> {wallet.account_number} </p> <br/>
+                                </div>
+                            ))
+                        } 
+                        </>
+                    }
                 </div>               
             </> : 
             <div>
