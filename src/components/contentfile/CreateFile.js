@@ -39,7 +39,7 @@ function CreateFile () {
         formData.append("file", file); //appending file
         // console.log(formData)
         Axios.post(
-            `http://localhost:5000/apiv1/vendors/contents/${content_id}/addfile`,
+            `https://get-beta.herokuapp.com/apiv1/vendors/contents/${content_id}/addfile`,
             formData,
             {
                 headers: { "x-auth-token": userData.token }
@@ -64,7 +64,7 @@ function CreateFile () {
     //         const newFile = 
     //         { file, descrp, };
     //         await Axios.post(
-    //             `http://localhost:5000/apiv1/vendors/contents/${content_id}/addfile`, 
+    //             `https://get-beta.herokuapp.com/apiv1/vendors/contents/${content_id}/addfile`, 
     //             newFile,
     //             {
     //                 headers: { "x-auth-token": userData.token }

@@ -42,13 +42,13 @@ function App() {
       } 
 
       const tokenRes = await Axios.post(
-        "http://localhost:5000/apiv1/vendors/tokenIsValid", null,
+        "https://get-beta.herokuapp.com/apiv1/vendors/tokenIsValid", null,
         {
           headers: { "x-auth-token": token }
         }
       );
       if (tokenRes.data) {
-        const userRes = await Axios.get(`http://localhost:5000/apiv1/vendors/1`, {
+        const userRes = await Axios.get(`https://get-beta.herokuapp.com/apiv1/vendors/1`, {
           headers: { "x-auth-token": token }
         })
         setUserData({

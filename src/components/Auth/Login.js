@@ -26,7 +26,7 @@ export default function Login () {
             setLoading(true)
             const loginUser = { email, password };
             const loginRes = await Axios.post(
-                "http://localhost:5000/apiv1/vendors/login",
+                "https://get-beta.herokuapp.com/apiv1/vendors/login",
                 loginUser 
             );
             setUserData({

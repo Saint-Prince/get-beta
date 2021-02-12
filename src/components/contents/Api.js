@@ -2,7 +2,7 @@ import Axios from "axios"
 
 export const getContents = (token, id) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/contents/myContents/${id}`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/myContents/${id}`,
         {
             headers: { "x-auth-token": token }
         }
@@ -11,7 +11,7 @@ export const getContents = (token, id) =>
 
 export const getAllContents = (token) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/contents/users/allContents`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/users/allContents`,
         {
             headers: { "x-auth-token": token }
         }
@@ -20,7 +20,7 @@ export const getAllContents = (token) =>
 
 export const getContentFiles = (token, id) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/contents/${id}/findFiles`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/${id}/findFiles`,
         {
             headers: { "x-auth-token": token }
         }
@@ -29,7 +29,7 @@ export const getContentFiles = (token, id) =>
 
 export const getContent = (token, content_id) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/contents/${content_id}`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/${content_id}`,
         {
             headers: { "x-auth-token": token }
         }
@@ -38,7 +38,7 @@ export const getContent = (token, content_id) =>
 
 export const getEnrolledContents = (token, id) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/${id}/subscribedContents`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/${id}/subscribedContents`,
         {
             headers: { "x-auth-token": token }
         }
@@ -47,7 +47,7 @@ export const getEnrolledContents = (token, id) =>
         
 export const getEnrollers = (token, content_id) => 
     Axios.get (       
-        `http://localhost:5000/apiv1/vendors/contents/subscribers/${content_id}`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/subscribers/${content_id}`,
         {
             headers: { "x-auth-token": token }
         }
@@ -56,7 +56,7 @@ export const getEnrollers = (token, content_id) =>
 
 export const enrollContent = (id, content_id) => 
     Axios.post (       
-        `http://localhost:5000/apiv1/vendors/${id}/subscribe/${content_id}`
+        `https://get-beta.herokuapp.com/apiv1/vendors/${id}/subscribe/${content_id}`
         // ,
         // {
         //     headers: { "x-auth-token": token }
@@ -66,7 +66,7 @@ export const enrollContent = (id, content_id) =>
 
 export const updateContent = (token, content_id, contentDetails) => 
     Axios.put (       
-        `http://localhost:5000/apiv1/vendors/contents/${content_id}`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/${content_id}`,
         contentDetails,
         {
             headers: { "x-auth-token": token }
@@ -76,7 +76,7 @@ export const updateContent = (token, content_id, contentDetails) =>
 
 export const deleteContent = (token, content_id) => 
     Axios.delete (       
-        `http://localhost:5000/apiv1/vendors/contents/${content_id}`,
+        `https://get-beta.herokuapp.com/apiv1/vendors/contents/${content_id}`,
         {
             headers: { "x-auth-token": token }
         }

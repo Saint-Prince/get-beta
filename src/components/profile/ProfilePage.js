@@ -60,7 +60,7 @@ function ProfilePage () {
         formData.append("file", file); //appending file
         // console.log(formData)
         Axios.put(
-            `http://localhost:5000/apiv1/vendors/${userData.user.id}/img`,
+            `https://get-beta.herokuapp.com/apiv1/vendors/${userData.user.id}/img`,
             formData,
             {
                 headers: { "x-auth-token": userData.token }
