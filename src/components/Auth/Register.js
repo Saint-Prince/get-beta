@@ -36,7 +36,7 @@ export default function Register () {
             // if (password !== passwordCheck) 
             //     return alert("Password doesn't match.")
             await Axios.post(
-                "https://get-beta.herokuapp.com/apiv1/vendors/register", 
+                "http://localhost:5000/apiv1/vendors/register", 
                 newUser,
             );
             const loginRes = await Axios.post(

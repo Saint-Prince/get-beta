@@ -28,7 +28,7 @@ export default function CreateWallet () {
             { business_name, settlement_bank, account_number };
             let id = userData.user.id;
             await Axios.post(
-                `https://get-beta.herokuapp.com/apiv1/vendors/${id}/sub_account`, 
+                `http://localhost:5000/apiv1/vendors/${id}/sub_account`, 
                 newAccount,
                 {
                     headers: { "x-auth-token": userData.token }

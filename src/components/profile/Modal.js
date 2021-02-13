@@ -20,7 +20,7 @@ export default function Modal({ open, children, onClose, el, handleChange, uploa
                     onChange={handleChange} 
                 />
                 {
-                    loading ?
+                    loading === true ?
                     <>
                         <span> <Spinner/> </span> <br/>
                     </> : null

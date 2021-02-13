@@ -5,6 +5,7 @@ import { getAllContents } from "./Api"
 import "./contents.css"
 import logo from "../profile/pic-img.jpeg"
 // import * as BiIcons from "react-icons/bi", Link 
+import Loading from "./Loading"
 import "../Auth/auth.css"
 import Footer from "../../pages/Footer"
 
@@ -120,7 +121,7 @@ function AllContents () {
     return (
         <div >   
             {
-                contents.length >= 1 ? 
+                contents.length > 6 ? 
                 <>
                 <input id="find" className="search" 
                     type="search" placeholder="Search Contents" 
@@ -148,8 +149,25 @@ function AllContents () {
                 </> : null
             }  
             <div className="services">
-            {
-                isLoading === false ?
+            {   
+                isLoading ? <Loading/> :
+                filteredContents.length < 1 ?
+                <div style={{
+                    margin: "150px auto",
+                    height: "30vh"
+                }}> <br/> 
+                    <h3> No content available </h3> 
+                    <br/> 
+                    <p align="right" style={{ marginRight: "30%" }}>
+                        
+                        <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
+                            <button className="btn btn-lg btn-success">
+                                Create Content
+                            </button>     
+                        </Link> 
+                    </p> 
+                </div> :
+                !isLoading ?
                 filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
                         <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
@@ -181,29 +199,7 @@ function AllContents () {
                             </Link>
                         </div>      
                     </div>            
-                )) : isLoading === true ?
-                    <div style={{
-                                margin: "195px auto",
-                                height: "60vh"
-                        }}> <br/> 
-                            <h3> Loading... </h3> 
-                    </div> :   
-                    contents.length < 1 ?
-                    <div style={{
-                        margin: "195px auto",
-                        height: "60vh"
-                    }}> <br/> 
-                    <h3> No content available </h3> 
-                    <br/> 
-                    <p align="right" style={{ marginRight: "30%" }}>
-                        
-                        <Link style={{ textDecoration: "none", color: "#fff"}} to="/contents/create"> 
-                            <button className="btn btn-lg btn-success">
-                                Create Content
-                            </button>     
-                        </Link> 
-                    </p> 
-                </div> : null
+                )) :  null
             }
             {
                 visible <= maxContentLength ?

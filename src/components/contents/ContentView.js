@@ -98,7 +98,7 @@ function ContentView () {
         formData.append("file", file); //appending file
         // console.log(formData)
         Axios.put(
-            `https://get-beta.herokuapp.com/apiv1/vendors/contents/${contentDetails._id}/img`,
+            `http://localhost:5000/apiv1/vendors/contents/${contentDetails._id}/img`,
             formData,
             {
                 headers: { "x-auth-token": userData.token }

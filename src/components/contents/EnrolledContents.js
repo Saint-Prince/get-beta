@@ -6,6 +6,7 @@ import "./contents.css"
 import logo from "../profile/pic-img.jpeg"
 // import * as BiIcons from "react-icons/bi", Link 
 import "../Auth/auth.css"
+import Loading from "./Loading"
 import Footer from "../../pages/Footer"
 
 function EnrolledContents () {
@@ -68,7 +69,24 @@ function EnrolledContents () {
             } 
             <div className="services">
             {
-                isLoading === false ?
+                isLoading ? <Loading/> :
+                enrolledContents.length < 1 ?
+                <div style={{
+                    margin: "150px auto",
+                    height: "30vh"
+                    }}> <br/> 
+                    <h3> You haven't enrolled to any Content </h3> 
+                    <br/> 
+                    <p align="right" style={{ marginRight: "30%" }}>
+                        
+                        <Link style={{ textDecoration: "none", color: "#fff"}} to="/explore"> 
+                            <button className="btn btn-lg btn-success">
+                                Explore Contents
+                            </button>     
+                        </Link> 
+                    </p> 
+                </div> : 
+                !isLoading ?
                 filteredContents.map( content => ( 
 
                     <div key={content._id} className="card">
@@ -101,29 +119,7 @@ function EnrolledContents () {
                             </Link>
                         </div>      
                     </div>
-                )) : isLoading === true ?
-                    <div style={{
-                                margin: "195px auto",
-                                height: "60vh"
-                        }}> <br/> 
-                            <h3> Loading... </h3> 
-                    </div> :   
-                    enrolledContents.length < 1 ?
-                    <div style={{
-                        margin: "195px auto",
-                        height: "60vh"
-                        }}> <br/> 
-                        <h3> You haven't enrolled to any Content </h3> 
-                        <br/> 
-                        <p align="right" style={{ marginRight: "30%" }}>
-                            
-                            <Link style={{ textDecoration: "none", color: "#fff"}} to="/explore"> 
-                                <button className="btn btn-lg btn-success">
-                                    Explore Contents
-                                </button>     
-                            </Link> 
-                        </p> 
-                    </div> : null
+                )) : null
             }
             </div> <br/>
             

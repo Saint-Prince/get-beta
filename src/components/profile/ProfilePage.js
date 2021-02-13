@@ -55,12 +55,12 @@ function ProfilePage () {
     }
 
     const uploadFile = () => {
-        const formData = new FormData();
-        setLoading(true)
+        const formData = new FormData();       
         formData.append("file", file); //appending file
+        setLoading(true)
         // console.log(formData)
         Axios.put(
-            `https://get-beta.herokuapp.com/apiv1/vendors/${userData.user.id}/img`,
+            `http://localhost:5000/apiv1/vendors/${userData.user.id}/img`,
             formData,
             {
                 headers: { "x-auth-token": userData.token }
@@ -68,7 +68,7 @@ function ProfilePage () {
         ).then(res => {
             setLoading(false)
             console.log(res);
-            history.push(`/profile`)
+            history.push(`/home`)
         }).catch(err => err.response.data.msg && setError(err.response.data.msg), setLoading(false))
     }
 

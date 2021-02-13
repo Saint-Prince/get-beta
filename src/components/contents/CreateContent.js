@@ -38,7 +38,7 @@ export default function CreateContent () {
             const newContent = 
             { title, descrp, price,  type, tag, format, published };
             await Axios.post(
-                `https://get-beta.herokuapp.com/apiv1/vendors/newcontent`, 
+                `http://localhost:5000/apiv1/vendors/newcontent`, 
                 newContent,
                 {
                     headers: { "x-auth-token": userData.token }
