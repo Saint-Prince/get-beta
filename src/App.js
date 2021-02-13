@@ -73,12 +73,12 @@ function App() {
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/profile/edit/:id" component={EditProfile} />
             <Route exact path="/profile/view/:id" component={ViewProfile} />
-            <Route exact path="/contents" component={Content} />  
+            <Route exact path="/contents" component={Content} />
+            <Route exact path="/contents/create" component={CreateContent} />  
             <Route exact path="/contents/view/:id" component={ContentView} />  
             <Route exact path="/contents/enrollers/:id" component={EnrolledUsers} />  
             <Route exact path="/contents/enroll/:id" component={ContentEnroll} />  
             <Route exact path="/contents/edit/:id" component={EditContent} />  
-            <Route exact path="/contents/create" component={CreateContent} />  
             <Route exact path="/profile/mycontents/:id" component={MyContents} />  
             <Route exact path="/contents/newFile/:id" component={CreateFile} />  
             <Route exact path="/contentfile/view/:id" component={FileStream} />  

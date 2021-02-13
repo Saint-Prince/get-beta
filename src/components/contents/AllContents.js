@@ -121,7 +121,7 @@ function AllContents () {
     return (
         <div >   
             {
-                contents.length > 6 ? 
+                contents.length >= 1 ? 
                 <>
                 <input id="find" className="search" 
                     type="search" placeholder="Search Contents" 

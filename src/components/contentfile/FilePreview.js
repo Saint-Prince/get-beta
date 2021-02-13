@@ -53,9 +53,9 @@ export default function FilePreview () {
                         <img src={fileDetails.url} alt={fileDetails.filename} style={{ 
                             backgroundSize: "contain", width: "100%" 
                         }} />
-                        : <h2> "File format not supported" </h2> 
+                        : <h2> Loading... </h2> 
                     }
-                </div> : <div> Loading... </div>
+                </div> : <div> "File format not supported" </div>
             }
             
         </div>
