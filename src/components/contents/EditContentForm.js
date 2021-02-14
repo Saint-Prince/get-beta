@@ -53,6 +53,7 @@ export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
                     name="title"
                     type="text" 
                     required
+                    maxLength={30}
                     placeholder="content name"
                     ref={register}
                 />
@@ -62,6 +63,7 @@ export const EditContentForm = ({ contentDetails, onSubmit, loading }) => {
                     id="content-descrp"
                     name="descrp" 
                     type="text" 
+                    maxLength={60}
                     placeholder= "about content..." 
                     ref={register}
                 />

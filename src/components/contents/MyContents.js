@@ -104,7 +104,7 @@ function MyContents () {
                             <span className="date"> { content.createdAt ? content.createdAt.substr(0, 10) : null} </span>
                             <h2> {content.title} </h2> <br/>
                             {
-                                content.title.length <= 40 ?
+                                content.title.length <= 30 ?
                                 <> <p> {content.descrp} </p> <br/> </> :
                                 null
                             }

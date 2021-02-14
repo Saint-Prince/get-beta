@@ -176,7 +176,11 @@ function AllContents () {
                         <div className="card-text">
                             <span className="date"> { content.createdAt ? content.createdAt.substr(0, 10) : null} </span>
                             <h2> {content.title} </h2> <br/>
-                            <p> {content.descrp} </p> <br/>
+                            {
+                                content.title.length <= 30 ?
+                                <> <p> {content.descrp} </p> <br/> </> :
+                                null
+                            }
                         </div>
                         <div className="card-stats">
                             <div className="stat">

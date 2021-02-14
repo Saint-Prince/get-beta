@@ -106,7 +106,7 @@ function ContentView () {
         ).then(res => {
             setLoading(false)
             console.log(res);
-            history.push(`/contents/view/${contentDetails._id}`)
+            history.push(`/profile/myContents/${userData.user.id}`)
         }).catch(err => err.response.data.msg && setError(err.response.data.msg), setLoading(false))
     }
 

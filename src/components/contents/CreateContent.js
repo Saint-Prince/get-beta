@@ -69,6 +69,7 @@ export default function CreateContent () {
                     id="content-title" 
                     type="text" 
                     required
+                    maxLength={30}
                     placeholder="content name"
                     onChange={e => setTitle(e.target.value)} 
                 />
@@ -78,6 +79,7 @@ export default function CreateContent () {
                     id="content-descrp" 
                     type="text" 
                     required
+                    maxLength={60}
                     placeholder= "about content..." 
                     onChange={e => setDescription(e.target.value)}
                 />
