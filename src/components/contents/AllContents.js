@@ -170,7 +170,7 @@ function AllContents () {
                 !isLoading ?
                 filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
-                        <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
+                        <div style={{ backgroundImage: content.coverImage ? `url(${content.coverImage})` : `url(${logo})` }}
                             className="card-image">
                         </div>
                         <div className="card-text">

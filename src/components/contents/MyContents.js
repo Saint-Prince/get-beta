@@ -97,13 +97,17 @@ function MyContents () {
                 !isLoading ?
                 filteredContents.slice(0, visible).map( content => ( 
                     <div key={content._id} className="card">
-                        <div style={{ backgroundImage: content.coverImage ? content.coverImage : `url(${logo})` }}
+                        <div style={{ backgroundImage: content.coverImage ? `url(${content.coverImage})` : `url(${logo})` }}
                             className="card-image">
                         </div>
                         <div className="card-text">
                             <span className="date"> { content.createdAt ? content.createdAt.substr(0, 10) : null} </span>
                             <h2> {content.title} </h2> <br/>
-                            <p> {content.descrp} </p> <br/>
+                            {
+                                content.title.length <= 40 ?
+                                <> <p> {content.descrp} </p> <br/> </> :
+                                null
+                            }
                         </div>
                         <div className="card-stats">
                             <div className="stat">
